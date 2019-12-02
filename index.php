@@ -54,6 +54,40 @@
     </header>
     <main>
         <div class="container">
+            <section id="slideshow">
+                <a class="commands prev commands1" href="#sl_i4">&lt;</a>
+                <a class="commands next commands1" href="#sl_i2">&gt;</a>
+                <a class="commands prev commands2" href="#sl_i1">&lt;</a>
+                <a class="commands next commands2" href="#sl_i3">&gt;</a>
+                <a class="commands prev commands3" href="#sl_i2">&lt;</a>
+                <a class="commands next commands3" href="#sl_i4">&gt;</a>
+                <a class="commands prev commands4" href="#sl_i3">&lt;</a>
+                <a class="commands next commands4" href="#sl_i1">&gt;</a>
+                <div class="container">
+                    <div class="c_slider"></div>
+                    <div class="slider">
+                        <figure>
+                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
+                            <figcaption>The mirror of soul</figcaption>
+
+                        </figure>
+                        <figure>
+                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
+                            <figcaption>Let's cross that bridge when we come to it</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
+                            <figcaption>Sushi time</figcaption>
+
+                        </figure>
+                        <figure>
+                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
+                            <figcaption>Waking Life</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <span id="timeline"></span>
+            </section>
             <p>Some text some text some text some text..</p>
         </div>
     </main>
