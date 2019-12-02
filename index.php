@@ -5,11 +5,60 @@
     <meta charset="utf-8">
     <title>SoundPerception</title>
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 </head>
 
 <body>
-
+    <header>
+        <div class="container">
+            <video autoplay controls loop poster="public/image/background.jpg" id="bgvid">
+                <source src="public/video/background.mp4" type="video/mp4">
+                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
+            </video>
+            <div class="overlay">
+                <span class="letter" data-letter="S">S</span>
+                <span class="letter" data-letter="o">o</span>
+                <span class="letter" data-letter="u">u</span>
+                <span class="letter" data-letter="n">n</span>
+                <span class="letter" data-letter="d">d</span>
+                <span class="letter" data-letter="P">P</span>
+                <span class="letter" data-letter="e">e</span>
+                <span class="letter" data-letter="r">r</span>
+                <span class="letter" data-letter="c">c</span>
+                <span class="letter" data-letter="e">e</span>
+                <span class="letter" data-letter="p">p</span>
+                <span class="letter" data-letter="t">t</span>
+                <span class="letter" data-letter="i">i</span>
+                <span class="letter" data-letter="o">o</span>
+                <span class="letter" data-letter="n">n</span>
+                <div class="blockquote">
+                    « La musique, c'est aussi grand que l'univers. Il suffit juste d'oser »
+                </div>
+            </div>
+            <div class="icon-bar">
+                <a class="active" href="#"><i class="fa fa-home"> Accueil</i></a>
+                <a href="#">Boutique</a>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Portofolio</a>
+                <a href="#">Contact</a>
+                <input type="text" placeholder="Search..">
+                <button type="button"><i class="fa fa-search"></i></button>
+                <div class="icon-bar-right">
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="#"><i class="fa fa-user-circle-o"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p>Some text some text some text some text..</p>
+        </div>
+    </main>
+    <footer>
+    </footer>
 </body>
 
 </html>
