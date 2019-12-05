@@ -54,41 +54,192 @@
     </header>
     <main>
         <div class="container">
-            <section id="slideshow">
-                <a class="commands prev commands1" href="#sl_i4">&lt;</a>
-                <a class="commands next commands1" href="#sl_i2">&gt;</a>
-                <a class="commands prev commands2" href="#sl_i1">&lt;</a>
-                <a class="commands next commands2" href="#sl_i3">&gt;</a>
-                <a class="commands prev commands3" href="#sl_i2">&lt;</a>
-                <a class="commands next commands3" href="#sl_i4">&gt;</a>
-                <a class="commands prev commands4" href="#sl_i3">&lt;</a>
-                <a class="commands next commands4" href="#sl_i1">&gt;</a>
-                <div class="container">
-                    <div class="c_slider"></div>
-                    <div class="slider">
-                        <figure>
-                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
-                            <figcaption>The mirror of soul</figcaption>
-
-                        </figure>
-                        <figure>
-                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
-                            <figcaption>Let's cross that bridge when we come to it</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
-                            <figcaption>Sushi time</figcaption>
-
-                        </figure>
-                        <figure>
-                            <img src="public/image/background.jpg" alt="" width="640" height="310" />
-                            <figcaption>Waking Life</figcaption>
-                        </figure>
+            <div class="slidershow">
+                <div class="slides ">
+                    <input type="radio" name="r" id="r1" checked>
+                    <input type="radio" name="r" id="r2">
+                    <input type="radio" name="r" id="r3">
+                    <input type="radio" name="r" id="r4">
+                    <input type="radio" name="r" id="r5">
+                    <div class="slide s1">
+                        <img src="public/image/background.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="public/image/background.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="public/image/background.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="public/image/background.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="public/image/background.jpg" alt="">
                     </div>
                 </div>
-                <span id="timeline"></span>
-            </section>
-            <p>Some text some text some text some text..</p>
+                <div class="navigation">
+                    <label for="r1" class="bar"></label>
+                    <label for="r2" class="bar"></label>
+                    <label for="r3" class="bar"></label>
+                    <label for="r4" class="bar"></label>
+                    <label for="r5" class="bar"></label>
+                </div>
+            </div>
+            <div class="vertical-menu">
+                <a href="#" class="active"><img src="public/image/background.jpg" alt=""></a>
+                <a href="#"><img src="public/image/background.jpg" alt=""></a>
+                <a href="#"><img src="public/image/background.jpg" alt=""></a>
+                <a href="#"><img src="public/image/background.jpg" alt=""></a>
+            </div>
+            <div class="card">
+                <div class="presentation-card">
+                    <h2>Dernier article :</h2>
+                    <button class="button"><span>Voir tous les articles</span></button>
+                </div>
+                <div class="liste-card">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" color="grey">
+            <div class="card">
+                <div class="presentation-card">
+                    <h2>Achat mis en avant :</h2>
+                    <button class="button"><span>Voir toute la boutique</span></button>
+                </div>
+                <div class="liste-card">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="public/image/background.jpg" alt="" style="width:350px;height:200px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Titre</h1>
+                                <p>nzeuifnziunfz...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
