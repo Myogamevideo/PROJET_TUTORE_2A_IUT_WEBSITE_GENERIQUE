@@ -11,7 +11,7 @@ function drawChart() {
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Diagramme de ******', 'width':300, 'height':250};
+  var options = {'title':'Diagramme', 'width':210, 'height':120};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));

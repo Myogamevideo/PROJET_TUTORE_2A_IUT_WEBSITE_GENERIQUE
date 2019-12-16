@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+body {
+	margin: 0;
+	width: 100%;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+	background: linear-gradient(-45deg, #c8c8c7, #7a888e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+main .container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1100px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: beige;
+	color: grey;
+}
