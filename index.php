@@ -6,7 +6,6 @@
     <title>SoundPerception</title>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -240,9 +239,105 @@
                     </div>
                 </div>
             </div>
+            <div class="topic-groupe">
+                <div >
+                    <h2>Dernier topic</h2>
+                    <table>
+                        <thead>
+                             <th>Auteur</th>
+                             <th>Publication</th>
+                             <th>Actions</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>blabla1</td>
+                                <td>blabla1</td>
+                                <td>blabla1</td>
+                            </tr>
+                            <tr>
+                                <td>blabla2</td>
+                                <td>blabla2</td>
+                                <td>blabla2</td>
+                            </tr>
+                         </tbody>
+                    </table>
+                    <button>Voir le forum </button>
+                </div>
+                <div class="groupe">
+                    <h2>Le groupe SoundPerception : </h2>
+                    <div class="container-contour">
+                        <img src="public/image/background.jpg" alt="" style="width:100px;height:50px;">
+                        <p>
+                        Blabla désigne un bavardage inepte, un verbiage, une verbigération, c'est-à-dire 
+                        un flux de paroles d'une totale inutilité et qui, de plus, montre des incohérences. 
+                        </P>
+                    </div>
+                    <div class="container-row-alignement">
+                        <div class="liens">
+                            <div><a>Notre équipe</a></div>
+                            <div><a>Regroupement</a></div>
+                            <div><a>Venir nous rencontrer</a></div>
+                            <div><a>Nous contacter</a></div>
+                        </div>
+                        <div id="piechart"></div>
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+                            <script type="text/javascript" src="public/js/diagramme.js"></script>
+                        </div>
+                    </div>
+                    <!--
+                    <div id="groupe-video">
+                        <video autoplay controls loop poster="public/image/background.jpg">
+                            <video src="public/video/background.mp4" type="video/mp4">
+                            <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
+                        </video>
+                    </div>
+                    -->
+                </div>
+            </div>
         </div>
     </main>
     <footer>
+        <div>
+            <h2>SoundPerception</h3>
+            <h4>Copyright © Tous droits réservés.</h4>
+            <div>
+                <a>Anglais</a>
+                <a>Français</a>
+            </div>
+        </div>
+        <div class="footer-div-under">
+            <div class="footer-row">
+                <div>
+                    <h3>Nous suivre :</h3>
+                    <section class="logo">
+                        <img class="logoReseauSociaux" src="public/image/logoFacebook.png"/>
+                        <img class="logoReseauSociaux" src="public/image/logoInstagram.png"/>
+                        <img class="logoReseauSociaux" src="public/image/logoLinkedin.png"/>
+                        <img class="logoReseauSociaux" src="public/image/logoSnapchat.png"/>
+                        <img class="logoReseauSociaux" src="public/image/logoTwitter.png"/>
+                        <img class="logoReseauSociaux" src="public/image/logoWhatsApp.png"/>
+                    </section>
+                </div>
+                <div>
+                    <h3>Abonnez-vous à la Newsletter : </h3>
+                    <section>
+                        <input type="text" id="name" name="name" required
+                        placeholder="Veuillez entrer votre addresse e-mail" size="10">
+                        <button>Go !</button>
+                    </section>
+                </div>
+            </div>
+            <div class="test">
+                <section>
+                    <a>A propos de SoundPerception</a>
+                    <a>Contact</a>
+                    <a>Plan du site</a>
+                    <a>Politique sur les cookies</a>
+                    <a>Conditions d'utilisation</a>
+                </section>
+            </div>
+        </div>
+
     </footer>
 </body>
 

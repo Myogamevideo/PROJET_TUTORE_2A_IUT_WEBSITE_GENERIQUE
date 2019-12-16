@@ -347,3 +347,83 @@ h2 {
 	color: white;
 	transform: rotateY(180deg);
 }
+
+.topic-groupe{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+
+.topic {
+	width: 40%;
+}
+
+.groupe {
+	width: 60%;
+}
+.lien {
+	display: flex;
+	flex-direction: column;
+	flex-flow: column wrap;
+	
+}
+
+
+.container-contour{
+	border:1px solid black;
+}
+
+.container-contour p {
+	overflow-wrap: break-word;
+}
+
+.container-row-alignement{
+	display: flex;
+	flex-flow: row wrap;
+}
+
+groupe-video video{
+	width: 100px;
+}	
+
+footer {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #484c4e;
+}
+
+.footer-row{
+	display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.taille{
+	width: inherit;
+}
+
+.logoReseauSociaux {
+    width: 5%;
+    height: 5%;
+}
+
+.footer-div-under{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+
+.test{
+	border: solid;
+	border-color: #000;
+}
+
+input{
+	width: 250px;
+}
