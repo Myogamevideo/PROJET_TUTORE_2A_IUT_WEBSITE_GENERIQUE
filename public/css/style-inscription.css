@@ -1,4 +1,4 @@
-.boxConnexion{
+.boxInscription{
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
@@ -8,18 +8,31 @@
     border-radius: 10px;
 }
 
-.boxConnexion h2 {
-    margin : 0 0 30px;
-    padding: 0;
-    color: white;
-    text-align: center;
+.formInscription{
+    display: flex;
 }
 
-.boxConnexion .inputBox{
+.divInscription{
+    flex-direction: row;
+}
+
+
+.boxInscription input[type="submit"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    background: yellowgreen;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.divInscription .inputBox{
     position: relative;
 }
 
-.boxConnexion .inputBox input{
+.divInscription .inputBox input{
     width: 100%;
     padding: 10px 0;
     color: white;
@@ -31,7 +44,7 @@
     background: transparent;
 }
 
-.boxConnexion .inputBox label{
+.divInscription .inputBox label{
     position: absolute;
     top: 0;
     left: 0;
@@ -43,23 +56,10 @@
 }
 
 
-.boxConnexion .inputBox input:focus ~ label, 
-.boxConnexion .inputBox input:valid ~ label{
+.divInscription .inputBox input:focus ~ label, 
+.divInscription .inputBox input:valid ~ label{
     top : -18px;
     left: 0;
     color: blue;
     font-size: 12px;
-}
-
-
-
-.boxConnexion input[type="submit"]{
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    background: yellowgreen;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
 }

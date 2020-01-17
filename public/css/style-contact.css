@@ -1,0 +1,13 @@
+.divContact{
+    display: flex;
+    flex-direction: row;
+}
+
+.divInfoContact{
+    flex-direction: column;
+}
+
+.logoTest{
+    width: 50px;
+    height: 50px;
+}
