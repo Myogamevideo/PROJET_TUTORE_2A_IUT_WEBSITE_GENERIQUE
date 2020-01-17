@@ -1,0 +1,66 @@
+.boxConnexion{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    background: rgba(0,0,0, .8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.boxConnexion h2 {
+    margin : 0 0 30px;
+    padding: 0;
+    color: white;
+    text-align: center;
+}
+
+.boxConnexion .inputBox{
+    position: relative;
+}
+
+.boxConnexion .inputBox input{
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    border : none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+}
+
+.boxConnexion .inputBox label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+    transition: .5s
+}
+
+
+.boxConnexion .inputBox input:focus ~ label, 
+.boxConnexion .inputBox input:valid ~ label{
+    top : -18px;
+    left: 0;
+    color: blue;
+    font-size: 12px;
+}
+
+
+
+.boxConnexion input[type="submit"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    background: yellowgreen;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}

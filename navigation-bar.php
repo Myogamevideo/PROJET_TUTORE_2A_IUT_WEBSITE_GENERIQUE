@@ -9,6 +9,6 @@
     <button type="button"><i class="fa fa-search"></i></button>
     <div class="icon-bar-right">
         <a href="#"><i class="fa fa-shopping-cart"></i></a>
-        <a href="#"><i class="fa fa-user-circle-o"></i></a>
+        <a href="connexion.php"><i class="fa fa-user-circle-o"></i></a>
     </div>
 </div>
