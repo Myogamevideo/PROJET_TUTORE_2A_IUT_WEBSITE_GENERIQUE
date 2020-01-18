@@ -5,15 +5,17 @@
     <main>
         <div class="container">
             <div class="boxConnexion">
-                <h2>Login</h2>
+                <h2>Connexion</h2>
                 <form>
-                    <div class="inputBox">
-                        <input id="champs_username" type="text" name="" require="">
+                    <div class="inputBox" class="alignementLogo" class="divConnexion">
+                        <i class="fa fa-user-circle fa-2x" style="color:white;"></i>
                         <label>Username</label>
+                        <input id="champs_username" type="text" name="" require="">
                     </div>
-                    <div class="inputBox">
-                        <input type="password" name="" require="">
+                    <div class="inputBox" class="alignementLogo" class="divConnexion">
+                        <i class="fa fa-lock fa-2x" style="color:white;"></i>
                         <label>Password</label>
+                        <input type="password" name="" require="">  
                     </div>
                     <input type="submit" name="" value="submit">
                 </form>

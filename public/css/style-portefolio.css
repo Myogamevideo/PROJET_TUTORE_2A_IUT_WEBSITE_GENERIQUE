@@ -1,6 +1,4 @@
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -14,6 +12,7 @@
 }
 
 .container .card{
+    padding-left: 50px;
     position: relative;
     display: flex;
     justify-content: center;

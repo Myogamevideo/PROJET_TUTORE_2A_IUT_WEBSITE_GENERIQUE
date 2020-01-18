@@ -35,3 +35,37 @@
 .icon-bar-right {
     float: right;
 }
+
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+
+.submenu{
+    display: none;
+}
+
+ul li:hover .submenu{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+ul li:hover .submenu{
+    position: initial;
+    top: 100%;
+	left: 0;
+	right: 0;
+	padding: 0;
+	text-align: center;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.submenu li{
+    padding: 0;
+    background-color: beige;
+    margin: 0;
+}

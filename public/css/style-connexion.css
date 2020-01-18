@@ -1,4 +1,6 @@
 .boxConnexion{
+    margin-top: 25px;
+    margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
@@ -32,7 +34,6 @@
 }
 
 .boxConnexion .inputBox label{
-    position: absolute;
     top: 0;
     left: 0;
     padding: 10px 0;
@@ -41,16 +42,6 @@
     pointer-events: none;
     transition: .5s
 }
-
-
-.boxConnexion .inputBox input:focus ~ label, 
-.boxConnexion .inputBox input:valid ~ label{
-    top : -18px;
-    left: 0;
-    color: blue;
-    font-size: 12px;
-}
-
 
 
 .boxConnexion input[type="submit"]{
@@ -62,4 +53,24 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divConnexion{
+    display: flex;
+    flex-direction: row;
+}
+
+.alignementLogo{
+    display: flex;
+    align-items: center;
+}
+
+i{
+    margin: 0 5px;
 }

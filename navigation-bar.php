@@ -8,13 +8,16 @@
     <input type="text" placeholder="Search..">
     <button type="button"><i class="fa fa-search"></i></button>
     <div class="icon-bar-right">
-        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-        <a class="menu" href="connexion.php"><i class="fa fa-user-circle-o"></i></a>
-        <ul class="submenu">
-            <li><a>Connexion</a></li>
-            <li><a>Inscription</a></li>
-            <li><a>Mon compte</a></li>
-            <li><a>Deconnexion</a></li>
-        </ul>
+        <ul class="menu">
+            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            <li><a href="connexion.php"><i class="fa fa-user-circle-o"></i></a>
+                <ul class="submenu">
+                    <li><a href="connexion.php">Connexion</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="#">Deconnexion</a></li>
+                </ul>
+            </li>
+        </ul>     
     </div>
 </div>
