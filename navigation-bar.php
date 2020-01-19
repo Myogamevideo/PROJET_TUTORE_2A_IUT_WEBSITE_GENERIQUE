@@ -1,7 +1,7 @@
 <div class="icon-bar">
     <a class="active" href="index.php"><i class="fa fa-home"> Accueil</i></a>
     <a href="boutique.php">Boutique</a>
-    <a href="#">Blog</a>
+    <a href="blog.php">Blog</a>
     <a href="#">Forum</a>
     <a href="portefolio.php">Portofolio</a>
     <a href="contact.php">Contact</a>
