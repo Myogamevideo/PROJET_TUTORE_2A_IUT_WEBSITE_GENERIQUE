@@ -14,7 +14,7 @@
                 <ul class="submenu">
                     <li><a href="connexion.php">Connexion</a></li>
                     <li><a href="inscription.php">Inscription</a></li>
-                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="monCompte.php">Mon compte</a></li>
                     <li><a href="#">Deconnexion</a></li>
                 </ul>
             </li>

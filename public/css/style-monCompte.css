@@ -1,0 +1,103 @@
+.boxMonCompte{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divMonCompte{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.vertical-menu {
+    width: 25%; 
+    margin-bottom: 30px;
+}
+
+.vertical-menu a {
+    background-color: white; 
+    color: black; 
+    display: block; 
+    padding: 20px; 
+    text-decoration: none; 
+    text-align: center;
+}
+
+.vertical-menu a:hover {
+    background: linear-gradient(70deg, rgb(102, 217, 255), rgb(0, 230, 230));
+    color: white;
+}
+
+.vertical-menu a.active {
+    background: linear-gradient(70deg,rgb(51, 133, 255), rgb(102, 102, 255));
+    color: white;
+}
+
+.divInfoMembres{
+    margin: 20px 30px;
+    padding: 15px;
+    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    border-radius: 15px;
+    color: white;
+}
+
+.divInfoMembres h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.infoMembre {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 15px;
+}
+
+.infoMembre .info{
+    margin: 15px;
+}
+
+.infoMembre .image{
+    margin: 0 40px;
+}
+
+.infoMembre p label{
+    font-size: 18px;
+}
+
+.infoMembre span a{
+    text-decoration: none;
+    color: gainsboro;
+}
+
+.infoMembre .info span{
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+.infoMembre img{
+      height: 250px;
+      width: 250px;
+  }
