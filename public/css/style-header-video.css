@@ -71,3 +71,39 @@ header .letter:hover:after {
 header .blockquote {
 	font-style: italic;
 }
+
+
+@media screen and (max-width: 1500px){
+	header .letter{
+		font-size: 5em;
+		margin: 0.1em;
+	}
+}
+
+@media screen and (max-width: 1100px){
+	header .letter{
+		font-size: 4em;
+		margin: 0.1em;
+	}
+}
+
+@media screen and (max-width: 900px){
+	header .letter{
+		font-size: 3.5em;
+		margin: 0.07em;
+	}
+}
+
+@media screen and (max-width: 700px){
+	header .letter{
+		font-size: 3em;
+		margin: 0.01em;
+	}
+}
+
+@media screen and (max-width: 500px){
+	header .letter{
+		font-size: 2em;
+		margin: 0.01em;
+	}
+}

@@ -1,0 +1,37 @@
+.boxMonCompte{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divMonCompte{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.barreNavigation{
+    width: 25%; 
+}
+
+.divGestion{
+    width: 75%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.tabRupture{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.listeProduitRupture li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+}
