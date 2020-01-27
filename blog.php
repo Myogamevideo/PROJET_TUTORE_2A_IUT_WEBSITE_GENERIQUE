@@ -1,5 +1,20 @@
 <?php include('head.php') ?>
 <link rel="stylesheet" href="public/css/style-blog.css">
+
+<?php
+$ArticleParPage = 5;
+$ArticleTotalesReq = $bdd->query('SELECT id FROM billets');
+$ArticleTotales = $ArticleTotalesReq->rowCount();
+$pagesTotales = ceil($ArticleTotales / $ArticleParPage);
+if (isset($_GET['page']) and !empty($_GET['page']) and $_GET['page'] > 0 and $_GET['page'] <= $pagesTotales) {
+    $_GET['page'] = intval($_GET['page']);
+    $pageCourante = $_GET['page'];
+} else {
+    $pageCourante = 1;
+}
+$depart = ($pageCourante - 1) * $ArticleParPage;
+?>
+
 <body>
     <?php include('header-image.php') ?>
     <main>
@@ -7,58 +22,42 @@
             <div>
                 <h2>Blog :</h2>
                 <div class="divAllBlog">
-                    <div class="divBlog">
-                        <div class="blogPostImage">
-                            <img src="public/image/test.jpg"/>
-                        </div>
-                        <div class="blogPostInfo">
-                            <div class="blogPostDate">
-                                <span>Lundi</span>
-                                <span>20 Janvier 2020</span>
+                    <?php
+                    $reponse = $bdd->query('select id,contenu,titre, DAY(date_creation) AS jour, MONTH(date_creation) AS mois, YEAR(date_creation) AS annee, HOUR(date_creation) AS heure, MINUTE(date_creation) AS minute, SECOND(date_creation) AS seconde from billets order by date_creation limit ' . $depart . ',' . $ArticleParPage);
+                    while ($donnees = $reponse->fetch()) {
+                    ?>
+                        <div class="divBlog">
+                            <div class="blogPostImage">
+                                <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </div>
-                            <h3 class="blogPostTitre">Nom de mon article</h3>
-                            <p class="blogPostText">Faire un copier/coller entre son smartphone Android et son ordinateur macOS ou Windows, voilà ce que 
-                            l’application Alt-C permet de faire. Voici comment l’utiliser et ainsi partager un même presse-papier entre 
-                            les deux plateformes ! </p>
-                            <a href="#" class="blogPostLien">Lire plus ...</a>
-                        </div>
-                    </div>
-                    <div class="divBlog">
-                        <div class="blogPostImage">
-                            <img src="public/image/test.jpg"/>
-                        </div>
-                        <div class="blogPostInfo">
-                            <div class="blogPostDate">
-                                <span>Lundi</span>
-                                <span>20 Janvier 2020</span>
+                            <div class="blogPostInfo">
+                                <div class="blogPostDate">
+                                    <span><?php echo '<Le ' . $donnees['jour'] . '/' . $donnees['mois'] . '/' . $donnees['annee'] . ' à ' . $donnees['heure'] . 'h' . $donnees['minute'] . '</p>'; ?></span>
+                                </div>
+                                <h3 class="blogPostTitre"><?php echo $donnees['titre']; ?></h3>
+                                <p class="blogPostText"><?php echo '<p style="max-height: 2em;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;">' . $donnees['contenu'] . '</p>'; ?></p>
+                                <a <?php echo 'href="commentaires.php?id_billet=' . $donnees['id'] . '"' ?> class="blogPostLien">Lire plus ...</a>
                             </div>
-                            <h3 class="blogPostTitre">Nom de mon article</h3>
-                            <p class="blogPostText">Faire un copier/coller entre son smartphone Android et son ordinateur macOS ou Windows, voilà ce que 
-                            l’application Alt-C permet de faire. Voici comment l’utiliser et ainsi partager un même presse-papier entre 
-                            les deux plateformes ! </p>
-                            <a href="#" class="blogPostLien">Lire plus ...</a>
                         </div>
-                    </div>
-                    <div class="divBlog">
-                        <div class="blogPostImage">
-                            <img src="public/image/test.jpg"/>
-                        </div>
-                        <div class="blogPostInfo">
-                            <div class="blogPostDate">
-                                <span>Lundi</span>
-                                <span>20 Janvier 2020</span>
-                            </div>
-                            <h3 class="blogPostTitre">Nom de mon article</h3>
-                            <p class="blogPostText">Faire un copier/coller entre son smartphone Android et son ordinateur macOS ou Windows, voilà ce que 
-                            l’application Alt-C permet de faire. Voici comment l’utiliser et ainsi partager un même presse-papier entre 
-                            les deux plateformes ! </p>
-                            <a href="#" class="blogPostLien">Lire plus ...</a>
-                        </div>
-                    </div>
+                    <?php }
+                    $reponse->closeCursor(); ?>
+                    <?php
+                    for ($i = 1; $i <= $pagesTotales; $i++) {
+                        if ($i == $pageCourante) {
+                            echo '<button>' . $i . '</button>';
+                        } else {
+                            echo '<a href="commentaires.php?page=' . $i . '"><button>' . $i . '</button></a> ';
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </main>
     <?php include('footer.php') ?>
 </body>
+
 </html>

@@ -1,3 +1,18 @@
+<?php
+try{
+    $bdd = new PDO('mysql:host=cfaifrnfzyg5.mysql.db;dbname=cfaifrnfzyg5;charset=utf8','cfaifrnfzyg5','Aiut2020');
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+}catch(Exception $e){
+    die('Erreur :'.$e->getMessage());
+}
+session_start();
+ini_set('display_errors',1);
+
+if(isset($_SESSION['status']) and $_SESSION['status'] == 'banni'){
+    header('location: banni.php');
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 

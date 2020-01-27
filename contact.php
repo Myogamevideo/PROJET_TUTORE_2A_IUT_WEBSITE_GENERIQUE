@@ -30,7 +30,7 @@
                             <div class="divContact">
                                 <i class="fa fa-comments-o fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divContact">
-                                    <p>Chat en ligne </br>Du lundi à dimanche de 9:00 à 22:00. <a href="#">Chat</a></p>
+                                    <p>Chat en ligne </br>Du lundi à dimanche de 9:00 à 22:00. <a href="minichat.php">Chat</a></p>
                                 </div>
                             </div>
                             <div class="divContact">
