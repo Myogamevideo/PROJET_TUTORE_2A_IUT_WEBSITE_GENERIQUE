@@ -18,6 +18,13 @@
                         <label>Password</label>
                         <input type="password" name="mdp" require="" id="mdp">
                     </div>
+                    <div>
+                    <label class="containerInput">
+                        <input type="checkbox">
+                        <span class="check">Connexion automatique</span>
+                        <span class="checkmark"></span>
+                    </label>
+                    </div>
                     <input type="submit" value="Submit">
                 </form>
                 <div class="alert alert-danger">

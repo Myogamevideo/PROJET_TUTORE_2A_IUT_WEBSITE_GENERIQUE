@@ -24,7 +24,7 @@ ul li a {
     display: block;
     color: grey;
     text-align: center;
-    padding: 14px 50px;
+    padding: 15px 50px;
     text-decoration: none;
     font-size: 17px;
 }
@@ -42,37 +42,105 @@ ul li input[type=text] {
     font-size: 17px;
 }
 
-ul li a.active {
+
+
+
+
+
+
+
+ /* The navigation menu */
+ .navbar {
+    overflow: hidden;
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: -0.5%;
+    z-index: 100;
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: grey;
+    text-align: center;
+    padding: 23px 50px;
+    text-decoration: none;
+    font-size: 17px;
+    height: 100%;
+    width: 100%;
+  }
+
+
+.navbar .search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 26px;
+}
+
+ input {
+    padding: 6px;
+    border: none;
+    margin: 15px 0 15px 15px;
+    font-size: 17px;
+}
+
+button {
+    margin: 15px 15px 15px 0;
+}
+
+  /* Subnav button */
+  .subnav .subnavbtn {
+    border: none;
+    outline: none;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add a red background color to navigation links on hover */
+  .navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: #23a6d5;
+  }
+  
+  /* Style the subnav content - positioned absolute */
+  .subnav-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: beige;
+    width: 20%;
+
+    z-index: 1;
+  }
+  
+  /* Style the subnav links */
+  .subnav-content a {
+    
+    color: grey;
+    text-decoration: none;
+  }
+  
+
+  /* Add a grey background color on hover */
+  .subnav-content a:hover {
+    background-color: #eee;
+    color: grey;
+  }
+  
+  /* When you move the mouse over the subnav container, open the subnav content */
+  .subnav:hover .subnav-content {
+    display: block;
+    top: 100%;
+
+} 
+
+
+a.active {
     background-color: #000;
     color: wheat;
-}
-
-/* Display the dropdown */
-
-
-li:hover > ul {
-    display: block;
-    position: absolute;
-}
-
-li:hover li { 
-    float: none; 
-}
-
-li:hover a { 
-    background: #1bc2a2; 
-}
-
-li:hover li a:hover { 
-    background: #2c3e50; 
-}
-
-.main-navigation li ul li { 
-    border-top: 0; 
-}
-
-.menu{
-    width: 100%;
-    background-color: beige;
-    overflow: auto;
 }
