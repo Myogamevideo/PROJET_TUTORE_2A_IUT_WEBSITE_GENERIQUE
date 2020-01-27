@@ -5,8 +5,8 @@
     <a href="#">Forum</a>
     <a href="portefolio.php">Portofolio</a>
     <a href="contact.php">Contact</a>
-        <input type="text" placeholder="Search..">
-        <button type="button"><i class="fa fa-search fa-1x grey"></i></button>
+    <input type="text" placeholder="Search..">
+    <button type="button"><i class="fa fa-search fa-1x grey"></i></button>
     <div class="subnav">
         <a class="subnavbtn" href="#"><i class="fa fa-shopping-cart fa-1x grey"></i></a>
     </div>
