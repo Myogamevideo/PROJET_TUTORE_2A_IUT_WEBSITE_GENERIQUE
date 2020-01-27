@@ -1,10 +1,25 @@
-.icon-bar {
-    width: 100%;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     background-color: beige;
-    overflow: auto;
 }
 
-.icon-bar a {
+ul li {
+    display: block;
+    position: relative;
+    float: left;
+    background-color: beige;
+}
+
+/* This hides the dropdowns */
+
+
+li ul { 
+    display: none; 
+}
+
+ul li a {
     float: left;
     display: block;
     color: grey;
@@ -14,17 +29,12 @@
     font-size: 17px;
 }
 
-.icon-bar a:hover {
+ul li a:hover { 
     background-color: #23a6d5;
     color: black;
 }
 
-.icon-bar a.active {
-    background-color: #000;
-    color: wheat;
-}
-
-.icon-bar input[type=text] {
+ul li input[type=text] {
     padding: 6px;
     border: none;
     margin-top: 8px;
@@ -32,64 +42,37 @@
     font-size: 17px;
 }
 
-.icon-bar-right {
-    float: right;
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
+ul li a.active {
+    background-color: #000;
+    color: wheat;
 }
 
-.icon-bar-right a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+/* Display the dropdown */
 
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
 
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-.icon-bar-right a:hover, .dropdown:hover .dropbtn {
-    background-color: #23a6d5;
-}
-
-.dropdown-content {
-    display: none;
+li:hover > ul {
+    display: block;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 }
 
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+li:hover li { 
+    float: none; 
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+li:hover a { 
+    background: #1bc2a2; 
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+li:hover li a:hover { 
+    background: #2c3e50; 
+}
+
+.main-navigation li ul li { 
+    border-top: 0; 
+}
+
+.menu{
+    width: 100%;
+    background-color: beige;
+    overflow: auto;
 }
