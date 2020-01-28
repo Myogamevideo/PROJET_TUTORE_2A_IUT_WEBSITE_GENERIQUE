@@ -85,21 +85,22 @@
                     </div>
                     <div class="liste-card">
                         <?php
-                        $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 6');
+                        $reponse = $bdd->query('select reference,nom,description,prix from produit limit 6');
                         while ($donnees = $reponse->fetch()) {
                         ?>
                             <div class="flip-card">
-                                <?php echo '<a style="text-decoration:none;" href="blog.php?id_billet=' . $donnees['id'] . '">'; ?>
+                                <?php echo '<a style="text-decoration:none;" href="blog.php?id_billet=' . $donnees['reference'] . '">'; ?>
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '" style="width:350px;height:200px;">'; ?>
+                                        <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '" style="width:350px;height:200px;">'; ?>
                                     </div>
                                     <div class="flip-card-back">
-                                        <h1><?php echo $donnees['titre']; ?></h1>
+                                        <h1><?php echo $donnees['nom']; ?></h1>
                                         <?php echo '<p style="max-height: 2em;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
-                                white-space: nowrap;">' . $donnees['contenu'] . '</p>'; ?>
+                                white-space: nowrap;">' . $donnees['description'] . '</p>'; ?>
+                                        <h3><?php echo ''.$donnees['prix'].'€' ?></h3>
                                     </div>
                                 </div>
                                 </a>
