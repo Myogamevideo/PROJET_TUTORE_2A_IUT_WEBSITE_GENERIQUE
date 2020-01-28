@@ -1,16 +1,16 @@
 <?php
-try{
-   // $bdd = new PDO('mysql:host=cfaifrnfzyg5.mysql.db;dbname=cfaifrnfzyg5;charset=utf8','cfaifrnfzyg5','Aiut2020');
-    $bdd =  new PDO("mysql:dbname=cfaifrnfzyg5;host=localhost", 'root', '');
+try {
+    $bdd = new PDO('mysql:host=cfaifrnfzyg5.mysql.db;dbname=cfaifrnfzyg5;charset=utf8', 'cfaifrnfzyg5', 'Aiut2020');
+    //$bdd =  new PDO("mysql:dbname=cfaifrnfzyg5;host=localhost", 'root', '');
 
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-}catch(Exception $e){
-    die('Erreur :'.$e->getMessage());
+} catch (Exception $e) {
+    die('Erreur :' . $e->getMessage());
 }
 session_start();
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 
-if(isset($_SESSION['status']) and $_SESSION['status'] == 'banni'){
+if (isset($_SESSION['status']) and $_SESSION['status'] == 'banni') {
     header('location: banni.php');
 }
 ?>

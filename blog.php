@@ -28,15 +28,16 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                     ?>
                         <div class="divBlog">
                             <div class="blogPostImage">
-                                <?php  echo '<img src="public/image/'.$donnees['titre'].'.jpg" alt="Image : ' . $donnees['titre'] . '">';?> 
+                                <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </div>
                             <div class="blogPostInfo">
                                 <div class="blogPostDate">
                                     <span><?php echo '<Le ' . $donnees['jour'] . '/' . $donnees['mois'] . '/' . $donnees['annee'] . ' à ' . $donnees['heure'] . 'h' . $donnees['minute'] . '</p>'; ?></span>
                                 </div>
                                 <h3 class="blogPostTitre"><?php echo $donnees['titre']; ?></h3>
-                                <P><?php $chaine = $donnees['contenu']; $morceau_chaine = substr($donnees['contenu'],0,225);
-                                echo $morceau_chaine; ?></P>
+                                <P><?php $chaine = $donnees['contenu'];
+                                    $morceau_chaine = substr($donnees['contenu'], 0, 225);
+                                    echo $morceau_chaine; ?></P>
                                 <a <?php echo 'href="commentaires.php?id_billet=' . $donnees['id'] . '"' ?> class="blogPostLien">Lire plus ...</a>
                             </div>
                         </div>
@@ -46,20 +47,18 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
 
 
                 </div>
-                
+
                 <div class="pagination">
 
-                <?php 
+                    <?php
                     for ($i = 1; $i <= $pagesTotales; $i++) {
                         if ($i == $pageCourante) {
                             echo '<button  class="active" class="button">' . $i . '</button>';
                         } else {
-                            echo '<a href="commentaires.php?page=' . $i . '"><button>' . $i . '</button></a> ';
+                            echo '<a href="blog.php?page=' . $i . '"><button>' . $i . '</button></a> ';
                         }
-                    } 
+                    }
                     ?>
-                      <!--      <button class="active" class="button" style="vertical-align:middle"><span>1</span></button>
-                            <button class="button" style="vertical-align:middle"><span>2</span></button>    -->
                 </div>
             </div>
         </div>
