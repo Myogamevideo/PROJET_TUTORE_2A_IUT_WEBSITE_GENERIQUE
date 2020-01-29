@@ -1,5 +1,6 @@
 <?php include('head.php') ?>
 <link rel="stylesheet" href="public/css/style-article.css">
+
 <body>
     <?php include('header-image.php') ?>
     <main>
@@ -14,11 +15,11 @@
                             <button class="btn success"><i class="fa fa-music"></i> T-shirt</button>
 
                             <ul class="rajouterFiltre">
-                                    <script type="text/javascript" src="public/js/boutique.js"></script>
-                                    <li href="javascript:void(0);" onclick="myFunction()">
-                                        <span class="nav-icon"><i class="fa fa-bars"></i></span>
-                                        Filtres
-                                    </li>
+                                <script type="text/javascript" src="public/js/boutique.js"></script>
+                                <li href="javascript:void(0);" onclick="myFunction()">
+                                    <span class="nav-icon"><i class="fa fa-bars"></i></span>
+                                    Filtres
+                                </li>
                             </ul>
                             <div class="filtreAvance">
                                 <div id="filtreSupplementaire">
@@ -38,9 +39,12 @@
                     </div>
                     <div>
                         <div class="divArticle">
+                            <?php $req = $bdd->prepare('select nom, description,prix from produit where reference=?');
+                            $req->execute(array($_GET['reference_produit']));
+                            $donnees = $req->fetch(); ?>
                             <div class="product">
                                 <div class="product-image">
-                                    <img src="public/image/boutique1.jpg"/>
+                                    <img src="public/image/boutique1.jpg" />
                                 </div>
                                 <div class="stock">
                                     <label class="product-disponibilite">En stock</label>
@@ -54,13 +58,10 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <h3>Nom de l'article : </h3>
-                                <p>Nul !!! Rendez-nous le vrais Google actualités !!! Et pas une pub géante pour certains journaux... 
-                                    En plus la dernière version est buggé, elle revient toute seul à la page des titre en plein milieu 
-                                    de la lecture d un article... Et surtout, cela fait 50 fois que je met "moins d article comme 
-                                    celui ci…</p>
+                                <h3><?php echo $donnees['nom'] ?> </h3>
+                                <p><?php echo $donnees['description'] ?></p>
                                 <div class="prix">
-                                    <p>Prix : <label>99€88</label></p>
+                                    <p>Prix : <label><?php echo '' . $donnees['prix'] . '€'; ?></label></p>
                                 </div>
                                 <div class="taille">
                                     <label>Taille : </label>
@@ -82,26 +83,26 @@
                             <div class="divAvis">
                                 <div class="avisClient">
                                     <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire 
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique, 
+                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
+                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
                                         littéraire, philologique; des éditions avec commentaires. </p>
                                 </div>
                                 <div class="avisClient">
                                     <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire 
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique, 
+                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
+                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
                                         littéraire, philologique; des éditions avec commentaires. </p>
                                 </div>
                                 <div class="avisClient">
                                     <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire 
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique, 
+                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
+                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
                                         littéraire, philologique; des éditions avec commentaires. </p>
                                 </div>
                                 <div class="avisClient">
                                     <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire 
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique, 
+                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
+                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
                                         littéraire, philologique; des éditions avec commentaires. </p>
                                 </div>
                             </div>
@@ -113,4 +114,5 @@
     </main>
     <?php include('footer.php') ?>
 </body>
+
 </html>
