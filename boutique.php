@@ -58,7 +58,7 @@
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <div id="filtreSupplementaire">
+                                <div id="ajoutDiv">
                                     <label>Gamme de produit : </label>
                                     <div class="filtrePrix">
                                         <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
