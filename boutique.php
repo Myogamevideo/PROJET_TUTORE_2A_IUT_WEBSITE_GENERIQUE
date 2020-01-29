@@ -83,7 +83,11 @@
                                 <div class="card-product">
                                     <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
                                     <div class="card-image">
-                                        <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
+                                        <?php echo '
+                                        <img onClick="change_img(this)" src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
+
+                                        
+                                        '; ?>
                                     </div>
                                     <div class="card-text">
                                         <h3><?php echo $donnees['nom'] ?></h3>

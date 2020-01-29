@@ -9,3 +9,11 @@ function myFunction() {
     x.style.alignItems = "center";
   }
 }
+
+
+function slideArticle(){
+  var container=document.getElementById("image-container");
+  function change_img(image){
+    container.src=image.src;
+  }
+}

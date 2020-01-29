@@ -133,7 +133,7 @@ input[name="r"] {
     margin: 0 5px;
 }
 
-#filtreAvance {
+#ajoutDiv {
     display: none;
 }
 
@@ -228,7 +228,7 @@ h3 {
 
 .card-option {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     background: linear-gradient(70deg, rgb(51, 133, 255), rgb(102, 102, 255));

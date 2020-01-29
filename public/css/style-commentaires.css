@@ -45,7 +45,7 @@ margin: 20px;
 
 .bordure{
     border-bottom: 2px solid #b3b3b8;
-padding-bottom: 5%;
+    padding-bottom: 5%;
 }
 
 .ajouterCommentaire{
@@ -91,6 +91,7 @@ padding-bottom: 5%;
 
 textarea{
     width: 100%;
+    margin: 0;
 }
 
 #filtreAvance {
@@ -120,11 +121,12 @@ ul {
     border : 1px solid grey;
     font-size: 12px;
     padding: 20px;
-    margin 0;
+    margin: 0;
 }
 
 
 .ajoutCommentaire{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -144,5 +146,19 @@ ul {
 .ajoutCommentaire{
     padding: 0;
     margin: 0;
+}
 
+#ajoutDiv {
+    display: none;
+    border-bottom: 2px solid #b3b3b8;
+    padding-bottom: 5%;
+}
+
+.textCommentaire{
+    width: 100%;
+    margin: 0;
+}
+
+.commentaireArticle{
+    padding-top: 5%;
 }
