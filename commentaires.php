@@ -15,7 +15,8 @@
                     $donnees = $req->fetch(); 
                     $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
                     ?>
-            
+    
+
                     <?php echo '
                     <div class="containerTitre" style="background-image: url('.$image.'); height: 400px; width: 100%; border-radius: 25px; text-align: center;">
                         <div class="textTitre">

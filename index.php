@@ -14,19 +14,23 @@
                     <input type="radio" name="r" id="r5">
                     <?php
                     $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
-                    $donnees = $reponse->fetch();
+                    $donnees = $reponse->fetch();                    
                     ?>
                     <div class="slide s1">
-                        <?php echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
-                        <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '">'; ?>
+                        <?php 
+                        $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
+                        echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
+                        <?php echo '<img src="'.$image.'" alt="Image : ' . $donnees['titre'] . '">'; ?>
                         </a>
                     </div>
                     <?php
                     while ($donnees = $reponse->fetch()) {
                     ?>
                         <div class="slide">
-                            <?php echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
-                            <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '">'; ?>
+                            <?php 
+                            $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
+                            echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
+                            <?php echo '<img src="'.$image.'" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </a>
                         </div>
                     <?php }
@@ -44,7 +48,10 @@
                 <?php
                 $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
                 while ($donnees = $reponse->fetch()) {
-                    echo '<a href="commentaires.php?id_billet=' . $donnees['id'] . '"><img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '"></a>'; ?>
+                    $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
+                    echo '<a href="commentaires.php?id_billet=' . $donnees['id'] . '">
+                        <img src="'.$image.'" alt="Image : ' . $donnees['titre'] . '">
+                    </a>'; ?>
                 <?php }
                 $reponse->closeCursor(); ?>
             </div>
@@ -62,7 +69,11 @@
                             <?php echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <?php echo '<img src="public/image/' . $donnees['titre'] . '.jpg" alt="Image : ' . $donnees['titre'] . '" style="width:350px;height:200px;">'; ?>
+                                    <?php 
+                                        $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
+                                        
+                                        echo '<img src="'.$image.'" alt="Image : ' . $donnees['titre'] . '" style="width:350px;height:200px;">'
+                                    ; ?>
                                 </div>
                                 <div class="flip-card-back">
                                     <h1><?php echo $donnees['titre']; ?></h1>
