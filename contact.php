@@ -72,20 +72,26 @@
                                         while ($donnees = $reponse->fetch()) {
                                         echo '
                                             <div class="containerMsg">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar">
                                                 <div class="Avatar">
                                                     <label>'.$donnees['pseudo'] .'</label>
                                                 </div>
-                                                <p>'. $donnees['message'] .'</p>
-                                                <span class="time-right">11:00</span>
+                                                <div>
+                                                    <p>'. $donnees['message'] .'</p>
+                                                    <span class="time-right">11:00</span>
+                                                </div>
                                             </div> 
                                     
 
                                             <div class="containerMsg darker">
+                                                <img class="right" src="public/image/placeholder.jpg" alt="Avatar">
                                                 <div class="Avatar">
-                                                    <label  class="right">'.$donnees['pseudo'] .'</label>
+                                                    <label class="time-right">'.$donnees['pseudo'] .'</label>
                                                 </div>
-                                                <p>'. $donnees['message'] .'</p>
-                                                <span class="time-left">11:01</span>
+                                                <div>
+                                                    <p>'. $donnees['message'] .'</p>
+                                                    <span class="time-left">11:00</span>
+                                                </div>
                                             </div> '
 
                                     ; ?>
@@ -94,17 +100,20 @@
                                         $reponse->closeCursor();
                                     ?>   
                                 </div>
-                                <div>
-                                    <label for="pseudo">Pseudo : </label>
-                                    <input type="text" name="pseudo" id="pseudo">
+                                <div class="postChat">
+                                    <div class="tchatinfo">
 
-                                    <label for="message">Message : </label>
-                                    <input type="text" name="message" id="message">
+                                        <label for="pseudo">Pseudo : </label>
+                                        <input type="text" name="pseudo" id="pseudo">
 
+                                        <label for="message">Message : </label>
+                                        <input type="text" name="message" id="message">
 
-                                    <input type="submit">
-                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                                    <br>
+                                    </div>
+                                    <div class="tchatBtn">
+                                        <input type="submit">
+                                        <input type="submit"  value="Fermer" onclick="closeForm()">
+                                    </div>
                                 </div>
                         </form>
                     </div>    
