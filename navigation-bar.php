@@ -16,7 +16,7 @@
             <a href="connexion.php">Connexion</a>
             <a href="inscription.php">Inscription</a>
             <?php if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != null) { ?>
-                <a href="monCompte.php">Mon compte</a>
+                <a href="monCompte.php?position=monCompte">Mon compte</a>
                 <a href="deconnexion.php">Deconnexion</a>
             <?php } ?>
         </div>

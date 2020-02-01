@@ -49,116 +49,71 @@ h2{
 
 
 .scroller{
-  width: 90%;
-}
-
-
-
-
-
-
-
-
-
-
-
-.tchatBtn{
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  align-items: center;
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 .postChat input{
-  width: 30%;
+  width: 80%;
   font-size: 10px;
 }
+
 
 
 .postChat{
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  width: 100%;
 }
+
 
 .tchatinfo{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-
 }
 
 .tchatBtn{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 
 .formChatt{
-    background-color: #f2f2f2;
+    background-color: #404040;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     position: fixed;
     bottom: 0;
     right: 15px;
-    border: 3px solid #f1f1f1;
     z-index: 9;
-    padding: 2%;
-  width: 400px;
-  height: 500px;
+    padding: 0.5%;
+    width: 400px;
+    height: 450px;
+    clear: both;
 }
-
-  /* Add styles to the form container */
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-  }
-  
-  /* Full-width textarea */
-  .form-container textarea {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-    resize: none;
-    min-height: 200px;
-  }
-  
-  /* When the textarea gets focus, do something */
-  .form-container textarea:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
-  .form-container .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    background-color: red;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover {
-    opacity: 1;
-  }
-
 
 
   .open-button {
@@ -194,8 +149,8 @@ h2{
     background-color: #f1f1f1;
     border-radius: 5px;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 5px;
+    margin: 10px;
 
   }
 
@@ -250,4 +205,42 @@ h2{
   .containerMsg p {
       text-align: center;
       color: black;
+  }
+
+
+  .tchatinfo button {
+    border-radius: 25px;
+    background: #ddd;
+    width: 100%;
+    padding: 10px;
+  }
+
+
+  .tchatBtn{
+    display: flex;
+    flex-direction: row;
+  }
+
+
+
+
+  .tchat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .enlargeChat{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  .closeChat{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    cursor: pointer;
   }

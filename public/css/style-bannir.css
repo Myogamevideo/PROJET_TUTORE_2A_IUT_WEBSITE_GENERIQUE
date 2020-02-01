@@ -1,0 +1,81 @@
+.boxMonCompte{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divMonCompte{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.barreNavigation{
+    width: 25%; 
+}
+
+.divBannirMembre{
+    width: 75%; 
+}
+
+.divBannirMembre{
+    margin: 20px 30px;
+    padding: 15px;
+    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    border-radius: 15px;
+    color: white;
+}
+
+.divBannirMembre h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.boxMonCompte{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divMonCompte{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.barreNavigation{
+    width: 25%; 
+}
+
+.divBannirMembre{
+    width: 75%; 
+}
+
+.divBannirMembre{
+    margin: 20px 30px;
+    padding: 15px;
+    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    border-radius: 15px;
+    color: white;
+}
+
+.divBannirMembre h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+
+
+
+

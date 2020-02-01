@@ -85,6 +85,26 @@
                                 <button type="submit">Publier</button>
                             </div>                    
                         </form>
+
+                        <div class="alert alert-danger">
+                            <?php
+                                if (isset($_POST['commentaire']) && $_POST['commentaire'] != NULL) {
+                                    $_POST['commentaire'] = preg_replace('#\[b\](.+)\[/b\]#isU', '<strong>$1</strong>', $_POST['commentaire']);
+                                    $_POST['commentaire'] = preg_replace('#\[i\](.+)\[/i\]#isU', '<em>$1</em>', $_POST['commentaire']);
+                                    $_POST['commentaire'] = preg_replace('#\[color=(red|green|blue|yellow|purple|olive)\](.+)\[/color\]#isU', '<span style="color:$1">$2</span>', $_POST['commentaire']);
+                                    $_POST['commentaire'] = preg_replace('#http://[a-z0-9._/-]+#i', '<a href="$0">$0</a>', $_POST['commentaire']);
+                                    $req = $bdd->prepare('insert into commentaires (id_billet,auteur,commentaire,date_commentaire) values (:id_billet,:auteur,:commentaire,now())');
+                                    $req->execute(array(
+                                        'id_billet' => $_GET['id_billet'],
+                                        'auteur' => $_SESSION['pseudo'],
+                                        'commentaire' => $_POST['commentaire']
+                                    ));
+                                    $req->closeCursor();
+                                } else {
+                                    echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
+                                }
+                            ?>
+                        </div>
                     </div>
 
                     <div class="listCommentaire">
@@ -243,25 +263,7 @@
                     </div>
                 </div>
 
-                <div class="alert alert-warning">
-                    <?php
-                        if (isset($_POST['commentaire']) && $_POST['commentaire'] != NULL) {
-                            $_POST['commentaire'] = preg_replace('#\[b\](.+)\[/b\]#isU', '<strong>$1</strong>', $_POST['commentaire']);
-                            $_POST['commentaire'] = preg_replace('#\[i\](.+)\[/i\]#isU', '<em>$1</em>', $_POST['commentaire']);
-                            $_POST['commentaire'] = preg_replace('#\[color=(red|green|blue|yellow|purple|olive)\](.+)\[/color\]#isU', '<span style="color:$1">$2</span>', $_POST['commentaire']);
-                            $_POST['commentaire'] = preg_replace('#http://[a-z0-9._/-]+#i', '<a href="$0">$0</a>', $_POST['commentaire']);
-                            $req = $bdd->prepare('insert into commentaires (id_billet,auteur,commentaire,date_commentaire) values (:id_billet,:auteur,:commentaire,now())');
-                            $req->execute(array(
-                                'id_billet' => $_GET['id_billet'],
-                                'auteur' => $_SESSION['pseudo'],
-                                'commentaire' => $_POST['commentaire']
-                            ));
-                            $req->closeCursor();
-                        } else {
-                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
-                        }
-                    ?>
-                </div>
+
                 <?php
                     } else {
                         echo '<p class="text-muted"> Veuillez vous inscire ou vous connectez pour mettre un commentaire</p>';

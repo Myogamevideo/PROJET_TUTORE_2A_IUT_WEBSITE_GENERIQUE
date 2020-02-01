@@ -66,6 +66,8 @@
                     </div>   
                     <div>
                         <form class="formChatt" method='POST' action='minichat.php'>
+                                <a href="minichat.php" class="enlargeChat"><i class="fa fa-square-o fa-2x" style="color:white;"></i></a>
+                                <a onclick="closeForm()" class="closeChat"><i class="fa fa-close fa-2x" style="color:red;"></i></a>
                                 <div class="scroller">
                                     <?php
                                         $reponse = $bdd->query('select * from chatuser order by id desc limit 2') or die(print_r($bdd->errorInfo()));
@@ -102,18 +104,20 @@
                                 </div>
                                 <div class="postChat">
                                     <div class="tchatinfo">
-
-                                        <label for="pseudo">Pseudo : </label>
-                                        <input type="text" name="pseudo" id="pseudo">
-
-                                        <label for="message">Message : </label>
-                                        <input type="text" name="message" id="message">
-
+                                        <div class="tchat">
+                                            <label for="pseudo">Pseudo : </label>
+                                            <input type="text" name="pseudo" id="pseudo">
+                                        </div>
+                                        <div class="tchat">
+                                            <label for="message">Message : </label>
+                                            <input type="text" name="message" id="message">
+                                            </div>
+                                       <div class="tchatBtn">
+                                            <button><i class="fa fa-send" style="color:green;"></i></button>
+                                            
+                                        </div>
                                     </div>
-                                    <div class="tchatBtn">
-                                        <input type="submit">
-                                        <input type="submit"  value="Fermer" onclick="closeForm()">
-                                    </div>
+
                                 </div>
                         </form>
                     </div>    

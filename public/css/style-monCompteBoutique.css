@@ -10,9 +10,6 @@
     align-items: center;
 }
 
-.barreNavigation{
-    width: 25%; 
-}
 
 .divGestion{
     width: 75%; 
@@ -34,4 +31,36 @@
     margin: 10px 0;
     padding: 10px 0;
     border-bottom: 1px solid grey;
+}
+
+.divInfoMembres h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.barreNavigation{
+    width: 25%; 
+}
+
+.divGestion{
+    width: 75%; 
+    margin: 20px 30px;
+    padding: 15px;
+    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    border-radius: 15px;
+    color: white;
+}
+
+.divGestion h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+textarea {
+    resize : both;
+    min-width : 100px;
+    min-height : 100px;
+    max-width : 200px;
+    max-height : 200px;
 }
