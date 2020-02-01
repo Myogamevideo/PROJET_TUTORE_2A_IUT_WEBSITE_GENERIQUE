@@ -7,53 +7,82 @@
         <div class="container">
             <div class="containerAll">
                 <h2>Mini chatt :</h2>
+
+                <div>
+                <?php 
+                    if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
+                        $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
+                        $req->execute(array(
+                            'pseudo' => $_POST['pseudo'],
+                            'message' => $_POST['message']
+                        ));
+                        header('Location: minichat.php'); /** laisse ABSOLUMENT CETTE FONCTION ICI */
+                        /* sinon 
+                    /*    header('Location: minichat.php'); */  /**** PB AVEC CETTE LIGNE CAR  fonction header doit être appelée avant la génération de la moindre mise en page *//*
+                    solution pas belle
+                    echo"
+                    <script type=\"text/javascript\">function redirection_js(){ x=setTimeout(\"window.location.href='minichat.php'\",1500); } 
+                    </script><body onLoad=\"redirection_js();\"> 
+                    "; */
+                    }
+                ?>
+                </div>   
+                <div class ="divChat">
+                    <script type="text/javascript" src="public/js/minichat.js"></script>
+                    <form class="formChatt" method='POST' action='minichat.php'>
                         <div>
-                            <form class="formChatt" method='POST' action='minichat.php'>
-                                <div class="chatDiv">
+                            <div class="scroller">
+                                <p>Discussion :</p>
+                                <?php
+                                    $reponse = $bdd->query('select * from chatuser order by id desc limit 2') or die(print_r($bdd->errorInfo()));
+                                    while ($donnees = $reponse->fetch()) {
+                                    echo '
+                                        <div class="containerMsg">
+                                            <div class="Avatar">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar">
+                                                <label>'.$donnees['pseudo'] .'</label>
+                                            </div>
+                                            <p>'. $donnees['message'] .'</p>
+                                            <span class="time-right">11:00</span>
+                                        </div> 
+                                
 
-                                    <div class="divChatt">
-                                        <p>Pour envoyer un message :</p>
-                                        <label for="pseudo">Pseudo : </label><input type="text" name="pseudo" id="pseudo">
-                                        <br>
-                                        <br>
-                                        <label for="message">Message : </label><input type="text" name="message" id="message">
-                                        <br>
-                                        <br>
-                                        <input type="submit">
-                                        <br>
-                                    </div>
-                                    <div class="divChatt">
-                                        <p>Discussion :</p>
-                                        <?php
-                                                $reponse = $bdd->query('select * from chatuser order by id desc limit 10') or die(print_r($bdd->errorInfo()));
-                                                while ($donnees = $reponse->fetch()) {
-                                                    echo htmlspecialchars($donnees['pseudo']) . ' : ' . htmlspecialchars($donnees['message']);
-                                                ?><br><?php
-                                                    }
-                                                    $reponse->closeCursor();
-                                            ?>
-                                        </center>
-                                    </div>
+                                        <div class="containerMsg darker">
+                                            <div class="Avatar">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar" class="right">
+                                                <label  class="right">'.$donnees['pseudo'] .'</label>
+                                            </div>
+                                            <p>'. $donnees['message'] .'</p>
+                                            <span class="time-left">11:01</span>
+                                        </div> '
 
-                                </div>
+                                ; ?>
+                                <?php
+                                    }
+                                    $reponse->closeCursor();
+                                ?>   
+                            </div>
+                            <div>
+                                <p>Pour envoyer un message :</p>
+                                <label for="pseudo">Pseudo : </label>
+                                <input type="text" name="pseudo" id="pseudo">
 
-                            </form>
+                                <label for="message">Message : </label>
+                                <input type="text" name="message" id="message">
+
+
+                                <input type="submit">
+                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                <br>
+                            </div>
                         </div>
-                        <div>
-                            <?php
-                            if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
-                                $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
-                                $req->execute(array(
-                                    'pseudo' => $_POST['pseudo'],
-                                    'message' => $_POST['message']
-                                ));
-                                header('Location: minichat.php');
-                            } ?>
-                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </main>
     <?php include('footer.php') ?>
 </body>
-
 </html>
+
