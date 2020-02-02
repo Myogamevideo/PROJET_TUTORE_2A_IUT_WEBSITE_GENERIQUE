@@ -1,24 +1,52 @@
 <link rel="stylesheet" href="public/css/style-barreNavidationCompte.css">
 
 <?php
-if(isset($_GET['reference_produit'])){
-    $position=$_GET['reference_produit'];
+if(isset($_GET['position'])){
+    $position=$_GET['position'];
 }
 ?>
 
 <div class="vertical-menu">
-
-    <p><?php echo "$position"; ?></p>
-    <a href="monCompte.php" 
+    <a href="monCompte.php?position=monCompte" class="home"
     <?php 
-        echo 'class="active'; ?> >Mon profil</a>
+        if(strcmp ($_GET['position'], "monCompte")==0){
+            echo 'class="active"';
+        }
+    ?> >Mon profil</a>
     <a href="#">Tableau de bord</a>
-    <a href="modifierSite.php">Modifier le site</a>
-    <a href="#">Gestion des actualités</a>
-    <a href="monCompteBoutique.php">Gestion de la boutique</a>
+    <a href="modifierSite.php?position=modifierSite"
+    <?php 
+        if(strcmp ($_GET['position'], "modifierSite")==0){
+            echo 'class="active"';
+        }
+    ?> >Modifier le site</a>
+    <a href="gestionDesActualites.php?position=gestionDesActualites"
+    <?php 
+        if(strcmp ($_GET['position'], "gestionDesActualites")==0){
+            echo 'class="active"';
+        }
+    ?>
+    >Gestion des actualités</a>
+    <a href="monCompteBoutique.php?position=monCompteBoutique"
+    <?php 
+        if(strcmp ($_GET['position'], "monCompteBoutique")==0){
+            echo 'class="active"';
+        }
+    ?> >Gestion de la boutique</a>
     <a href="#">Liste des membres</a>
-    <a href="#">Bannir un membre</a>
+    <a href="bannir.php?position=bannir"
+    <?php 
+        if(strcmp ($_GET['position'], "bannir")==0){
+            echo 'class="active"';
+        }
+    ?>>Bannir un membre</a>
     <a href="#">Mes addresses</a>
     <a href="#">Mes abonnements</a>
+    <a href="changerMdp.php?position=changerMdp"
+    <?php 
+        if(strcmp ($_GET['position'], "changerMdp")==0){
+            echo 'class="active"';
+        }
+    ?> >Changer de mot de passe</a>
     <a href="#">Se déconnecter</a>
 </div> 

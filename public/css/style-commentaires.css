@@ -162,3 +162,7 @@ ul {
 .commentaireArticle{
     padding-top: 5%;
 }
+
+#listCom{
+    display: none;
+}

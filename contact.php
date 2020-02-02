@@ -66,26 +66,34 @@
                     </div>   
                     <div>
                         <form class="formChatt" method='POST' action='minichat.php'>
+                                <a href="minichat.php" class="enlargeChat"><i class="fa fa-square-o fa-2x" style="color:white;"></i></a>
+                                <a onclick="closeForm()" class="closeChat"><i class="fa fa-close fa-2x" style="color:red;"></i></a>
                                 <div class="scroller">
                                     <?php
                                         $reponse = $bdd->query('select * from chatuser order by id desc limit 2') or die(print_r($bdd->errorInfo()));
                                         while ($donnees = $reponse->fetch()) {
                                         echo '
                                             <div class="containerMsg">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar">
                                                 <div class="Avatar">
                                                     <label>'.$donnees['pseudo'] .'</label>
                                                 </div>
-                                                <p>'. $donnees['message'] .'</p>
-                                                <span class="time-right">11:00</span>
+                                                <div>
+                                                    <p>'. $donnees['message'] .'</p>
+                                                    <span class="time-right">11:00</span>
+                                                </div>
                                             </div> 
                                     
 
                                             <div class="containerMsg darker">
+                                                <img class="right" src="public/image/placeholder.jpg" alt="Avatar">
                                                 <div class="Avatar">
-                                                    <label  class="right">'.$donnees['pseudo'] .'</label>
+                                                    <label class="time-right">'.$donnees['pseudo'] .'</label>
                                                 </div>
-                                                <p>'. $donnees['message'] .'</p>
-                                                <span class="time-left">11:01</span>
+                                                <div>
+                                                    <p>'. $donnees['message'] .'</p>
+                                                    <span class="time-left">11:00</span>
+                                                </div>
                                             </div> '
 
                                     ; ?>
@@ -94,17 +102,22 @@
                                         $reponse->closeCursor();
                                     ?>   
                                 </div>
-                                <div>
-                                    <label for="pseudo">Pseudo : </label>
-                                    <input type="text" name="pseudo" id="pseudo">
+                                <div class="postChat">
+                                    <div class="tchatinfo">
+                                        <div class="tchat">
+                                            <label for="pseudo">Pseudo : </label>
+                                            <input type="text" name="pseudo" id="pseudo">
+                                        </div>
+                                        <div class="tchat">
+                                            <label for="message">Message : </label>
+                                            <input type="text" name="message" id="message">
+                                            </div>
+                                       <div class="tchatBtn">
+                                            <button><i class="fa fa-send" style="color:green;"></i></button>
+                                            
+                                        </div>
+                                    </div>
 
-                                    <label for="message">Message : </label>
-                                    <input type="text" name="message" id="message">
-
-
-                                    <input type="submit">
-                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                                    <br>
                                 </div>
                         </form>
                     </div>    
