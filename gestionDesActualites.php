@@ -12,12 +12,14 @@
                         <?php include('barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divGestionDesActualites">
+                    <script type="text/javascript" src="public/js/gestionDesActualites.js"></script>
                         <h3>Gestion des actualités : </h3>
                         <h4>Forum :</h4>
                         <div>
                             <i class="fa fa-plus-circle fa-2x" style="color:orange;"></i>
                             <label>Créer un nouveau forum :</label>
                             <input type="text" name="newForum" require="" placeholder="Nom du forum">
+                            <button class="button" type="button">Valider</button>
                             <input type="submit" name="" value="Valider">
                         </div>
                         <div>

@@ -1,21 +1,28 @@
 .boxMonCompte{
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2%;
+    width: 100%;
+
 }
 
 .divMonCompte{
     display: flex;
     flex-direction: row;
-    justify-content: stretch;
     align-items: center;
+    width: 100%;
+    left: 5%;
+    margin: 10px 0;
 }
 
 .barreNavigation{
-    width: 25%; 
+    position: sticky;
+    width: 30%;
+    top: 2%;
+    display: block;
+    float: left;
 }
 
 .divChangerMdp{
-    width: 75%; 
+    width: 100%;
     margin: 20px 30px;
     padding: 15px;
     background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));

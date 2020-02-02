@@ -5,6 +5,7 @@
     <main>
         <div class="container">
             <div class="boxMonCompte">
+                <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
                        <?php include('barreNavidationCompte.php')  ?>
