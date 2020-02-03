@@ -39,22 +39,78 @@
                     </div>
                     <div>
                         <div class="divArticle">
-                            <?php $req = $bdd->prepare('select nom, description,prix from produit where reference=?');
+                            <?php $req = $bdd->prepare('select quantite,nom,description,prix,note,categorie from produit where reference=?');
                             $req->execute(array($_GET['reference_produit']));
                             $donnees = $req->fetch(); ?>
                             <div class="product">
                                 <div class="product-image">
-                                    <img src="public/image/boutique1.jpg" />
-                                </div>
+                                    <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>                                </div>
                                 <div class="stock">
-                                    <label class="product-disponibilite">En stock</label>
+                                    <?php   if($donnees['quantite'] != 0){
+                                                echo '<label class="product-disponibilite">En stock : '.$donnees['quantite'].'</label>';
+                                            }else{
+                                                echo '<label class="product-disponibilite">Indisponible</label>';
+                                            }
+                                            ?>
                                 </div>
                                 <div class="product-notation">
-                                    <span class="fa fa-star fa-2x checked"></span>
-                                    <span class="fa fa-star fa-2x checked"></span>
-                                    <span class="fa fa-star fa-2x checked"></span>
-                                    <span class="fa fa-star fa-2x "></span>
-                                    <span class="fa fa-star fa-2x "></span>
+                                <?php switch ($donnees['note']) {
+                                        case 0:
+                                            ?>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <?php
+                                            break;
+                                        case 1:
+                                            ?>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <?php
+                                            break;
+                                        case 2:
+                                            ?>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <?php
+                                            break;
+                                        case 3:
+                                            ?>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <?php
+                                            break;
+                                        case 4:
+                                            ?>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked" ></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x"></span>
+                                            <?php
+                                            break;
+                                        case 5:
+                                            ?>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <span class="fa fa-star fa-2x checkedx"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
+                                            <?php
+                                            break;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -63,15 +119,17 @@
                                 <div class="prix">
                                     <p>Prix : <label><?php echo '' . $donnees['prix'] . '€'; ?></label></p>
                                 </div>
-                                <div class="taille">
-                                    <label>Taille : </label>
-                                    <input type="submit" name="" value="XS">
-                                    <input type="submit" name="" value="S">
-                                    <input type="submit" name="" value="M">
-                                    <input type="submit" name="" value="L">
-                                    <input type="submit" name="" value="XL">
-                                    <input type="submit" name="" value="XXL">
-                                </div>
+                                <?php   if($donnees['categorie'] == "T-shirt"){?>
+                                    <div class="taille">
+                                        <label>Taille : </label>
+                                        <input type="submit" name="" value="XS">
+                                        <input type="submit" name="" value="S">
+                                        <input type="submit" name="" value="M">
+                                        <input type="submit" name="" value="L">
+                                        <input type="submit" name="" value="XL">
+                                        <input type="submit" name="" value="XXL">
+                                    </div>
+                                <?php } ?>
                                 <div class="nbArticle">
                                     <label>Nombre d'article : </label>
                                     <input type="number" id="nbArticle" name="nbArticle" min="0" max="100" value="1">

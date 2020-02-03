@@ -1,5 +1,6 @@
 <?php include('head.php') ?>
 <link rel="stylesheet" href="public/css/style-contact.css">
+
 <body>
     <?php include('header-image.php') ?>
     <main>
@@ -47,60 +48,53 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="contentMap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11134.593070028179!2d3.09732377529146!3d45.758196958259525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1579349442536!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        <div class="contentMap">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11134.593070028179!2d3.09732377529146!3d45.758196958259525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1579349442536!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
                     </div>
-                </div>
-                <div class="chat-popup" id="myForm">
-                    <div>
-                        <?php 
+                    <div class="chat-popup" id="myForm">
+                        <div>
+                            <?php
                             if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
-                            $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
-                            $req->execute(array(
-                                'pseudo' => $_POST['pseudo'],
-                                'message' => $_POST['message']
-                            ));
-                            header('Location: contact.php');
-                            } 
-                        ?>        
-                    </div>   
-                    <div>
-                        <form class="formChatt" method='POST' action='minichat.php'>
+                                $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
+                                $req->execute(array(
+                                    'pseudo' => $_POST['pseudo'],
+                                    'message' => $_POST['message']
+                                ));
+                                header('Location: contact.php');
+                            }
+                            ?>
+                        </div>
+                        <div>
+                            <form class="formChatt" method='POST' action='minichat.php'>
                                 <a href="minichat.php" class="enlargeChat"><i class="fa fa-square-o fa-2x" style="color:white;"></i></a>
                                 <a onclick="closeForm()" class="closeChat"><i class="fa fa-close fa-2x" style="color:red;"></i></a>
                                 <div class="scroller">
                                     <?php
-                                        $reponse = $bdd->query('select * from chatuser order by id desc limit 2') or die(print_r($bdd->errorInfo()));
-                                        while ($donnees = $reponse->fetch()) {
+                                    $reponse = $bdd->query('select * from chatuser order by id desc') or die(print_r($bdd->errorInfo()));
+                                    while ($donnees = $reponse->fetch()) {
                                         echo '
-                                            <div class="containerMsg">
+                                        <div class="containerMsg">
+                                            <div class="Avatar">
                                                 <img src="public/image/placeholder.jpg" alt="Avatar">
-                                                <div class="Avatar">
-                                                    <label>'.$donnees['pseudo'] .'</label>
-                                                </div>
-                                                <div>
-                                                    <p>'. $donnees['message'] .'</p>
-                                                    <span class="time-right">11:00</span>
-                                                </div>
-                                            </div> 
-                                    
-
-                                            <div class="containerMsg darker">
-                                                <img class="right" src="public/image/placeholder.jpg" alt="Avatar">
-                                                <div class="Avatar">
-                                                    <label class="time-right">'.$donnees['pseudo'] .'</label>
-                                                </div>
-                                                <div>
-                                                    <p>'. $donnees['message'] .'</p>
-                                                    <span class="time-left">11:00</span>
-                                                </div>
-                                            </div> '
-
-                                    ; ?>
-                                    <?php
-                                        }
-                                        $reponse->closeCursor();
-                                    ?>   
+                                                <label>' . $donnees['pseudo'] . '</label>
+                                            </div>
+                                            <p>' . $donnees['message'] . '</p>
+                                            <span class="time-right">' . $donnees['date_envoi'] . '</span>
+                                        </div> ';
+                                        $donnees = $reponse->fetch();
+                                        echo '
+                                        <div class="containerMsg darker">
+                                            <div class="Avatar">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar" class="right">
+                                                <label  class="right">' . $donnees['pseudo'] . '</label>
+                                            </div>
+                                            <p>' . $donnees['message'] . '</p>
+                                            <span class="time-left">' . $donnees['date_envoi'] . '</span>
+                                        </div> ';
+                                    }
+                                    $reponse->closeCursor();
+                                    ?>
                                 </div>
                                 <div class="postChat">
                                     <div class="tchatinfo">
@@ -111,20 +105,20 @@
                                         <div class="tchat">
                                             <label for="message">Message : </label>
                                             <input type="text" name="message" id="message">
-                                            </div>
-                                       <div class="tchatBtn">
+                                        </div>
+                                        <div class="tchatBtn">
                                             <button><i class="fa fa-send" style="color:green;"></i></button>
-                                            
                                         </div>
                                     </div>
 
                                 </div>
-                        </form>
-                    </div>    
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </main>
     <?php include('footer.php') ?>
 </body>
+
 </html>
