@@ -15,7 +15,7 @@
                         <input type="radio" name="r" id="r4">
                         <input type="radio" name="r" id="r5">
                         <?php
-                        $reponse = $bdd->query('select reference,nom from produit limit 5');
+                        $reponse = $bdd->query('select reference,nom from produit order by reference desc limit 5');
                         $donnees = $reponse->fetch();
                         ?>
                         <div class="slide s1">
@@ -46,9 +46,9 @@
                 <div class="boutique">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <button class="btn success"><i class="fa fa-music"></i> CD</button>
-                            <button class="btn success"><i class="fa fa-music"></i> Vinyle</button>
-                            <button class="btn success"><i class="fa fa-music"></i> T-shirt</button>
+                            <a href="boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
+                            <a href="boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
+                            <a href="boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
                                 <script type="text/javascript" src="public/js/boutique.js"></script>
@@ -58,18 +58,25 @@
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <div id="ajoutDiv">
-                                    <label>Gamme de produit : </label>
-                                    <div class="filtrePrix">
-                                        <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
-                                        <input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" value="1000">
+                                <form method="GET" action="boutique.php">
+                                    <?php
+                                    if (isset($_GET['categorie']) and !empty($_GET['categorie'])) {
+                                    ?> <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['categorie']; ?>">
+                                    <?php
+                                    } ?>
+                                    <div id="ajoutDiv">
+                                        <label>Gamme de produit : </label>
+                                        <div class="filtrePrix">
+                                            <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
+                                            <input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" value="1000">
+                                        </div>
+                                        <label>Artiste : </label>
+                                        <div class="filtreSearch">
+                                            <input type="text" placeholder="Search..">
+                                            <input type="submit" value="Valider"><i class="fa fa-search"></i></input>
+                                        </div>
                                     </div>
-                                    <label>Artiste : </label>
-                                    <div class="filtreSearch">
-                                        <input type="text" placeholder="Search..">
-                                        <button type="button"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -77,7 +84,18 @@
                     <div class="product">
                         <div class="card">
                             <?php
-                            $reponse = $bdd->query('select reference,nom,description,prix from produit limit 6');
+                            if (isset($_GET['categorie']) and !empty($_GET['categorie'] and !isset($_GET['prixMinimun']))) {
+                                $reponse = $bdd->prepare('select reference,nom,description,prix from produit where categorie=?');
+                                $reponse->execute(array($_GET['categorie']));
+                            } elseif (isset($_GET['categorie']) and !empty($_GET['categorie'] and isset($_GET['prixMinimun']))) {
+                                $reponse = $bdd->prepare('select reference,nom,description,prix from produit where categorie=? and prix > ' . $_GET['prixMinimun'] . ' and prix <' . $_GET['prixMaximun'] . '');
+                                $reponse->execute(array($_GET['categorie']));
+                            } elseif (!isset($_GET['categorie']) and !isset($_GET['prixMinimun']) and !isset($_GET['prixMaximun'])) {
+                                $reponse = $bdd->query('select reference,nom,description,prix from produit');
+                            } elseif (!isset($_GET['categorie']) and isset($_GET['prixMinimun'])) {
+                                $reponse = $bdd->prepare('select reference,nom,description,prix from produit where prix > ' . $_GET['prixMinimun'] . ' and prix <' . $_GET['prixMaximun'] . '');
+                                $reponse->execute();
+                            }
                             while ($donnees = $reponse->fetch()) {
                             ?>
                                 <div class="card-product">
@@ -92,7 +110,7 @@
                                     </div>
                                     </a>
                                     <div class="card-option">
-                                        <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '" class="prix">'.$donnees['prix'].'€ </a>'; ?>
+                                        <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '" class="prix">' . $donnees['prix'] . '€ </a>'; ?>
                                         <a href="#" class="caddie"><i class="fa fa-shopping-cart fa-2x" style="color:white;"></i></a>
                                     </div>
                                 </div>
