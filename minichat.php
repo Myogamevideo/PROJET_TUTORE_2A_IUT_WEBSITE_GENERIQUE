@@ -9,14 +9,15 @@
                 <h2>Mini chatt :</h2>
 
                 <div>
-                <?php 
+                    <?php
                     if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
-                        $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
+                        $req = $bdd->prepare('insert into chatuser(pseudo,message,date_envoi) values(:pseudo,:message,now())');
                         $req->execute(array(
                             'pseudo' => $_POST['pseudo'],
                             'message' => $_POST['message']
                         ));
-                        header('Location: minichat.php'); /** laisse ABSOLUMENT CETTE FONCTION ICI */
+                        header('Location: contact.php');
+                        /** laisse ABSOLUMENT CETTE FONCTION ICI */
                         /* sinon 
                     /*    header('Location: minichat.php'); */  /**** PB AVEC CETTE LIGNE CAR  fonction header doit être appelée avant la génération de la moindre mise en page *//*
                     solution pas belle
@@ -25,42 +26,39 @@
                     </script><body onLoad=\"redirection_js();\"> 
                     "; */
                     }
-                ?>
-                </div>   
-                <div class ="divChat">
+                    ?>
+                </div>
+                <div class="divChat">
                     <script type="text/javascript" src="public/js/minichat.js"></script>
                     <form class="formChatt" method='POST' action='minichat.php'>
                         <div>
                             <div class="scroller">
                                 <p>Discussion :</p>
                                 <?php
-                                    $reponse = $bdd->query('select * from chatuser order by id desc limit 2') or die(print_r($bdd->errorInfo()));
-                                    while ($donnees = $reponse->fetch()) {
+                                $reponse = $bdd->query('select * from chatuser order by id desc') or die(print_r($bdd->errorInfo()));
+                                while ($donnees = $reponse->fetch()) {
                                     echo '
                                         <div class="containerMsg">
                                             <div class="Avatar">
                                                 <img src="public/image/placeholder.jpg" alt="Avatar">
-                                                <label>'.$donnees['pseudo'] .'</label>
+                                                <label>' . $donnees['pseudo'] . '</label>
                                             </div>
-                                            <p>'. $donnees['message'] .'</p>
-                                            <span class="time-right">11:00</span>
-                                        </div> 
-                                
-
+                                            <p>' . $donnees['message'] . '</p>
+                                            <span class="time-right">' . $donnees['date_envoi'] . '</span>
+                                        </div> ';
+                                    $donnees = $reponse->fetch();
+                                    echo '
                                         <div class="containerMsg darker">
                                             <div class="Avatar">
                                                 <img src="public/image/placeholder.jpg" alt="Avatar" class="right">
-                                                <label  class="right">'.$donnees['pseudo'] .'</label>
+                                                <label  class="right">' . $donnees['pseudo'] . '</label>
                                             </div>
-                                            <p>'. $donnees['message'] .'</p>
-                                            <span class="time-left">11:01</span>
-                                        </div> '
-
-                                ; ?>
-                                <?php
-                                    }
-                                    $reponse->closeCursor();
-                                ?>   
+                                            <p>' . $donnees['message'] . '</p>
+                                            <span class="time-left">' . $donnees['date_envoi'] . '</span>
+                                        </div> ';
+                                }
+                                $reponse->closeCursor();
+                                ?>
                             </div>
                             <div>
                                 <p>Pour envoyer un message :</p>
@@ -69,7 +67,6 @@
 
                                 <label for="message">Message : </label>
                                 <input type="text" name="message" id="message">
-
 
                                 <input type="submit">
                                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -84,5 +81,5 @@
     </main>
     <?php include('footer.php') ?>
 </body>
-</html>
 
+</html>

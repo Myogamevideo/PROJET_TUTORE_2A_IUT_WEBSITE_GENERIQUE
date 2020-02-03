@@ -85,8 +85,6 @@
                                     <div class="card-image">
                                         <?php echo '
                                         <img onClick="change_img(this)" src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
-
-                                        
                                         '; ?>
                                     </div>
                                     <div class="card-text">
@@ -94,8 +92,7 @@
                                     </div>
                                     </a>
                                     <div class="card-option">
-                                        <a href="article.php" class="prix"><?php echo ''.$donnees['prix'].'€'; ?></a>
-                                        <!--<a href="#" class="aimer"><i class="fa fa-heart fa-2x" style="color:white;"></i></a>-->
+                                        <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '" class="prix">'.$donnees['prix'].'€ </a>'; ?>
                                         <a href="#" class="caddie"><i class="fa fa-shopping-cart fa-2x" style="color:white;"></i></a>
                                     </div>
                                 </div>

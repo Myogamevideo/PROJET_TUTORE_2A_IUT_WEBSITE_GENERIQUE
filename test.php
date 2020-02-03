@@ -1,59 +1,45 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-minichat.css">
 
-<body>
-    <?php include('header-image.php') ?>
-    <main>
-        <div class="container">
-            <div class="containerAll">
-                <h2>Mini chatt :</h2>
-                <script type="text/javascript" src="public/js/minichat.js"></script>
-                <div class="chat-popup" id="myForm">
-                    <form class="formChatt" method='POST' action='minichat.php'>
-
-                        <div>
-                            <h1>Chat</h1>
-                            <label for="pseudo">Pseudo : </>
-                            <input type="text" name="pseudo" id="pseudo">
-
-                            <label for="message">Message : </label>
-                            <input type="text" name="message" id="message">
-                
-                            <input type="submit">
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    
+                                    <div class="listCommentaire">
+                        <?php
+                        $req = $bdd->prepare('select id,commentaire,auteur, DAY(date_commentaire) AS jour, MONTH(date_commentaire) AS mois, YEAR(date_commentaire) AS annee, HOUR(date_commentaire) AS heure, MINUTE(date_commentaire) AS minute, SECOND(date_commentaire) AS seconde from commentaires where id_billet=?');
+                        $req->execute(array($_GET['id_billet']));
+                        while ($donnees = $req->fetch()) {
+                        ?>
+                        <div class="commentaireArticle">
+                            <div class="infoCommentaire">
+                                <div class="info">
+                                    <label >Date :</label>
+                                    <p> <?php echo ' '.$donnees['jour'] . '/' . $donnees['mois'] . '/'.$donnees['annee'].'' ;?></p>
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-hourglass-2" style="color:black;"></i>
+                                    <label><?php 
+                                    $date = date("G:i:s");
+                                    $date_commentaire = date_create($donne['date_commentaire']);
+                                    $date_commentaire = date_format($date_commentaire,'G:i:s');
+                                    echo ($date-$date_commentaire);
+                                    ?> </label>
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-user-circle" style="color:black;"></i>
+                                    <label>Auteur : </label>
+                                    <p><?php echo $donnees['auteur']; ?></p>
+                                </div>
+                                <?php
+                                if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] == $donnees['auteur']) {
+                                ?>
+                                    <div class="info">
+                                        <i class="fa fa-remove" style="color:red;"></i>
+                                        <button class="btnSupp" type="button" value="Supprimer">
+                                    </div>
+                                <?php } ?>
+                            <div>
+                                <p class="textCommentaire"> <?php echo $donnees['commentaire']; ?></p>
+                            </div>
                         </div>
-
-                        <div>
-                            <p>Discussion :</p>
-                            <?php
-                                $reponse = $bdd->query('select * from chatuser order by id desc limit 10') or die(print_r($bdd->errorInfo()));
-                                while ($donnees = $reponse->fetch()) {
-                                echo htmlspecialchars($donnees['pseudo']) . ' : ' . htmlspecialchars($donnees['message']);
-                                ?><br><?php
-                                }
-                                $reponse->closeCursor();
-                            ?> 
-                        </div>
-                    </form>
+                        <?php $req->closeCursor(); ?>
+                    </div>
                 </div>
-                <div>
-                <?php 
-                    if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
-                        $req = $bdd->prepare('insert into chatuser(pseudo,message) values(:pseudo,:message)');
-                        $req->execute(array(
-                            'pseudo' => $_POST['pseudo'],
-                            'message' => $_POST['message']
-                        ));
-                        header('Location: minichat.php');
-                        
-                    }
-                ?>                      
-                </div>
-        
             </div>
         </div>
-    </main>
-    <?php include('footer.php') ?>
-</body>
-
-</html>
