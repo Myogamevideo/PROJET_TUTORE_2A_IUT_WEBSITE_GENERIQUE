@@ -40,8 +40,18 @@ if(isset($_GET['position'])){
             echo 'class="active"';
         }
     ?>>Bannir un membre</a>
-    <a href="#">Mes addresses</a>
-    <a href="#">Mes abonnements</a>
+    <a href="mesAdresses.php?position=mesAdresses"
+    <?php 
+        if(strcmp ($_GET['position'], "mesAdresses")==0){
+            echo 'class="active"';
+        }
+    ?> >Mes adresses</a>
+    <a href="mesAbonnements.php?position=mesAbonnements"
+    <?php 
+        if(strcmp ($_GET['position'], "mesAbonnements")==0){
+            echo 'class="active"';
+        }
+    ?> >Mes abonnements</a>
     <a href="changerMdp.php?position=changerMdp"
     <?php 
         if(strcmp ($_GET['position'], "changerMdp")==0){

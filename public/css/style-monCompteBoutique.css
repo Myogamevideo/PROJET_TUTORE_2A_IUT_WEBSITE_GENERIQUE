@@ -56,6 +56,7 @@
     line-height: 1.5;
     resize: none;
     width: 100%;
+    text-align: center;
 }
 
 
@@ -75,6 +76,7 @@
     border-radius: 15px;
     margin: 0 5px;
 }
+
 .divContainerAction:last-child{
     border-bottom: 0;
 }

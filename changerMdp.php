@@ -13,21 +13,28 @@
                     </div>
                     <div class="divChangerMdp">
                         <h3>Changer de mot de passe : </h3>
-                        <div>
+                        <div class="divInput">
                             <i class="fa fa-lock fa-2x" style="color:white;"></i>
                             <label>Mot de passe actuel :</label>
                             <input type="password" name="mdp" require="" id="mdp" placeholder="Mot de passe actuel" name="" require="">  
                         </div>
-                        <div>
+                        <div class="divInput">
                             <i class="fa fa-lock fa-2x" style="color:white;"></i>
                             <label>Nouveau mot de passe :</label>
                             <input type="password" name="mdp" require="" id="mdp" placeholder="Nouveau mot de passe" name="" require="">  
                         </div>
-                        <div>
+                        <div class="divInput">
                             <i class="fa fa-lock fa-2x" style="color:white;"></i>
                             <label>Nouveau mot de passe :</label>
                             <input type="password" name="mdp" require="" id="mdp" placeholder="Nouveau mot de passe" name="" require="">  
                         </div>
+                        <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Valider
+                        </button>
                     </div>
                 </div>
             </div>
