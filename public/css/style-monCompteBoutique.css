@@ -27,13 +27,15 @@
     
 }
 
-.listeProduitRupture {
+.borderAction {
     background-color:  #ccffff;
     color: grey;
     padding: 20px;
     width: 100%;
     border-radius: 25px;
 }
+
+
 
 .divContainerAction{
     border-bottom: 1.5px solid #d9d9d9;
@@ -45,14 +47,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-    background-color:  #ccffff;
-    color: grey;
-    padding: 20px;
-    border-radius: 25px;
 }
 
-.ajoutProduit textarea {
+.divInput textarea {
     border-radius: 15px;
     line-height: 1.5;
     resize: none;
@@ -64,6 +61,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     width: 100%;
     margin: 5px 0;
@@ -115,4 +113,97 @@
 .divGestion h3{
     text-align: center;
     font-size: 30px;
+}
+
+
+.inputTaille input{
+    background-color: #66d9ff;
+    width: auto;
+}
+
+.inputTaille input:hover{
+    background-color: rgb(128, 179, 255);
+}
+
+
+.button {
+    padding: 5px;
+    font-size: 18px;
+    background : linear-gradient(90deg,  #f2ccff, #d1b3ff);
+
+    border-radius: 100px;
+    color: white;
+    text-shadow: #a6a6a6 1px 1px, #a6a6a6 -1px 1px, #a6a6a6 -1px -1px, #a6a6a6 1px -1px;
+    border-radius: 1.5px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+
+
+
+.ripple {
+    opacity: 0;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, .35);
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: ripple;
+    animation-name: ripple;
+}
+
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(165);
+    }
+}
+
+
+
+
+
+
+.ficheIdentite{
+    background:  white;
+    border: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding: 10px;
+}
+
+.ficheIdentite label{
+    color: grey;
+}
+
+.buttonIcon{
+background-color:  #66d9ff;
+border: none; 
+padding: 12px 16px;
+cursor: pointer;
+border-radius: 50%;
+}
+
+/* Darker background on mouse-over */
+.buttonIcon:hover {
+    background-color: rgb(128, 179, 255);
+}
+
+.modif{
+    background:  #cce6ff;
+    border: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding: 10px;
+
 }
