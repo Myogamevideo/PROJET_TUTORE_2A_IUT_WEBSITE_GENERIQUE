@@ -131,12 +131,12 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $reponse = $bdd->query("select id,idAuteur,titre,TO_CHAR(lastModification,'HH24:MI:SS DD/MM/YYYY') modif from topic order by creation desc limit 4");
+                                $reponse = $bdd->query("select m.id,pseudo,t.id,idAuteur,titre,lastModification from topic t,membre m where m.id=idAuteur order by creation desc limit 4");
                                 while ($donnees = $reponse->fetch()) {
                                 ?>
                                     <tr>
-                                        <td> <?php echo $donnees['idAuteur'] ?></td>
-                                        <td> <?php echo $donnees['modif'] ?></td>
+                                        <td> <?php echo $donnees['pseudo'] ?></td>
+                                        <td> <?php echo $donnees["lastModification"] ?></td>
                                         <td> <?php echo $donnees['titre'] ?></td>
                                     </tr>
                                 <?php }
