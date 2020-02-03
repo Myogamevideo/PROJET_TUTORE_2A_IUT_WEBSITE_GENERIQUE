@@ -131,7 +131,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 4');
+                                $reponse = $bdd->query('select id,idAuteur,titre,lastModification from topic order by creation limit 4');
                                 while ($donnees = $reponse->fetch()) {
                                 ?>
                                     <tr>
