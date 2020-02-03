@@ -12,7 +12,7 @@
                         <?php include('barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divGestionDesActualites">
-                    <script type="text/javascript" src="public/js/gestionDesActualites.js"></script>
+                    <script type="text/javascript" src="public/js/MonCompte.js"></script>
                         <h3>Gestion des actualités : </h3>
                         <div class="contenaireGestionActualite">
                             <h4>Forum :</h4>

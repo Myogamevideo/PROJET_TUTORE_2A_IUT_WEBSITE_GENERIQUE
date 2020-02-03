@@ -28,10 +28,9 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                     ?>
                         <div class="divBlog">
                             <div class="blogPostImage">
-                                <?php 
-                                    $image=str_replace(' ','','public/image/' . $donnees['titre'] . '.jpg');
-                                    echo '<img src="'.$image.'" alt="Image : ' . $donnees['titre'] . '">'
-                                ; ?>
+                                <?php
+                                $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                                echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </div>
                             <div class="blogPostInfo">
                                 <div class="blogPostDate">
@@ -47,12 +46,8 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
 
                     <?php }
                     $reponse->closeCursor(); ?>
-
-
                 </div>
-
                 <div class="pagination">
-
                     <?php
                     for ($i = 1; $i <= $pagesTotales; $i++) {
                         if ($i == $pageCourante) {

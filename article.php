@@ -10,9 +10,9 @@
                 <div class="containerArticle">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <button class="btn success"><i class="fa fa-music"></i> CD</button>
-                            <button class="btn success"><i class="fa fa-music"></i> Vinyle</button>
-                            <button class="btn success"><i class="fa fa-music"></i> T-shirt</button>
+                            <a href="boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
+                            <a href="boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
+                            <a href="boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
                                 <script type="text/javascript" src="public/js/boutique.js"></script>
@@ -22,18 +22,25 @@
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <div id="ajoutDiv">
-                                    <label>Gamme de produit : </label>
-                                    <div class="filtrePrix">
-                                        <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
-                                        <input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" value="1000">
+                                <form method="GET" action="boutique.php">
+                                    <?php
+                                    if (isset($_GET['categorie']) and !empty($_GET['categorie'])) {
+                                    ?> <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['categorie']; ?>">
+                                    <?php
+                                    } ?>
+                                    <div id="ajoutDiv">
+                                        <label>Gamme de produit : </label>
+                                        <div class="filtrePrix">
+                                            <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
+                                            <input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" value="1000">
+                                        </div>
+                                        <label>Artiste : </label>
+                                        <div class="filtreSearch">
+                                            <input type="text" placeholder="Search..">
+                                            <input type="submit" value="Valider"><i class="fa fa-search"></i></input>
+                                        </div>
                                     </div>
-                                    <label>Artiste : </label>
-                                    <div class="filtreSearch">
-                                        <input type="text" placeholder="Search..">
-                                        <button type="button"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -44,70 +51,70 @@
                             $donnees = $req->fetch(); ?>
                             <div class="product">
                                 <div class="product-image">
-                                    <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>                                </div>
+                                    <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?> </div>
                                 <div class="stock">
-                                    <?php   if($donnees['quantite'] != 0){
-                                                echo '<label class="product-disponibilite">En stock : '.$donnees['quantite'].'</label>';
-                                            }else{
-                                                echo '<label class="product-disponibilite">Indisponible</label>';
-                                            }
-                                            ?>
+                                    <?php if ($donnees['quantite'] != 0) {
+                                        echo '<label class="product-disponibilite">En stock : ' . $donnees['quantite'] . '</label>';
+                                    } else {
+                                        echo '<label class="product-disponibilite">Indisponible</label>';
+                                    }
+                                    ?>
                                 </div>
                                 <div class="product-notation">
-                                <?php switch ($donnees['note']) {
+                                    <?php switch ($donnees['note']) {
                                         case 0:
-                                            ?>
+                                    ?>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
-                                            <?php
+                                        <?php
                                             break;
                                         case 1:
-                                            ?>
+                                        ?>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
-                                            <?php
+                                        <?php
                                             break;
                                         case 2:
-                                            ?>
+                                        ?>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
-                                            <?php
+                                        <?php
                                             break;
                                         case 3:
-                                            ?>
+                                        ?>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x"></span>
                                             <span class="fa fa-star fa-2x"></span>
-                                            <?php
+                                        <?php
                                             break;
                                         case 4:
-                                            ?>
+                                        ?>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
-                                            <span class="fa fa-star fa-2x checked" ></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x"></span>
-                                            <?php
+                                        <?php
                                             break;
                                         case 5:
-                                            ?>
+                                        ?>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checkedx"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
-                                            <?php
+                                    <?php
                                             break;
                                     }
                                     ?>
@@ -119,7 +126,7 @@
                                 <div class="prix">
                                     <p>Prix : <label><?php echo '' . $donnees['prix'] . '€'; ?></label></p>
                                 </div>
-                                <?php   if($donnees['categorie'] == "T-shirt"){?>
+                                <?php if ($donnees['categorie'] == "T-shirt") { ?>
                                     <div class="taille">
                                         <label>Taille : </label>
                                         <input type="submit" name="" value="XS">
