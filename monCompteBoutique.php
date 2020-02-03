@@ -3,6 +3,7 @@
 <body>
     <?php include('header-image.php') ?>
     <main>
+        <script type="text/javascript" src="public/js/monCompteBoutique.js"></script>
         <script type="text/javascript" src="public/js/MonCompte.js"></script>
         <div class="container">
             <div class="boxMonCompte">
@@ -50,7 +51,13 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button"><p>Commander</p></button>
+                                <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Commander
+                                </button>
                             </div>
                         </div>
                         <div class="divContainerAction">
@@ -94,7 +101,13 @@
                                         <button class="button" type="button">Parcourir</button>
                                     </div>
                                 </div>
-                                <button type="button"><p>Ajouter</p></button>
+                                <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Ajouter
+                                </button>
                             </div>
                         </div>
                         <div class="divContainerAction">
@@ -102,10 +115,13 @@
                             <div class="divAction">
                                 <div class="borderAction">
                                     <div class="divInput">
-                                        <label>Nom : </label>
-                                        <input type="nomProduiSupt" placeholder="Le nom de votre produit..." name="" require="">  
+                                        <div class="rechercheArticle">
+                                            <label>Nom : </label>
+                                            <input type="nomProduiSupt" placeholder="Le nom de votre produit..." name="" require=""> 
+                                            <button href="javascript:void(0);" onclick="apparaitreArticleSupprision()" class="buttonIcon"><i class="fa fa-search"></i></button> 
+                                        </div> 
                                     </div>
-                                    <div class="divAction divInput">
+                                    <div class="divAction divInput"  id="articleASupprimer">
                                         <label>Fiche d'identité du produit : </label>
                                         <div class="divAction divInput ficheIdentite">
                                             <p>Nom : <label>Tshirt</label></p>
@@ -118,17 +134,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button"><p>Supprimer</p></button>
+                                <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Supprimer
+                                </button>
                             </div>
                         </div>
                         <div class="divContainerAction">
                             <h4>Modifier un produit : </h4>
                             <div class="divAction">
                                 <div class="borderAction">
-                                    <label>Nom : </label>
-                                    <input type="nomProduiSupt" placeholder="Le nom de votre produit..." name="" require=""> 
-                                    <button class="buttonIcon"><i class="fa fa-search"></i></button> 
-                                    <div class="divAction divInput">
+                                    <div class="rechercheArticle">
+                                        <label>Nom : </label>
+                                        <input type="nomProduiSupt" placeholder="Le nom de votre produit..." name="" require=""> 
+                                        <button href="javascript:void(0);" onclick="apparaitreArticle()" class="buttonIcon"><i class="fa fa-search"></i></button> 
+                                    </div>
+                                    <div class="divAction divInput" id="articleAModifier">
                                         <label>Fiche d'identité du produit : </label>
                                         <div class="divAction divInput ficheIdentite">
                                             <p>Nom : <label>Tshirt</label></p>
@@ -176,7 +200,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button"><p>Modifier</p></button>
+                                <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Modifier
+                                </button>
                             </div>
                         </div>
                     </div>
