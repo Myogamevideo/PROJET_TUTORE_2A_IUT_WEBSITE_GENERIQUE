@@ -36,6 +36,43 @@
     font-size: 30px;
 }
 
+.contenaireGestionActualite{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.contenaireGestionActualite input {
+    border-radius: 15px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px;
+    color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .btn {
     background : linear-gradient(90deg, #be2edd, #5f27cd);
     color : white; 
@@ -91,43 +128,23 @@
 
 
 .button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 8px 12px;
-    margin: -26.5px 0 0 -82.5px;
-    font-size: 32px;
-    background : linear-gradient(90deg, #be2edd, #5f27cd);
+    padding: 5px;
+    font-size: 18px;
+    background : linear-gradient(90deg,  #f2ccff, #d1b3ff);
 
-    color: #FFF;
+    border-radius: 100px;
+    color: white;
+    text-shadow: #a6a6a6 1px 1px, #a6a6a6 -1px 1px, #a6a6a6 -1px -1px, #a6a6a6 1px -1px;
     border-radius: 1.5px;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .16),
-                0 3px 6px rgba(0, 0, 0, .23);
-    -webkit-transition: box-shadow .3s;
-    transition: box-shadow .3s;
-    -webkit-transform: translate(-50%, -50%, 0);
-    transform: translate(-50%, -50%, 0);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+    border-radius: 12px;
 }
 
-
-
-
-.button:hover {
-    background: linear-gradient(90deg, #d50fff, #44199a);
-
-}
 
 
 
 .ripple {
-    position: absolute;
     opacity: 0;
     border-radius: 50%;
     width: 2px;
@@ -139,14 +156,6 @@
     animation-name: ripple;
 }
 
-@-webkit-keyframes ripple {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: scale(165);
-    }
-}
 
 @keyframes ripple {
     0% {

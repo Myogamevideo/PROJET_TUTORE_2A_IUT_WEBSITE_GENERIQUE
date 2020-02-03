@@ -14,11 +14,69 @@
 }
 
 
-.tabRupture{
+.divAction{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+.divAction p {
+    text-align: center;
+    
+}
+
+.listeProduitRupture {
+    background-color:  #ccffff;
+    color: grey;
+    padding: 20px;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.divContainerAction{
+    border-bottom: 1.5px solid #d9d9d9;
+    padding: 10px;
+}
+
+.ajoutProduit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color:  #ccffff;
+    color: grey;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.ajoutProduit textarea {
+    border-radius: 15px;
+    line-height: 1.5;
+    resize: none;
+    width: 100%;
+}
+
+
+.divInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.divAction input {
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0 5px;
+}
+.divContainerAction:last-child{
+    border-bottom: 0;
 }
 
 .listeProduitRupture li {
@@ -48,20 +106,13 @@
     width: 100%;
     margin: 20px 30px;
     padding: 15px;
-    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    background: linear-gradient(0.25turn, #66b3ff, #00bfff, #99e6ff);
     border-radius: 15px;
     color: white;
 }
 
+
 .divGestion h3{
     text-align: center;
     font-size: 30px;
-}
-
-textarea {
-    resize : both;
-    min-width : 100px;
-    min-height : 100px;
-    max-width : 200px;
-    max-height : 200px;
 }
