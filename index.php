@@ -131,12 +131,12 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $reponse = $bdd->query('select id,idAuteur,titre,lastModification from topic order by creation limit 4');
+                                $reponse = $bdd->query('select id,idAuteur,titre,lastModification from topic order by creation desc limit 4');
                                 while ($donnees = $reponse->fetch()) {
                                 ?>
                                     <tr>
-                                        <td> <?php echo $donnees['titre'] ?></td>
-                                        <td> <?php echo $donnees['titre'] ?></td>
+                                        <td> <?php echo $donnees['idAuteur'] ?></td>
+                                        <td> <?php echo $donnees['lastModification'] ?></td>
                                         <td> <?php echo $donnees['titre'] ?></td>
                                     </tr>
                                 <?php }
