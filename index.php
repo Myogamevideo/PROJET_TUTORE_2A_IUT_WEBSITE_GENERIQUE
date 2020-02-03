@@ -126,12 +126,12 @@
                         <table>
                             <thead>
                                 <th>Auteur</th>
-                                <th>Publication</th>
-                                <th>Actions</th>
+                                <th>Dernière Réponse</th>
+                                <th>Titre</th>
                             </thead>
                             <tbody>
                                 <?php
-                                $reponse = $bdd->query("select m.id,pseudo,t.id,idAuteur,titre,lastModification from topic t,membre m where m.id=idAuteur order by creation desc limit 4");
+                                $reponse = $bdd->query('select m.id,pseudo,t.id,idAuteur,titre,lastModification from topic t,membre m where m.id=idAuteur order by lastModification desc limit 4');
                                 while ($donnees = $reponse->fetch()) {
                                 ?>
                                     <tr>
