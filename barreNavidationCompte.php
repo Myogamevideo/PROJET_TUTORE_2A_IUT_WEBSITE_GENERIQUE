@@ -33,7 +33,12 @@ if(isset($_GET['position'])){
             echo 'class="active"';
         }
     ?> >Gestion de la boutique</a>
-    <a href="#">Liste des membres</a>
+    <a href="monCompteListeDesMembres.php?position=listeDesMembres"
+    <?php 
+        if(strcmp ($_GET['position'], "listeDesMembres")==0){
+            echo 'class="active"';
+        }
+    ?>>Liste des membres</a>
     <a href="bannir.php?position=bannir"
     <?php 
         if(strcmp ($_GET['position'], "bannir")==0){
