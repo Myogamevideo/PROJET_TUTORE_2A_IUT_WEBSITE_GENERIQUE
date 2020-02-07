@@ -14,39 +14,81 @@
                     <div class="divListeDesMembres">
                         <h3>Liste des membres : </h3>
                         <div class="liste">
-
-                                <div class="containerImage">
-                                    <div class="overlay simpleMembre">
-                                        <div class="text">
-                                            <div class="avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar">
-                                                <label  class="right"> Natsu44</div>
-                                            </div>
-                                            <p>Simple Membre</p>
-                                            <p><label>Nom :</label>Natsu Dragnir</p>
-                                            <p><label>E-mail</label>natsu.dragnir@outlook.fr</p>
-                                            <p><label>Téléphone</label>04-71-55-55-88</p>
+                            <div class="containerImage">
+                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                <div class="overlay simpleMembre">
+                                    <div class="text">
+                                        <div class="avatar">
+                                            <img src="public/image/placeholder.jpg" alt="Avatar">
+                                            <label class="labelPseudo">Natsu44</label>
                                         </div>
-                                        <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                        <p>Simple Membre</p>
+                                        <p><label>Nom : </label>Natsu Dragnir</p>
+                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
+                                        <p><label>Téléphone : </label>04-71-55-55-88</p>  
+                                    </div>                  
+                                </div>
+                            </div>
+                            <div class="containerImage">
+                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                <div class="overlay admin">
+                                    <div class="text">
+                                        <div class="avatar">
+                                            <img src="public/image/placeholder.jpg" alt="Avatar">
+                                            <label class="labelPseudo">Natsu44</label>
+                                        </div>
+                                        <p>Admin</p>
+                                        <p><label>Nom : </label>Natsu Dragnir</p>
+                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
+                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
                                     </div>
                                 </div>
-
-                                <div class="containerImage">
-                                    <div class="overlay admin">
-                                        <div class="text">
-                                            <div class="avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar">
-                                                <label  class="right"> Natsu44</div>
-                                            </div>
-                                            <p>Simple Membre</p>
-                                            <p><label>Nom :</label>Natsu Dragnir</p>
-                                            <p><label>E-mail</label>natsu.dragnir@outlook.fr</p>
-                                            <p><label>Téléphone</label>04-71-55-55-88</p>
+                            </div>
+                            <div class="containerImage">
+                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                <div class="overlay admin">
+                                    <div class="text">
+                                        <div class="avatar">
+                                            <img src="public/image/placeholder.jpg" alt="Avatar">
+                                            <label class="labelPseudo">Natsu44</label>
                                         </div>
-                                        <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                        <p>Admin</p>
+                                        <p><label>Nom : </label>Natsu Dragnir</p>
+                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
+                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="containerImage">
+                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                <div class="overlay simpleMembre">
+                                    <div class="text">
+                                        <div class="avatar">
+                                            <img src="public/image/placeholder.jpg" alt="Avatar">
+                                            <label class="labelPseudo">Natsu44</label>
+                                        </div>
+                                        <p>Simple Membre</p>
+                                        <p><label>Nom : </label>Natsu Dragnir</p>
+                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
+                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="containerImage">
+                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                <div class="overlay simpleMembre">
+                                    <div class="text">
+                                        <div class="avatar">
+                                            <img src="public/image/placeholder.jpg" alt="Avatar">
+                                            <label class="labelPseudo">Natsu44</label>
+                                        </div>
+                                        <p>Simple Membre</p>
+                                        <p><label>Nom : </label>Natsu Dragnir</p>
+                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
+                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

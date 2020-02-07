@@ -13,7 +13,12 @@ if(isset($_GET['position'])){
             echo 'class="active"';
         }
     ?> >Mon profil</a>
-    <a href="#">Tableau de bord</a>
+    <a href="monCompteTableauDeBord.php?position=monCompteTableauDeBord"
+    <?php 
+        if(strcmp ($_GET['position'], "monCompteTableauDeBord")==0){
+            echo 'class="active"';
+        }
+    ?>>Tableau de bord</a>
     <a href="modifierSite.php?position=modifierSite"
     <?php 
         if(strcmp ($_GET['position'], "modifierSite")==0){
