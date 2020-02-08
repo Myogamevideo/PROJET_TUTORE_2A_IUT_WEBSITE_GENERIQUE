@@ -7,7 +7,7 @@
 .divMonCompte{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     left: 5%;
     margin: 10px 0;
@@ -16,7 +16,7 @@
 .barreNavigation{
     position: sticky;
     width: 30%;
-    top: 2%;
+    top: 0;
     display: block;
     float: left;
 }
@@ -88,5 +88,12 @@ border-radius: 25px;
 .performanceDeLaCompagnie{
     padding: 20px;
     background: white;
+}
+
+.diagramme{
     margin: 10px;
+}
+
+label{
+    font-size: 18px;
 }

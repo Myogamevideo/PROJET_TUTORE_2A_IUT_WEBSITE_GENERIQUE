@@ -5,13 +5,14 @@
     <main>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="public/js/diagrammeMonCompte.js"></script>
-        <div class="container">
-            <div class="boxMonCompte">
-                <div class="divMonCompte">
+        <label class="container">
+            <label class="boxMonCompte">
+                <h2>Mon compte</h2>
+                <label class="divMonCompte">
                     <div class="barreNavigation">
                        <?php include('barreNavidationCompte.php')  ?>
                     </div>
-                    <div class="divTableauDeBord">
+                    <label class="divTableauDeBord">
                         <h3>Tableau de bord : </h3>
                         <div class="tableauDeBord">
                             <div class="partieGauche">
@@ -63,32 +64,38 @@
 
                             </div>
                             <div class="partieDroite">
-                                <div class="categorieArticlePlusVendu">
-                                <label>Catégorie d'article les plus vendu : </label>
-                                    <div id="donutchart" style=" height: 100%;"></div>
+                                <div class="categorieArticlePlusVendu diagramme">
+                                    <label>Catégorie d'article les plus vendu : </label>
+                                    <div class="diagramme">
+                                        <div id="donutchart" style=" height: 100%;"></div>
+                                    </div>
                                 </div>
-                                <div>
+                                <div class="diagramme">
                                     <label>Répartition des ventes en Europe : </label>
-                                    <div id="geochart-colors" style="width: 100%; height: 325px;"></div>
+                                    <div class="diagramme">
+                                        <div id="geochart-colors" style="width: 100%; height: 250px;"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="performanceDeLaCompagnie">
+                        <div class="diagramme">
                             <label>Performance de la compagnie : </label>
-                            <div>
-                                <div id="columnchart_material" style="width:100%; height: 400px;"></div>
+                            <div class="performanceDeLaCompagnie diagramme">
+                                <div class="diagramme">
+                                    <div id="columnchart_material" style="width:100%; height: 400px;"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="frequenceVisite">
+                        <div class="diagramme">
                             <label>Fréquence de visite du site : </label>
-                            <div>
+                            <div class="diagramme">
                                 <div id="Aeraschart_div" style="width: 100%; height: 450px;"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </label>
+                </label>
+            </label>
+        </label>
     </main>
     <?php include('footer.php') ?>
 </body>
