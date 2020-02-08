@@ -39,4 +39,54 @@
 
 
 
+.tableauDeBord {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
+
+.partieGauche{
+    width: 50%;
+}
+
+.partieDroite{
+    width: 50%;
+}
+
+
+
+.listeTop10Article li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+}
+
+
+.listeTop10Article {
+background-color:  #ccffff;
+color: grey;
+padding: 20px;
+width: 100%;
+border-radius: 25px;
+}
+
+
+.top10Article{
+    margin: 10px;
+}
+
+.partieDroite{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.performanceDeLaCompagnie{
+    padding: 20px;
+    background: white;
+    margin: 10px;
+}
