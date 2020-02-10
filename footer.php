@@ -1,6 +1,10 @@
 <footer>
     <div class="footer-gauche">
-        <h3>SoundPerception</h3>
+        <?php
+        $req = $bdd->query('SELECT nomDuSite FROM parametres WHERE 1');
+        $donnees = $req->fetch();
+        echo '<h3>'.$donnees['nomDuSite'].'</h3>';
+        ?>
         <h4>Copyright © Tous droits réservés.</h4>
         <div>
             <a href="#">Anglais</a>
@@ -27,7 +31,9 @@
             </div>
         </div>
         <div class="footer-bas">
-            <a href="#">A propos de SoundPerception</a>
+            <?php 
+                echo '<a href="#">A propos de '.$donnees['nomDuSite'].'</a>'
+            ?>
             <a href="#">Contact</a>
             <a href="#">Plan du site</a>
             <a href="#">Politique sur les cookies</a>
