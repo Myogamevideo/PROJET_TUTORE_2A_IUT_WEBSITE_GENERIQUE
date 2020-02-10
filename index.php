@@ -18,7 +18,7 @@
                     ?>
                     <div class="slide s1">
                         <?php
-                        $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                        $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
                         echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
                         <?php echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                         </a>
@@ -28,7 +28,7 @@
                     ?>
                         <div class="slide">
                             <?php
-                            $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                            $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
                             echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
                             <?php echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </a>
@@ -48,7 +48,7 @@
                 <?php
                 $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
                 while ($donnees = $reponse->fetch()) {
-                    $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                    $image = str_replace(' ', '', 'public/image/boutique/' . $donnees['titre'] . '.jpg');
                     echo '<a href="commentaires.php?id_billet=' . $donnees['id'] . '">
                         <img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">
                     </a>'; ?>
@@ -70,7 +70,7 @@
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <?php
-                                    $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                                    $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
 
                                     echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '" style="width:350px;height:200px;">'; ?>
                                 </div>
@@ -102,7 +102,7 @@
                                 <?php echo '<a style="text-decoration:none;" href="blog.php?id_billet=' . $donnees['reference'] . '">'; ?>
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '" style="width:350px;height:200px;">'; ?>
+                                        <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '" style="width:350px;height:200px;">'; ?>
                                     </div>
                                     <div class="flip-card-back">
                                         <h1><?php echo $donnees['nom']; ?></h1>
@@ -155,7 +155,7 @@
                         <div class="presentation-principal">
                             <div class="presentation-gauche">
                                 <div class="presentation-container">
-                                    <img src="public/image/background.jpg" alt="">
+                                    <img src="public/image/web/background.jpg" alt="">
                                     <p>
                                         Blabla désigne un bavardage inepte, un verbiage, une verbigération, c'est-à-dire
                                         un flux de paroles d'une totale inutilité et qui, de plus, montre des incohérences.
@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             <div class="presentation-video">
-                                <video autoplay controls loop poster="public/image/background.jpg" id="bgvid">
+                                <video autoplay controls loop poster="public/image/web/background.jpg" id="bgvid">
                                     <source src="public/video/background.mp4" type="video/mp4">
                                     <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
                                 </video>

@@ -2,7 +2,7 @@
 
 <header>
     <div class="container">
-        <video autoplay controls loop poster="public/image/background.jpg" id="bgvid">
+        <video autoplay controls loop poster="public/image/web/background.jpg" id="bgvid">
             <source src="public/video/background.mp4" type="video/mp4">
             <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
         </video>

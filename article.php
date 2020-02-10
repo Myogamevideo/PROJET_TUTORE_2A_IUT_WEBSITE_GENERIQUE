@@ -51,7 +51,7 @@
                             $donnees = $req->fetch(); ?>
                             <div class="product">
                                 <div class="product-image">
-                                    <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?> </div>
+                                    <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?> </div>
                                 <div class="stock">
                                     <?php if ($donnees['quantite'] != 0) {
                                         echo '<label class="product-disponibilite">En stock : ' . $donnees['quantite'] . '</label>';

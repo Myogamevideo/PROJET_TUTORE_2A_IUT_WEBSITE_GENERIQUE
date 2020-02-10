@@ -12,90 +12,36 @@
                         <?php include('barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divListeDesMembres">
-                        <h3>Liste des membres : </h3>
                         <div class="liste">
-                            <div class="containerImage">
-                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
-                                <div class="overlay simpleMembre">
-                                    <div class="text">
-                                        <div class="avatar">
-                                            <img src="public/image/placeholder.jpg" alt="Avatar">
-                                            <label class="labelPseudo">Natsu44</label>
+                            <h3>Liste des membres : </h3>
+                            <?php
+                            $reponse = $bdd->query('SELECT * FROM membre ORDER BY date_inscription');
+                            while ($donnees = $reponse->fetch()) {
+                            ?>
+                                <div class="containerImage">
+                                    <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
+                                    <div class="overlay simpleMembre">
+                                        <div class="text">
+                                            <div class="avatar">
+                                                <img src="public/image/placeholder.jpg" alt="Avatar">
+                                                <label class="labelPseudo"><?php echo $donnees['pseudo']; ?></label>
+                                            </div>
+                                            <p><?php echo $donnees['statu']; ?></p>
+                                            <p><label>Nom : </label><?php echo $donnees['nom']; ?></p>
+                                            <p><label>Prenom : </label><?php echo $donnees['prenom']; ?></p>
+                                            <p><label>E-mail : </label><?php echo $donnees['email']; ?></p>
+                                            <p><label>Téléphone : </label><?php echo '+33' . $donnees['telephone']; ?></p>
                                         </div>
-                                        <p>Simple Membre</p>
-                                        <p><label>Nom : </label>Natsu Dragnir</p>
-                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
-                                        <p><label>Téléphone : </label>04-71-55-55-88</p>  
-                                    </div>                  
-                                </div>
-                            </div>
-                            <div class="containerImage">
-                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
-                                <div class="overlay admin">
-                                    <div class="text">
-                                        <div class="avatar">
-                                            <img src="public/image/placeholder.jpg" alt="Avatar">
-                                            <label class="labelPseudo">Natsu44</label>
-                                        </div>
-                                        <p>Admin</p>
-                                        <p><label>Nom : </label>Natsu Dragnir</p>
-                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
-                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
                                     </div>
                                 </div>
-                            </div>
-                            <div class="containerImage">
-                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
-                                <div class="overlay admin">
-                                    <div class="text">
-                                        <div class="avatar">
-                                            <img src="public/image/placeholder.jpg" alt="Avatar">
-                                            <label class="labelPseudo">Natsu44</label>
-                                        </div>
-                                        <p>Admin</p>
-                                        <p><label>Nom : </label>Natsu Dragnir</p>
-                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
-                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="containerImage">
-                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
-                                <div class="overlay simpleMembre">
-                                    <div class="text">
-                                        <div class="avatar">
-                                            <img src="public/image/placeholder.jpg" alt="Avatar">
-                                            <label class="labelPseudo">Natsu44</label>
-                                        </div>
-                                        <p>Simple Membre</p>
-                                        <p><label>Nom : </label>Natsu Dragnir</p>
-                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
-                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="containerImage">
-                                <img src="public/image/placeholder.jpg" alt="Avatar" class="image">
-                                <div class="overlay simpleMembre">
-                                    <div class="text">
-                                        <div class="avatar">
-                                            <img src="public/image/placeholder.jpg" alt="Avatar">
-                                            <label class="labelPseudo">Natsu44</label>
-                                        </div>
-                                        <p>Simple Membre</p>
-                                        <p><label>Nom : </label>Natsu Dragnir</p>
-                                        <p><label>E-mail : </label>natsu.dragnir@outlook.fr</p>
-                                        <p><label>Téléphone : </label>04-71-55-55-88</p>            
-                                    </div>
-                                </div>
-                            </div>
+                            <?php }
+                            $reponse->closeCursor();
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    <?php include('footer.php') ?>
-</body>
+    </main> <?php include('footer.php') ?> </body>
 
 </html>
