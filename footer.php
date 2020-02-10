@@ -16,10 +16,10 @@
             <div class="footer-reseau">
                 <div>
                     <h3>Nous suivre :</h3>
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="https://www.facebook.com/villedeclermontferrand/" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/villedeclermontfd/" class="fa fa-instagram"></a>
+                    <a href="https://www.linkedin.com/company/ville-de-clermont-ferrand/" class="fa fa-linkedin"></a>
+                    <a href="https://www.youtube.com/user/TV8Clermont" class="fa fa-youtube"></a>
                 </div>
             </div>
             <div class="footer-newsletter">

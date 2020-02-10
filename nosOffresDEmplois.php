@@ -14,7 +14,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
@@ -36,7 +36,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
@@ -58,7 +58,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
@@ -80,7 +80,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
@@ -102,7 +102,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
@@ -124,7 +124,7 @@
                             <div class="card">
                                 <div class="offreEmploi">
                                     <div class="taille image">
-                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                        <img src="public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
                                         <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
