@@ -9,36 +9,138 @@
                 <h2>Nos offres d'emplois :</h2>
                 <div class="candidature">
                     <div class="listeCandidature">
-                        <div class="card">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                            <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>                
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>     
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                            <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>     
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        </div>     
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                            <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>     
+                        <div class="offre">
+                            <h4>Chargé clientelle e-commerce (homme/femme)</h4>
+                            <div class="card">
+                                <div class="offreEmploi">
+                                    <div class="taille image">
+                                        <img src="public/image/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
+                                    </div>
+                                    <div class="taille option">
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <h5>Last updated 3 mins ago</h5>
+                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                    </div>
                             </div>
-                        </div>
+                        </div>             
                     </div>
                 </div>
             </div>
