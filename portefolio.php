@@ -20,7 +20,7 @@
                 </div>
                 <div class="card">
                     <div class="imgBox">
-                        <img src="public/image/portefolio/visionAvenir.jpg"/>
+                        <img src="public/image/portefolio/visionAvenir.jpg"/> 
                     </div>
                     <div class="contentBox">
                         <div class="content">
