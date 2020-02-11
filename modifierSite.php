@@ -26,12 +26,13 @@
                                             <label>Le nom de l'entreprise :</label>
                                             <?php echo '<input id="modificationNomDuSite" name="modificationNomDuSite" type="text" placeholder="' . $donnees['nomDuSite'] . '" />'; ?>
                                             <div class=button>
-                                                <input class="buttonAction" type="submit" value="Valider">
+                                                <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                </input>
+                                                Valider
+                                                </button>
                                             </div>
                                     </form>
                                 </div>
