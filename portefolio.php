@@ -8,28 +8,17 @@
                 <h2>Portefolio :</h2>
                 <div class="card">
                     <div class="imgBox">
-                        <img src="public/image/quiSommeNous.jpg"/>
+                        <img src="public/image/portefolio/quiSommesNous.jpg"/>
                     </div>
                     <div class="contentBox">
                         <div class="content">
                             <h2>Qui sommes nous ?</h2>
                             <p>bla</p>
-                            <a href="#">Lire plus ...</a>
+                            <a href="quiNousSommes.php">Lire plus ...</a>
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="imgBox">
-                        <img src="public/image/portefolio/visionAvenir.jpg"/>
-                    </div>
-                    <div class="contentBox">
-                        <div class="content">
-                            <h2>Notre vision d'avenir</h2>
-                            <p>bla</p>
-                            <a href="#">Lire plus ...</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card">
                     <div class="imgBox">
                         <img src="public/image/portefolio/nosProjets.jpeg"/>
