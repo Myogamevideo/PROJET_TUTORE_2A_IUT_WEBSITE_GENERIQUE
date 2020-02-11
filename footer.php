@@ -25,7 +25,7 @@
             <div class="footer-newsletter">
                 <h3>Abonnez-vous à la Newsletter : </h3>
                 <div>
-                    <input type="text" id="name" name="name" required placeholder="Veuillez entrer votre addresse e-mail" size="40">
+                    <input type="text" id="name" name="name" placeholder="Veuillez entrer votre addresse e-mail" size="40">
                     <button>Go !</button>
                 </div>
             </div>
