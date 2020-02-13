@@ -1,0 +1,55 @@
+.containerAll {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
+
+}
+
+.divPanier{
+    position: relative;
+    width: 100%;
+    padding: 50px;
+}
+
+.etapeCommande{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.etapeCommande .circle{
+    background: royalblue;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divAdresses{
+    width: 100%;
+    margin: 20px 30px;
+    padding: 15px;
+    background: linear-gradient(70deg, rgb(15, 184, 226), rgb(77, 210, 255));
+    border-radius: 15px;
+    color: white;
+}
+
+.divAdresses h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+.adressePrincipale{
+    background: white;
+    color: black;
+}
+
+.adresseSecondaire{
+    background: papayawhip;
+    color: black;
+}

@@ -24,7 +24,7 @@
     <div class="subnav">
         <?php
         if ($donnees['nomBoutique'] != null) {
-            echo '<a class="subnavbtn" href="#"><i class="fa fa-shopping-cart fa-1x grey"></i></a>';
+            echo '<a class="subnavbtn" href="panier.php"><i class="fa fa-shopping-cart fa-1x grey"></i></a>';
         }
         ?> 
     </div>
