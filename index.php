@@ -147,11 +147,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $reponse = $bdd->query('select id, idAuteur, titre, creation, lastModification from topic order by lastModification limit 4');
+                                    $reponse = $bdd->query('select T.id, M.id, pseudo, idAuteur, titre, creation, lastModification from topic T, membre M where M.id = idAuteur order by lastModification limit 4');
                                     while ($data = $reponse->fetch()) {
                                     ?>
                                         <tr>
-                                            <td> <?php echo $data['idAuteur'] ?></td>
+                                            <td> <?php echo $data['pseudo'] ?></td>
                                             <td> <?php echo $data['titre'] ?></td>
                                             <td> <?php echo $data['lastModification'] ?></td>
                                         </tr>
