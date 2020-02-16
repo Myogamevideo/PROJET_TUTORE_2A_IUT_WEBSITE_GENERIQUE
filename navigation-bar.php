@@ -1,14 +1,32 @@
 <div class="navbar">
     <a class="active" href="index.php"><i class="fa fa-home"></i>Accueil</a>
-    <a href="boutique.php">Boutique</a>
-    <a href="blog.php">Blog</a>
-    <a href="#">Forum</a>
-    <a href="portefolio.php">Portofolio</a>
-    <a href="contact.php">Contact</a>
+    <?php
+    $req = $bdd->query('SELECT * FROM parametres WHERE 1');
+    $donnees = $req->fetch();
+    if ($donnees['nomBoutique'] != null) {
+        echo '<a href="boutique.php">' . $donnees['nomBoutique'] . '</a>';
+    }
+    if ($donnees['nomBlog'] != null) {
+        echo '<a href="blog.php">' . $donnees['nomBlog'] . '</a>';
+    }
+    if ($donnees['nomForum'] != null) {
+        echo '<a href="forum.php">' . $donnees['nomForum'] . '</a>';
+    }
+    if ($donnees['nomPortofolio'] != null) {
+        echo '<a href="portefolio.php">' . $donnees['nomPortofolio'] . '</a>';
+    }
+    if ($donnees['nomContact'] != null) {
+        echo '<a href="contact.php">' . $donnees['nomContact'] . '</a>';
+    }
+    ?>
     <input type="text" placeholder="Search..">
     <button type="button"><i class="fa fa-search fa-1x grey"></i></button>
     <div class="subnav">
-        <a class="subnavbtn" href="#"><i class="fa fa-shopping-cart fa-1x grey"></i></a>
+        <?php
+        if ($donnees['nomBoutique'] != null) {
+            echo '<a class="subnavbtn" href="panier.php"><i class="fa fa-shopping-cart fa-1x grey"></i></a>';
+        }
+        ?> 
     </div>
     <div class="subnav">
         <a class="subnavbtn"><i class="fa fa-user-circle-o fa-1x grey"></i></a>

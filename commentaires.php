@@ -12,7 +12,7 @@
                     $req = $bdd->prepare('select id,contenu,titre, DAY(date_creation) AS jour, MONTH(date_creation) AS mois, YEAR(date_creation) AS annee, HOUR(date_creation) AS heure, MINUTE(date_creation) AS minute, SECOND(date_creation) AS seconde from billets where id=?');
                     $req->execute(array($_GET['id_billet']));
                     $donnees = $req->fetch();
-                    $image = str_replace(' ', '', 'public/image/' . $donnees['titre'] . '.jpg');
+                    $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
                     echo '
                     <div class="containerTitre" style="background-image: url(' . $image . '); height: 400px; width: 100%; border-radius: 25px; text-align: center;">
                         <div class="textTitre">

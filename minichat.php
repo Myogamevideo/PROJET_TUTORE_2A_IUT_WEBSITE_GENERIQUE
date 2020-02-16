@@ -40,7 +40,7 @@
                                     echo '
                                         <div class="containerMsg">
                                             <div class="Avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar">
+                                                <img src="public/image/web/placeholder.jpg" alt="Avatar">
                                                 <label>' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -50,7 +50,7 @@
                                     echo '
                                         <div class="containerMsg darker">
                                             <div class="Avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar" class="right">
+                                                <img src="public/image/web/placeholder.jpg" alt="Avatar" class="right">
                                                 <label  class="right">' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>

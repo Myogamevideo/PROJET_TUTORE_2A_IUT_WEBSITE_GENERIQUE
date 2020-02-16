@@ -25,7 +25,7 @@
                             <div class="divContact">
                                 <i class="fa fa-map-marker fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divContact">
-                                    <p>Adresse : 15 rue de la fortune 43000 Le Puy en Velay </br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="#">Prenez rendez-vous ici !</a></p>
+                                    <p>Adresse : 15 rue de la fortune 43000 Le Puy en Velay </br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="rendezVous.php">Prenez rendez-vous ici !</a></p>
                                 </div>
                             </div>
                             <div class="divContact">
@@ -76,7 +76,7 @@
                                         echo '
                                         <div class="containerMsg">
                                             <div class="Avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar">
+                                                <img src="public/image/web/placeholder.jpg" alt="Avatar">
                                                 <label>' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -86,7 +86,7 @@
                                         echo '
                                         <div class="containerMsg darker">
                                             <div class="Avatar">
-                                                <img src="public/image/placeholder.jpg" alt="Avatar" class="right">
+                                                <img src="public/image/web/placeholder.jpg" alt="Avatar" class="right">
                                                 <label  class="right">' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>

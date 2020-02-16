@@ -13,25 +13,31 @@
                     </div>
                     <div class="divBannirMembre">
                         <h3>Bannir un membre : </h3>
-                        <div>
+                        <div class="divInput">
                             <label>Veuillez saisir le pseudo de la personne à bannir :</label>
                             <input type="pseudoABanir" placeholder="Pseudo de la personne à bannir..." name="" require="">  
                         </div>
-                        <div>
+                        <div class="divInput">
                             <label>Veuillez saisir le modif du bannissement :</label>
                             <textarea placeholder="Motif du bannissement.."></textarea>
                         </div>
-                        <div>
+                        <div class="divInput">
                             <label>Veuillez saisir votre identifiant administrateur :</label>
                             <input type="pseudoAdmin" placeholder="Pseudo administrateur" name="" require="">  
                         </div>
-                        <div>
+                        <div class="divInput">
                             <label>Mot de passe : </label>
                             <input type="password" name="mdpAdmin" require="" id="mdp">
                         </div>
+                        <button class="buttonAction">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Valider
+                        </button>
                     </div>
                 </div>
-                <input type="submit" name="" value="Valider">
             </div>
         </div>
     </main>

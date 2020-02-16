@@ -13,7 +13,12 @@ if(isset($_GET['position'])){
             echo 'class="active"';
         }
     ?> >Mon profil</a>
-    <a href="#">Tableau de bord</a>
+    <a href="monCompteTableauDeBord.php?position=monCompteTableauDeBord"
+    <?php 
+        if(strcmp ($_GET['position'], "monCompteTableauDeBord")==0){
+            echo 'class="active"';
+        }
+    ?>>Tableau de bord</a>
     <a href="modifierSite.php?position=modifierSite"
     <?php 
         if(strcmp ($_GET['position'], "modifierSite")==0){
@@ -33,15 +38,30 @@ if(isset($_GET['position'])){
             echo 'class="active"';
         }
     ?> >Gestion de la boutique</a>
-    <a href="#">Liste des membres</a>
+    <a href="monCompteListeDesMembres.php?position=listeDesMembres"
+    <?php 
+        if(strcmp ($_GET['position'], "listeDesMembres")==0){
+            echo 'class="active"';
+        }
+    ?>>Liste des membres</a>
     <a href="bannir.php?position=bannir"
     <?php 
         if(strcmp ($_GET['position'], "bannir")==0){
             echo 'class="active"';
         }
     ?>>Bannir un membre</a>
-    <a href="#">Mes addresses</a>
-    <a href="#">Mes abonnements</a>
+    <a href="mesAdresses.php?position=mesAdresses"
+    <?php 
+        if(strcmp ($_GET['position'], "mesAdresses")==0){
+            echo 'class="active"';
+        }
+    ?> >Mes adresses</a>
+    <a href="mesAbonnements.php?position=mesAbonnements"
+    <?php 
+        if(strcmp ($_GET['position'], "mesAbonnements")==0){
+            echo 'class="active"';
+        }
+    ?> >Mes abonnements</a>
     <a href="changerMdp.php?position=changerMdp"
     <?php 
         if(strcmp ($_GET['position'], "changerMdp")==0){

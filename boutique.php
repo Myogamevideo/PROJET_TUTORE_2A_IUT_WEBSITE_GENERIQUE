@@ -20,7 +20,7 @@
                         ?>
                         <div class="slide s1">
                             <?php echo '<a style="text-decoration:none;" href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
-                            <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
+                            <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
                             </a>
                         </div>
                         <?php
@@ -28,7 +28,7 @@
                         ?>
                             <div class="slide">
                                 <?php echo '<a style="text-decoration:none;" href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
-                                <?php echo '<img src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
+                                <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
                                 </a>
                             </div>
                         <?php }
@@ -102,7 +102,7 @@
                                     <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
                                     <div class="card-image">
                                         <?php echo '
-                                        <img onClick="change_img(this)" src="public/image/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
+                                        <img onClick="change_img(this)" src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
                                         '; ?>
                                     </div>
                                     <div class="card-text">

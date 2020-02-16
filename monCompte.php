@@ -33,7 +33,7 @@
                                 </span>
                             </div>
                             <div class="image">
-                                <img src="public/image/placeholder.jpg" alt="">
+                                <img src="public/image/web/placeholder.jpg" alt="">
                             </div>
                         </div>
                     </div>
