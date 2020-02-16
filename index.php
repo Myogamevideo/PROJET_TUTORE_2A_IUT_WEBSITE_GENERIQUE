@@ -142,18 +142,18 @@
                             <table>
                                 <thead>
                                     <th>Auteur</th>
-                                    <th>Publication</th>
-                                    <th>Actions</th>
+                                    <th>Titre</th>
+                                    <th>Dernière Modification</th>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 4');
+                                    $reponse = $bdd->query('select id, idAuteur, titre, creation, lastModification from topic order by lastModification limit 4');
                                     while ($data = $reponse->fetch()) {
                                     ?>
                                         <tr>
+                                            <td> <?php echo $data['idAuteur'] ?></td>
                                             <td> <?php echo $data['titre'] ?></td>
-                                            <td> <?php echo $data['titre'] ?></td>
-                                            <td> <?php echo $data['titre'] ?></td>
+                                            <td> <?php echo $data['lastModification'] ?></td>
                                         </tr>
                                     <?php }
                                     $reponse->closeCursor(); ?>
