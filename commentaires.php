@@ -136,9 +136,57 @@
                                 <p class="textCommentaire"> <?php echo $donnees['commentaire']; ?></p>
                             </div>
                         </div>
+
                     <?php }
                     $req->closeCursor(); ?>
                 </div>
+
+                <div>
+                        <script type="text/javascript" src="public/js/commentaire.js"></script>
+                        <div class="btnAjout" href="javascript:void(0);" onclick="listCom()">
+                        <span class="nav-icon"><i class="fa fa-ellipsis-h fa-3x"  style="color:blue;"></i></span>
+                    </div>
+
+                <div id="listCom">
+                    <div class="commentaireArticle">
+                            <div class="infoCommentaire">
+                                <div class="info">
+                                    <label >Date :</label>
+                                    <p>02/02/02</p>
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-hourglass-2" style="color:black;"></i>
+                                    <label>3 min </label>
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-user-circle" style="color:black;"></i>
+                                    <label>Auteur : </label>
+                                    <p>Cloclo</p>
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-remove" style="color:red;"></i>
+                                    <input class="btnSupp" type="button" value="Supprimer">
+                                </div>
+                                <div class="info">
+                                    <i class="fa fa-pencil" style="color:yellow;"></i>
+                                    <input class="btnModif" type="button" value="Modifier">
+                                </div>     
+                            </div>
+                            
+                            <div  class="optionCommentaire">
+                                <button type="button" class="btn btn-primary" disabled="disabled"><strong>[b] Texte en gras [/b]</strong></button>
+                                <button type="button" class="btn btn-secondary" disabled="disabled"><em>[i] Texte en italique [/i]</em></button>
+                                <button type="button" class="btn btn-warning" disabled="disabled"><span style="color:red">[color=red] Texte en rouge [/color]</span></button>
+                                <button type="button" class="btn btn-link" disabled="disabled"><a href="">Lien : http://...</a></button>
+                            </div>
+                            <div>
+                                <P class="textCommentaire">kjdsqkjf kjd o eoo  oo if  ofof ioi oodsqo  q</p>
+                            </div>
+                        </div>
+
+
+
+
             </div>
         </div>
     </main>

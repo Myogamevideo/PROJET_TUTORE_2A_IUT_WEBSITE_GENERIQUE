@@ -30,6 +30,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="calendrier">
+                        <div class="petitCalendrier">
+                            <div id="calendar" class="calendar"></div>
+                            <script type="text/javascript" src="public/js/rendezVous.js"></script>
+                        </div>
+                    </div>
                 </div>
         </div>
     </main>

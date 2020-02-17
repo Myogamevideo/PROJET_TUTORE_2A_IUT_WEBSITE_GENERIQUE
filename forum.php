@@ -1,56 +1,85 @@
 <?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-accueil.css">
+<link rel="stylesheet" href="public/css/style-forum.css">
 
 <body>
 	<?php include('header-image.php') ?>
 	<main>
-		<!-- on place un lien permettant d'accéder à la page contenant le formulaire d'insertion d'un nouveau sujet -->
-		<a href="insert_sujet.php">Insérer un sujet</a><br /><br />
-		<?php
-		// préparation de la requete
-		$query = 'SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4';
-		// on compte le nombre de sujets du forum
-		$sql = $bdd->query($query);
-		$nb_sujets = $sql->rowCount();
+	<div class="container">
+            <div class="containerAll">
+				<h2>Forum :</h2>
+				<div class="divForum">
+					<h3>Nos forums : </h3>
+					<div class="listeDesForums">
+						<input type="button" class="forum" value="Artiste">
+						<input type="button" class="forum" value="Album">
+						<input type="button" class="forum" value="Concert">
+						<input type="button" class="forum" value="Création musicale">
+						<input type="button" class="forum" value="Mixage audio">
+						<input type="button" class="forum" value="Matériel">
+						<input type="button" class="forum" value="Autoradio">
+						<input type="button" class="forum" value="Synthétiseur">
+					</div>
+				</div>
+				<div class="divTopic">
+					
+							
+					<div class="topic">
+						<h3>Liste des derniers messages : </h3>
+						<a href="insert_sujet.php">Insérer un sujet</a>
 
-		if ($nb_sujets == 0) {
-			echo 'Aucun sujet';
-		}
-		else {
-			?>
-			<table width="500" border="1">
-				<tr>
-					<td>Auteur</td>
-					<td>Titre du sujet</td>
-					<td>Date dernière réponse</td>
-				</tr>
-			<?php
-			while ($data = $sql->fetch()) {
-				// on décompose la date
-				sscanf($data['lastModification'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
+						<?php
+						$query = 'SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4';
+						$sql = $bdd->query($query);
+						$nb_sujets = $sql->rowCount();
+						?>
+						<?php
+							if ($nb_sujets == 0) {
+								echo '<label>Aucun sujet</label>';
+							}
+							else {
+						?>
+						<ul class="listetopic">
+							<li>
+								<label>Auteur</label>
+								<label>Titre du sujet</label>
+								<label>Date dernière réponse</label>
+							</li>
+							<?php
+								while ($data = $sql->fetch()) {
+								// on décompose la date
+								sscanf($data['lastModification'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
 
-				// on affiche les résultats
-				echo '<tr>';
-				echo '<td>';
+								// on affiche les résultats
+								echo '<li>';
+								echo '<label>';
 
-				// on affiche le nom de l'auteur de sujet
-				echo htmlentities(trim($data['pseudo']));
-				echo '</td><td>';
+								// on affiche le nom de l'auteur de sujet
+								echo htmlentities(trim($data['pseudo']));
+								echo '</label>';
 
-				// on affiche le titre du sujet, et sur ce sujet, on insère le lien qui nous permettra de lire les différentes réponses de ce sujet
-				echo '<a href="lire_sujet.php?id_sujet_a_lire=' , $data['T.id'] , '">' , htmlentities(trim($data['titre'])) , '</a>';
+								// on affiche le titre du sujet, et sur ce sujet, on insère le lien qui nous permettra de lire les différentes réponses de ce sujet
+								echo '<a href="articleForum.php?id_sujet_a_lire=' , $data['T.id'] , '">' , htmlentities(trim($data['titre'])) , '</a>';
 
-				echo '</td><td>';
+								echo '<label>';
 
-				// on affiche la date de la dernière réponse de ce sujet
-				echo $jour , '-' , $mois , '-' , $annee , ' ' , $heure , ':' , $minute;
-				}
+								// on affiche la date de la dernière réponse de ce sujet
+								echo $jour , '-' , $mois , '-' , $annee , ' ' , $heure , ':' , $minute;
+								}
+								echo '</label></li>'
+							?>
+						</ul>
+					<div class="pagination">
+						<button  class="active" class="button">1</button>
+						<a href="#"><button>2</button></a> 
+                	</div>
+				</div>
+				<?php
+					}
+					$reponse->closeCursor();
 				?>
-			</td></tr></table>
-			<?php
-			}
-			$reponse->closeCursor();
-			?>
+				</div>
+			</div>
+		</div>
 		</main>
 	<?php include('footer.php') ?>
 </body>

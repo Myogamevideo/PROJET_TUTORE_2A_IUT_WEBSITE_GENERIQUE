@@ -37,9 +37,86 @@ input {
     background: white;
 }
 
-.calendrier{
+.calendar
+{
+  background:#fff;
+  border-radius:4px;
+  color:#222629;
+  max-width:400px;
+}
+
+.calendar button
+{
+  border:none;
+}
+
+.calendar .header
+{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    text-align: center;
+  background:pink;
+width: 100%;
+  border: 1px solid green;
+}
+
+.calendar .month
+{
+  display:inline-block;
+  font-weight:bold;
+  border: 1px solid violet;
+}
+
+.calendar button
+{
+  background:none;
+  cursor:pointer;
+  font-family:Consolas;
+  font-size:20px;
+  font-weight:bold;
+  height:100%;
+  border: 1px solid red;
+}
+
+.calendar button:hover
+{
+  color:#009FB7;
+}
+
+.calendar button:first-child
+{
+/*  float:left;*/
+    margin: 0;
+}
+/*
+.calendar button:last-child
+{
+/*  float:right;*//*
+}
+*/
+
+.calendar .cell
+{
+  background:#fff;
+  color:#5d5d5d;
+  display:inline-block;
+  padding:5px 0;
+  text-align:center;
+  width:calc(100% / 7);
+  cursor: pointer;
+}
+
+.calendar .day
+{
+    cursor: auto;
+    font-size: 10px;
+    background: gray;
+}
+
+.calendar .today
+{
+  background:#009FB7;
+  color:#fff;
 }
