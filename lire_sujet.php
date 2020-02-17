@@ -61,7 +61,7 @@
         <br />
         <br />
         <!-- on insère un lien qui nous permettra de retourner à l'accueil du forum -->
-        <a href="./index.php">Retour à l'accueil</a>
+        <a href="index.php">Retour à l'accueil</a>
 	</main>
 	<?php include('footer.php') ?>
 </body>
