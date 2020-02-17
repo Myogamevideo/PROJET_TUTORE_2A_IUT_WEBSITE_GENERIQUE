@@ -13,19 +13,13 @@ if (isset ($_POST['go']) && $_POST['go']=='Poster') {
 
 	// si tout est bon, on peut commencer l'insertion dans la base
 	else {
-		// on se connecte à notre base
-		$base = mysql_connect ('serveur', 'login', 'password');
-		mysql_select_db ('nom_base', $base) ;
-
 		// on calcule la date actuelle
-		$date = date("Y-m-d H:i:s");
-
+        $date = date("Y-m-d H:i:s");
+        $idMembre = "SELECT id FROM membre WHERE ".$_POST['auteur']."==pseudo";
 		// préparation de la requête d'insertion (pour la table forum_sujets)
-		$sql = 'INSERT INTO forum_sujets VALUES("", "'.mysql_escape_string($_POST['auteur']).'", "'.mysql_escape_string($_POST['titre']).'", "'.$date.'")';
+		$sql = "INSERT INTO topic VALUES("", "'.$idMembre.'", "'$_POST['titre'].'", "'.$date.'")";
 
-		// on lance la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
-		mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
-
+		$bdd->query($sql)
 		// on recupère l'id qui vient de s'insérer dans la table forum_sujets
 		$id_sujet = mysql_insert_id();
 
