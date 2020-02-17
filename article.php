@@ -36,7 +36,7 @@
                                         </div>
                                         <label>Artiste : </label>
                                         <div class="filtreSearch">
-                                            <input type="text" placeholder="Search..">
+                                            <input type="text" placeholder="Search.." name="recherche">
                                             <input type="submit" value="Valider"><i class="fa fa-search"></i></input>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
-                                            <span class="fa fa-star fa-2x checkedx"></span>
+                                            <span class="fa fa-star fa-2x checked"></span>
                                             <span class="fa fa-star fa-2x checked"></span>
                                     <?php
                                             break;
@@ -136,40 +136,64 @@
                                         <input type="submit" name="" value="XL">
                                         <input type="submit" name="" value="XXL">
                                     </div>
-                                <?php } ?>
-                                <div class="nbArticle">
-                                    <label>Nombre d'article : </label>
-                                    <input type="number" id="nbArticle" name="nbArticle" min="0" max="100" value="1">
+                                <?php
+                                }
+                                ?>
+                                <form method="GET">
+                                    <div class="nbArticle">
+                                        <label>Nombre d'article : </label>
+                                        <input type="number" id="nbArticle" name="nbArticle" min="1" max="10" value="1">
+                                        <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $_GET['reference_produit']; ?>">
+                                    </div>
+                                    <input type="submit" value="Ajouter au panier"><i class="fa fa-search"></i></input>
+                                </form>
+                                <div class="alert alert-danger">
+                                    <?php
+                                    if (isset($_GET['reference_produit']) and isset($_GET['nbArticle']) and $_GET['reference_produit'] != 0 and $_GET['nbArticle'] != 0) {
+                                        if (!isset($_SESSION['panier'])) {
+                                            $_SESSION['panier'] = array();
+                                            $_SESSION['panier']['id_produit'] = array();
+                                            $_SESSION['panier']['quantite'] = array();
+                                        }
+                                        $positionProduit = array_search($_GET['reference_produit'],  $_SESSION['panier']['id_produit']);
+                                        if ($positionProduit !== false) {
+                                            $_SESSION['panier']['quantite'][$positionProduit] += $_GET['nbArticle'];
+                                        }else{
+                                            array_push($_SESSION['panier']['id_produit'], $_GET['reference_produit']);
+                                            array_push($_SESSION['panier']['quantite'], $_GET['nbArticle']);
+                                        }
+                                        echo 'L\'article a été ajouté au panier';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
                         <div class="divAvisClient">
                             <label class="product-avis">Avis : </label>
                             <div class="divAvis">
-                                <div class="avisClient">
-                                    <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
-                                        littéraire, philologique; des éditions avec commentaires. </p>
-                                </div>
-                                <div class="avisClient">
-                                    <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
-                                        littéraire, philologique; des éditions avec commentaires. </p>
-                                </div>
-                                <div class="avisClient">
-                                    <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
-                                        littéraire, philologique; des éditions avec commentaires. </p>
-                                </div>
-                                <div class="avisClient">
-                                    <label class="surnameClient">Client blabla</label>
-                                    <p class="commentaire">Examen critique du contenu et de la forme d'un texte documentaire
-                                        ou littéraire, en vue d'une lecture plus pénétrante de ce texte. Un commentaire historique,
-                                        littéraire, philologique; des éditions avec commentaires. </p>
-                                </div>
+                                <?php
+                                $req = $bdd->prepare('select id,auteur,id_produit,date_avis,avis from avisProduit where id_produit=?');
+                                $req->execute(array($_GET['reference_produit']));
+                                while ($donnees = $req->fetch()) { ?>
+                                    <div class="avisClient">
+                                        <label>Date :</label>
+                                        <p> <?php echo $donnees['date_avis']; ?></p>
+                                        <i class="fa fa-user-circle" style="color:black;"></i>
+                                        <label class="surnameClient">Auteur : </label>
+                                        <p><?php echo $donnees['auteur']; ?></p>
+                                        <?php
+                                        if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] == $donnees['auteur']) {
+                                        ?>
+                                            <i class="fa fa-remove" style="color:red;"></i>
+                                            <?php
+                                            echo '<form method="POST" action="deleteavis.php?id=' . $donnees['id'] . '&amp;id_produit=' . $_GET['reference_produit'] . '">';
+                                            echo '<button type="submit" class="btnSupp"> Supprimer</button> ';
+                                            echo '</form>'; ?>
+                                        <?php } ?>
+                                        <p class="commentaire"> <?php echo $donnees['avis']; ?></p>
+                                    </div>
+                                <?php }
+                                $req->closeCursor(); ?>
                             </div>
                         </div>
                     </div>

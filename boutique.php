@@ -72,7 +72,7 @@
                                         </div>
                                         <label>Artiste : </label>
                                         <div class="filtreSearch">
-                                            <input type="text" placeholder="Search..">
+                                            <input type="text" placeholder="Search.." name="recherche">
                                             <input type="submit" value="Valider"><i class="fa fa-search"></i></input>
                                         </div>
                                     </div>
@@ -96,6 +96,13 @@
                                 $reponse = $bdd->prepare('select reference,nom,description,prix from produit where prix > ' . $_GET['prixMinimun'] . ' and prix <' . $_GET['prixMaximun'] . '');
                                 $reponse->execute();
                             }
+                            if (isset($_GET['recherche']) and !empty($_GET['recherche'])) {
+                                $recherche = htmlspecialchars($_GET['recherche']);
+                                $reponse = $bdd->query('SELECT reference,nom,description,prix  FROM produit WHERE nom LIKE "%' . $recherche . '%" ORDER BY reference DESC');
+                                if ($reponse->rowCount() == 0) {
+                                    $reponse = $bdd->query('SELECT reference,nom,description,prix  FROM produit WHERE CONCAT(nom, description) LIKE "%' . $recherche . '%" ORDER BY reference DESC');
+                                }
+                            }
                             while ($donnees = $reponse->fetch()) {
                             ?>
                                 <div class="card-product">
@@ -111,7 +118,27 @@
                                     </a>
                                     <div class="card-option">
                                         <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '" class="prix">' . $donnees['prix'] . '€ </a>'; ?>
-                                        <a href="#" class="caddie"><i class="fa fa-shopping-cart fa-2x" style="color:white;"></i></a>
+                                        <form method="GET">
+                                            <input type="hidden" id="nbArticle" name="nbArticle" value="1">
+                                            <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $donnees['reference']; ?>">
+                                            <input type="submit" class="caddie"><i class="fa fa-shopping-cart fa-2x" style="color:white;"></i></input>
+                                        </form>
+                                        <?php
+                                        if (isset($_GET['reference_produit']) and isset($_GET['nbArticle']) and $_GET['reference_produit'] != 0 and $_GET['nbArticle'] != 0) {
+                                            if (!isset($_SESSION['panier'])) {
+                                                $_SESSION['panier'] = array();
+                                                $_SESSION['panier']['id_produit'] = array();
+                                                $_SESSION['panier']['quantite'] = array();
+                                            }
+                                            $positionProduit = array_search($_GET['reference_produit'],  $_SESSION['panier']['id_produit']);
+                                            if ($positionProduit !== false) {
+                                                $_SESSION['panier']['quantite'][$positionProduit] += $_GET['nbArticle'];
+                                            } else {
+                                                array_push($_SESSION['panier']['id_produit'], $_GET['reference_produit']);
+                                                array_push($_SESSION['panier']['quantite'], $_GET['nbArticle']);
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             <?php }
