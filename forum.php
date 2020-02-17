@@ -11,6 +11,8 @@
 		$query = 'SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4';
 		// on compte le nombre de sujets du forum
 		$sql = $bdd->query($query);
+		$results = $sql->fetchAll();
+		//$nb_sujets = count($results);
 		$nb_sujets = $sql->rowCount();
 
 		if ($nb_sujets == 0) {
@@ -25,9 +27,9 @@
 					<td>Date dernière réponse</td>
 				</tr>
 			<?php
-			while ($data = $sql->fetch()) {
+			while ($data = $sql->fetchAll()) {
 				// on décompose la date
-				sscanf($data['lastModification'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
+				//sscanf($data['lastModification'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
 
 				// on affiche les résultats
 				echo '<tr>';
@@ -43,13 +45,13 @@
 				echo '</td><td>';
 
 				// on affiche la date de la dernière réponse de ce sujet
-				echo $jour , '-' , $mois , '-' , $annee , ' ' , $heure , ':' , $minute;
+				echo $data['lastModification'];
 				}
 				?>
 			</td></tr></table>
 			<?php
 			}
-			$reponse->closeCursor();
+			//$reponse->closeCursor();
 			?>
 		</main>
 	<?php include('footer.php') ?>
