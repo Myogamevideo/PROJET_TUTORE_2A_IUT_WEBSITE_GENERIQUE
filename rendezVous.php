@@ -30,10 +30,64 @@
                             </select>
                         </div>
                     </div>
-                    <div class="calendrier">
+                    <div class="calendriers">
                         <div class="petitCalendrier">
-                            <div id="calendar" class="calendar"></div>
+                            <div id="calendar1" class="calendar"></div>
                             <script type="text/javascript" src="public/js/rendezVous.js"></script>
+                            <div class="legende">
+                                <div class="legende">
+                                    <label>Conseiller disponible</label>
+                                    <canvas id='c1' class="rectangle"></canvas>
+                                </div>
+                                <div class="legende">
+                                    <label>Conseiller indisponible</label>
+                                    <canvas id='c1' class="conseillerIndisponible rectangle "></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grandCalendrier">
+                                <h3 class="jourChoisie"></h3>
+                                <table class="tabPriseRDV">
+                                    <th></th>
+                                    <?php
+                                        $listeHeure =['10h', '11h', '14h', '15h', '16h'];
+                                        for ($i=0; $i<count($listeHeure); $i++) {
+                                            echo '<th>'.$listeHeure[$i].'</th>';
+                                        }
+                                    ?>
+                                    <tr>
+                                        <td>Conseiller 1</td>
+                                        <?php
+                                            for ($i=0; $i<count($listeHeure); $i++) {
+                                                echo '<td class="conseillerIndisponible"> </td>';
+                                            }
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>Conseiller 2</td>
+                                        <?php
+                                            for ($i=0; $i<count($listeHeure); $i++) {
+                                                echo '<td> </td>';
+                                            }
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>Conseiller 3</td>
+                                        <?php
+                                            for ($i=0; $i<count($listeHeure); $i++) {
+                                                echo '<td> </td>';
+                                            }
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>Conseiller 4</td>
+                                        <td></td>
+                                        <td class="conseillerIndisponible"> </td>
+                                        <td></td>
+                                        <td class="conseillerIndisponible"> </td>
+                                        <td class="conseillerIndisponible"> </td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
                 </div>
