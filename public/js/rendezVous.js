@@ -143,7 +143,8 @@ function jourChoisie(date){
             var bla = monthList[date.getMonth()].toUpperCase() + ' ' + date.getFullYear();
             document.querySelector('.jourChoisie').innerHTML = "Rendez-vous pour le " + currentBtn.textContent +" " + bla;
             currentBtn.classList.add('today');
-            document.querySelector('.tabPriseRDV').setAttribute('class','width');
+            document.querySelector('table').setAttribute('class','width');
+            document.querySelector('.submit').setAttribute('class','width');
         });
     });
     
@@ -155,21 +156,4 @@ function logMessage(message) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-let canvas = document.getElementById('c1');
-let ctx = canvas.getContext('2d');
-
-ctx.strokeStyle = '#4444CC'; //Nuance de bleu
-ctx.strokeRect(50, 25, 200, 100);
 
