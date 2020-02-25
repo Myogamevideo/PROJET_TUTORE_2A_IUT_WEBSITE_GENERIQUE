@@ -52,14 +52,17 @@ input {
 
 .calendar .header
 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  background:pink;
-width: 100%;
-  border: 1px solid green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background:#66d9ff;
+  padding: 5px 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 0;
+  width: 100%;
 }
 
 .calendar .month
@@ -71,13 +74,13 @@ width: 100%;
 
 .calendar button
 {
-  background:none;
+  background:#99dcf3;
+  border-radius: 50%;
   cursor:pointer;
   font-family:Consolas;
   font-size:20px;
   font-weight:bold;
   height:100%;
-  border: 1px solid red;
 }
 
 .calendar button:hover
@@ -108,15 +111,87 @@ width: 100%;
   cursor: pointer;
 }
 
+.calendar .cell:hover{
+  background:#009FB7;
+  border-radius: 5px;
+  color: white;
+}
+
 .calendar .day
 {
     cursor: auto;
     font-size: 10px;
-    background: gray;
+    background: rgb(148, 216, 233);
+    padding: 10px 0;
 }
 
 .calendar .today
 {
-  background:#009FB7;
+  background:rgb(126, 231, 94);
   color:#fff;
+  border-radius: 5px;
+}
+
+
+
+
+.calendriers{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  border: 2px solid pink;
+
+}
+
+.grandCalendrier{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 2px solid red;
+}
+
+table{
+  padding: 5px;
+  width: 100%;
+  border: 1px solid grey;
+  background: white;
+}
+
+table th {
+  border: 1px solid grey;
+  font-size: 20px;
+}
+
+table td {
+  border: 1px solid grey;
+}
+
+
+.rectangle{
+  width: 50%;
+  background: white;
+}
+
+.conseillerIndisponible{
+  background: #5d5d5d;
+}
+
+.legende{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabPriseRDV{
+  display: none;
+}
+
+.width{
+  width: 100%;
 }
