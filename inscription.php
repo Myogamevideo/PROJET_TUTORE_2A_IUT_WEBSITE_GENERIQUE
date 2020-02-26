@@ -91,20 +91,6 @@
                     }
                     ?>
                 </div>
-                    <!--
-                    <div class="divInscription">
-                        <div class="inputBox" class="alignementLogo" class="divInscriptionChamps">
-                            <div>
-                                <i class="fa fa-picture-o fa-2x" style="color:white;"></i>
-                                <label>Une image vous représentant :</label>
-                            </div>
-                            <div class="inputImage">
-                                <input type="text" name="" require="">
-                                <input type="submit" name="" value="Parcourir">
-                            </div>
-                        </div>
-                    </div>
-                    -->
                     <input type="submit" name="" value="S'inscrire !">
                 </form>
 

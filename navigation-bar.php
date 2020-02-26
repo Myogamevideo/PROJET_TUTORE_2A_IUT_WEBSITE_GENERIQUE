@@ -4,19 +4,19 @@
     $req = $bdd->query('SELECT * FROM parametres WHERE 1');
     $donnees = $req->fetch();
     if ($donnees['nomBoutique'] != null) {
-        echo '<a href="boutique.php">' . $donnees['nomBoutique'] . '</a>';
+        echo '<a href="boutique/boutique.php">' . $donnees['nomBoutique'] . '</a>';
     }
     if ($donnees['nomBlog'] != null) {
-        echo '<a href="blog.php">' . $donnees['nomBlog'] . '</a>';
+        echo '<a href="blog/blog.php">' . $donnees['nomBlog'] . '</a>';
     }
     if ($donnees['nomForum'] != null) {
-        echo '<a href="forum.php">' . $donnees['nomForum'] . '</a>';
+        echo '<a href="forum/forum.php">' . $donnees['nomForum'] . '</a>';
     }
     if ($donnees['nomPortofolio'] != null) {
-        echo '<a href="portefolio.php">' . $donnees['nomPortofolio'] . '</a>';
+        echo '<a href="portefolio/portefolio.php">' . $donnees['nomPortofolio'] . '</a>';
     }
     if ($donnees['nomContact'] != null) {
-        echo '<a href="contact.php">' . $donnees['nomContact'] . '</a>';
+        echo '<a href="contact/contact.php">' . $donnees['nomContact'] . '</a>';
     }
     ?>
     <input type="text" placeholder="Search..">
@@ -24,7 +24,7 @@
     <div class="subnav">
         <?php
         if ($donnees['nomBoutique'] != null) {
-            echo '<a class="subnavbtn" href="panier.php"><i class="fa fa-shopping-cart fa-1x grey"></i></a>';
+            echo '<a class="subnavbtn" href="boutique/panier.php"><i class="fa fa-shopping-cart fa-1x grey"></i></a>';
         }
         ?> 
     </div>
@@ -34,7 +34,7 @@
             <a href="connexion.php">Connexion</a>
             <a href="inscription.php">Inscription</a>
             <?php if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != null) { ?>
-                <a href="monCompte.php?position=monCompte">Mon compte</a>
+                <a href="membreNA/monCompte.php?position=monCompte">Mon compte</a>
                 <a href="deconnexion.php">Deconnexion</a>
             <?php } ?>
         </div>

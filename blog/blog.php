@@ -53,7 +53,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                         if ($i == $pageCourante) {
                             echo '<button  class="active" class="button">' . $i . '</button>';
                         } else {
-                            echo '<a href="blog.php?page=' . $i . '"><button>' . $i . '</button></a> ';
+                            echo '<a href="blog/blog.php?page=' . $i . '"><button>' . $i . '</button></a> ';
                         }
                     }
                     ?>

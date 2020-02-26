@@ -19,7 +19,7 @@
                     <div class="slide s1">
                         <?php
                         $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
-                        echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
+                        echo '<a style="text-decoration:none;" href="blog/commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
                         <?php echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="slide">
                             <?php
                             $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
-                            echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
+                            echo '<a style="text-decoration:none;" href="blog/commentaires.php?id_billet=' . $donnees['id'] . '">'; ?>
                             <?php echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                 $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
                 while ($donnees = $reponse->fetch()) {
                     $image = str_replace(' ', '', 'public/image/boutique/' . $donnees['titre'] . '.jpg');
-                    echo '<a href="commentaires.php?id_billet=' . $donnees['id'] . '">
+                    echo '<a href="blog/commentaires.php?id_billet=' . $donnees['id'] . '">
                         <img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">
                     </a>'; ?>
                 <?php }
@@ -62,7 +62,7 @@
                 if ($donnees['nomBlog'] != null) { ?>
                     <div class="presentation-card">
                         <h2>Dernier <?php echo $donnees['nomBlog']; ?> :</h2>
-                        <button class="button" onclick="javascript:location.href='blog.php'"><span> + <?php echo $donnees['nomBlog']; ?></span></button>
+                        <button class="button" onclick="javascript:location.href='blog/blog.php'"><span> + <?php echo $donnees['nomBlog']; ?></span></button>
                     </div>
                     <div class="liste-card">
                         <?php
@@ -70,7 +70,7 @@
                         while ($data = $reponse->fetch()) {
                         ?>
                             <div class="flip-card">
-                                <?php echo '<a style="text-decoration:none;" href="commentaires.php?id_billet=' . $data['id'] . '">'; ?>
+                                <?php echo '<a style="text-decoration:none;" href="blog/commentaires.php?id_billet=' . $data['id'] . '">'; ?>
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
                                         <?php
@@ -100,7 +100,7 @@
                     if ($donnees['nomBoutique'] != null) { ?>
                         <div class="presentation-card">
                             <h2><?php echo $donnees['nomBoutique']; ?> mis en avant :</h2>
-                            <button class="button" onclick="javascript:location.href='boutique.php'"><span> + <?php echo $donnees['nomBoutique']; ?></span></button>
+                            <button class="button" onclick="javascript:location.href='boutique/boutique.php'"><span> + <?php echo $donnees['nomBoutique']; ?></span></button>
                         </div>
                         <div class="liste-card">
                             <?php
@@ -108,7 +108,7 @@
                             while ($data = $reponse->fetch()) {
                             ?>
                                 <div class="flip-card">
-                                    <?php echo '<a style="text-decoration:none;" href="blog.php?id_billet=' . $data['reference'] . '">'; ?>
+                                    <?php echo '<a style="text-decoration:none;" href="blog/blog.php?id_billet=' . $data['reference'] . '">'; ?>
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
                                             <?php echo '<img src="public/image/boutique/' . $data['nom'] . '.jpg" alt="Image : ' . $data['nom'] . '" style="width:350px;height:200px;">'; ?>
@@ -137,7 +137,7 @@
                         if ($donnees['nomForum'] != null) { ?>
                             <div class="presentation-card">
                                 <h2><?php echo $donnees['nomForum']; ?> :</h2>
-                                <button class="button" onclick="javascript:location.href='forum.php'"><span> + <?php echo $donnees['nomForum']; ?></span></button>
+                                <button class="button" onclick="javascript:location.href='forum/forum.php'"><span> + <?php echo $donnees['nomForum']; ?></span></button>
                             </div>
                             <table>
                                 <thead>

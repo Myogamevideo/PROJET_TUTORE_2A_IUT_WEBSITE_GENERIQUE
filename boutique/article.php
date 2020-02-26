@@ -10,9 +10,9 @@
                 <div class="containerArticle">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <a href="boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
-                            <a href="boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
-                            <a href="boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
+                            <a href="boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
+                            <a href="boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
+                            <a href="boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
                                 <script type="text/javascript" src="public/js/boutique.js"></script>
@@ -22,7 +22,7 @@
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <form method="GET" action="boutique.php">
+                                <form method="GET" action="boutique/boutique.php">
                                     <?php
                                     if (isset($_GET['categorie']) and !empty($_GET['categorie'])) {
                                     ?> <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['categorie']; ?>">

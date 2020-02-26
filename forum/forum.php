@@ -58,7 +58,7 @@
 								echo '</label>';
 
 								// on affiche le titre du sujet, et sur ce sujet, on insère le lien qui nous permettra de lire les différentes réponses de ce sujet
-								echo '<a href="articleForum.php?id_sujet_a_lire=' , $data['T.id'] , '">' , htmlentities(trim($data['titre'])) , '</a>';
+								echo '<a href="forum/articleForum.php?id_sujet_a_lire=' , $data['T.id'] , '">' , htmlentities(trim($data['titre'])) , '</a>';
 
 								echo '<label>';
 
