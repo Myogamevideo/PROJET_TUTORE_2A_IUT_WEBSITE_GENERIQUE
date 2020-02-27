@@ -8,7 +8,7 @@
             <h2>Abonnement Newsletter éffectué ! </h2>
             <?php
             if (isset($_POST['mail'])&&$_POST['mail'] != NULL&&preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail'])){
-                $req = $bdd->prepare('insert into abonnéNewsletter (id,mail) values (,:email)');
+                $req = $bdd->prepare('insert into abonnéNewsletter values (,:email)');
                 $req->execute(array(
                     'email' => $_POST['mail'],
                 ));
