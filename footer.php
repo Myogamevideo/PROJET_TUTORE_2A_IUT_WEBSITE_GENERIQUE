@@ -25,7 +25,7 @@
             <div class="footer-newsletter">
                 <h3>Abonnez-vous à la Newsletter : </h3>
                 <div>
-                    <form method="POST" action="newsletter.php">
+                    <form method="POST" action="/newsletter.php">
                         <input type="email" id="mail" name="mail" placeholder="Veuillez entrer votre addresse e-mail" size="40">
                         <input type="submit" name="" value="Go !">
                     </form>
