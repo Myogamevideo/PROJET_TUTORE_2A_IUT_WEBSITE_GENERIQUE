@@ -25,18 +25,10 @@
             <div class="footer-newsletter">
                 <h3>Abonnez-vous à la Newsletter : </h3>
                 <div>
-                    <form method="POST" action="footer.php">
+                    <form method="POST" action="newsletter.php">
                         <input type="email" id="mail" name="mail" placeholder="Veuillez entrer votre addresse e-mail" size="40">
                         <input type="submit" name="" value="Go !">
                     </form>
-                    <?php
-                        if (isset($_POST['mail'])&&$_POST['mail'] != NULL&&preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail'])){
-                            $req = $bdd->prepare('insert into abonnéNewsletter (id,mail) values (,:email)');
-                            $req->execute(array(
-                                'email' => $_POST['mail'],
-                            ));
-                        }
-                    ?>
                 </div>
             </div>
         </div>
