@@ -1,5 +1,5 @@
 <?php include('../head.php') ?>
-<link rel="stylesheet" href="public/css/style-quiNousSommes.css">
+<link rel="stylesheet" href="../public/css/style-quiNousSommes.css">
 
 <body>
     <?php include('../header-image.php') ?>
@@ -11,7 +11,7 @@
                     <div class="divProjet">
                         <div class="projet">
                             <div class="circle">
-                                <img src="public/image/portefolio/quiSommesNous.jpg">
+                                <img src="../public/image/portefolio/quiSommesNous.jpg">
                                 <div>
                                     <h2>Description de l'entreprise :</h2>
                                     <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
@@ -27,21 +27,21 @@
                         </div>
                         <div class="presentionDirecteur">
                             <div class="card">
-                                <img src="public/image/portefolio/quiNousSommes/directeur.jpg">
+                                <img src="../public/image/portefolio/quiNousSommes/directeur.jpg">
                                 <div class="info">
                                     <label class="nom">Michel Dupond</label>
                                     <label class="status">Directeur de l'entreprise</label>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="public/image/portefolio/quiNousSommes/secretaire.jpg">
+                                <img src="../public/image/portefolio/quiNousSommes/secretaire.jpg">
                                 <div class="info">
                                     <label class="nom">Tati Tatou</label>
                                     <label class="status">Assistance</label>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="public/image/portefolio/quiNousSommes/responsableMarketing.jpg">
+                                <img src="../public/image/portefolio/quiNousSommes/responsableMarketing.jpg">
                                 <div class="info">
                                     <label class="nom">Joëlle Princessa</label>
                                     <label class="status">Directrice marketing</label>
@@ -78,7 +78,6 @@
                                     sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons </p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

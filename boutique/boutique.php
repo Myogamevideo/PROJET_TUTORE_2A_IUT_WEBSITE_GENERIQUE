@@ -51,14 +51,14 @@
                             <a href="../boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
-                                <script type="text/javascript" src="public/js/boutique.js"></script>
+                                <script type="text/javascript" src="../public/js/boutique.js"></script>
                                 <li href="javascript:void(0);" onclick="myFunction()">
                                     <span class="nav-icon"><i class="fa fa-bars"></i></span>
                                     Filtres
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <form method="GET" action="boutique/boutique.php">
+                                <form method="GET" action="../boutique/boutique.php">
                                     <?php
                                     if (isset($_GET['categorie']) and !empty($_GET['categorie'])) {
                                     ?> <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['categorie']; ?>">
@@ -118,18 +118,20 @@
                                     </a>
                                     <div class="card-option">
                                         <?php echo '<a href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '" class="prix">' . $donnees['prix'] . '€ </a>'; ?>
-                                        <form method="GET">
-                                            <input type="hidden" id="nbArticle" name="nbArticle" value="1">
+                                        <form method="GET" action="../boutique/boutique.php">
                                             <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $donnees['reference']; ?>">
+                                            <input type="hidden" id="nbArticle" name="nbArticle" value="1">
                                             <input type="submit" class="caddie"><i class="fa fa-shopping-cart fa-2x" style="color:white;"></i></input>
                                         </form>
                                         <?php
+                                        echo $_GET['nbArticle'];
                                         if (isset($_GET['reference_produit']) and isset($_GET['nbArticle']) and $_GET['reference_produit'] != 0 and $_GET['nbArticle'] != 0) {
                                             if (!isset($_SESSION['panier'])) {
                                                 $_SESSION['panier'] = array();
                                                 $_SESSION['panier']['id_produit'] = array();
                                                 $_SESSION['panier']['quantite'] = array();
                                             }
+                                            echo $_GET['nbArticle'];
                                             $positionProduit = array_search($_GET['reference_produit'],  $_SESSION['panier']['id_produit']);
                                             if ($positionProduit !== false) {
                                                 $_SESSION['panier']['quantite'][$positionProduit] += $_GET['nbArticle'];

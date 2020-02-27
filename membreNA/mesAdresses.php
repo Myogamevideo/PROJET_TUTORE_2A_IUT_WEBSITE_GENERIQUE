@@ -1,6 +1,13 @@
 <?php include('../head.php') ?>
 <link rel="stylesheet" href="../public/css/style-mesAdresses.css">
 
+
+<?php
+if (isset($_GET['id_adresse']) && $_GET['id_adresse'] != NULL) {
+    $_SESSION['id_adresse'] = $_GET['id_adresse'];
+}
+?>
+
 <body>
     <?php include('../header-image.php') ?>
     <main>
@@ -15,34 +22,34 @@
                         <h3>Mes adresses : </h3>
                         <div class="adresse">
                             <div class="listeAdresse">
-                                <h5>Mon adresse principale :</h5>
-                                <div class="adressePrincipale divAdresse">
-                                    <p>Nom : <label>Dragnir</label></p>
-                                    <p>Prénom : <label>Natsu</label></p>
-                                    <p>Code postal : <label>63000</label></p>
-                                    <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                </div>
-                                <h5>Mes adresse principale :</h5>
-                                <div class="adresseSecondaire divAdresse">
-                                    <p>Nom : <label>Heartfilia</label></p>
-                                    <p>Prénom : <label>Lucy</label></p>
-                                    <p>Code postal : <label>63000</label></p>
-                                    <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                </div>
-                                <div class="adresseSecondaire divAdresse">
-                                    <p>Nom : <label>Heartfilia</label></p>
-                                    <p>Prénom : <label>Lucy</label></p>
-                                    <p>Code postal : <label>63000</label></p>
-                                    <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                </div>
+                                <h5>Mes adresse:</h5>
+                                <?php
+                                $reponse = $bdd->prepare('SELECT * from adresse where idUtilisateur=?');
+                                $reponse->execute(array($_SESSION['id']));
+                                while ($donnees = $reponse->fetch()) {
+                                    if ($_SESSION['id_adresse'] != NULL) {
+                                        if ($donnees['id'] == $_SESSION['id_adresse']) {
+                                            echo '<div class="adressePrincipale divAdresse">';
+                                        } else {
+                                            echo '<div class="adresseSecondaire divAdresse">';
+                                        }
+                                    } else {
+                                        echo '<div class="divAdresse">';
+                                    }
+                                    echo '<a style="text-decoration:none;" href="../membreNA/mesAdresses.php?id_adresse=' . $donnees['id'] . '">';
+                                ?>
+                                    <p>Complément d'adresse : <label><?php echo $donnees['rue']; ?></label></p>
+                                    <p>Code postal : <label><?php echo $donnees['codePostal']; ?></label></p>
+                                    <p>Ville : <label><?php echo $donnees['ville']; ?></label></p>
+                                    <p>Pays : <label><?php echo $donnees['pays']; ?></label></p>
+                                    </a>
+                                <?php
+                                    echo '</div>';
+                                }
+                                $reponse->closeCursor(); ?>
                             </div>
                             <div class="divButtons">
-                            <script type="text/javascript" src="../public/js/MonCompte.js"></script>
-
-                                <button class="button" type="button">
-                                    <i class="fa fa-address-card-o fa-2x" style="color:red;"></i>
-                                    Changer l'adresse principale
-                                </button>
+                                <script type="text/javascript" src="../public/js/MonCompte.js"></script>
                                 <button class="button" type="button">
                                     <i class="fa fa-plus-circle fa-2x" style="color:orange;"></i>
                                     Ajouter une adresse

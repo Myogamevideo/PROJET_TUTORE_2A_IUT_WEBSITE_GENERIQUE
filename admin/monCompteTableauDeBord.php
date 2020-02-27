@@ -1,5 +1,6 @@
 <?php include('../head.php') ?>
 <link rel="stylesheet" href="../public/css/style-monCompteTableauDeBord.css">
+
 <body>
     <?php include('../header-image.php') ?>
     <main>
@@ -10,7 +11,7 @@
                 <h2>Mon compte</h2>
                 <label class="divMonCompte">
                     <div class="barreNavigation">
-                       <?php include('../barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <label class="divTableauDeBord">
                         <h3>Tableau de bord : </h3>
@@ -19,46 +20,21 @@
                                 <div class="top10Article">
                                     <label>Top 10 des articles les plus vendus</label>
                                     <ul class="listeTop10Article">
-                                        <li>
-                                            <label class="nomProduit">Produit1</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit2</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit3</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit4</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit5</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit7</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit7</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit8</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit9</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
-                                        <li>
-                                            <label class="nomProduit">Produit10</label>
-                                            <a href="#">Plus de détail»</a>
-                                        </li>
+                                        <?php
+                                        $reponse = $bdd->query('SELECT id_produit, count(id_produit) as cs from commande group by id_produit order by cs desc limit 10');
+                                        while ($donnees = $reponse->fetch()) {
+                                            $req = $bdd->prepare('SELECT * where reference = ?');
+                                            $reponse->execute(array($donnees['id_produit']));
+                                            $data = $req->fetch();
+                                        ?>
+                                            <li>
+                                                <label class="nomProduit"><?php echo $data['nom']; ?></label>
+                                                <a href="#"><?php echo $donnees['cs']; ?></a>
+                                            </li>
+                                        <?php
+                                            $req->closeCursor();
+                                        }
+                                        $reponse->closeCursor(); ?>
                                     </ul>
                                 </div>
 
@@ -99,9 +75,5 @@
     </main>
     <?php include('../footer.php') ?>
 </body>
+
 </html>
-
-
-
-
-

@@ -1,6 +1,13 @@
 <?php include('../head.php') ?>
-<link rel="stylesheet" href="public/css/style-livraison.css">
-<link rel="stylesheet" href="public/css/style-barreCommande.css">
+<link rel="stylesheet" href="../public/css/style-livraison.css">
+<link rel="stylesheet" href="../public/css/style-barreCommande.css">
+<link rel="stylesheet" href="../public/css/style-connexion.css">
+
+<?php
+if (isset($_GET['id_adresse']) && $_GET['id_adresse'] != NULL) {
+    $_SESSION['id_adresse'] = $_GET['id_adresse'];
+}
+?>
 
 <body>
     <?php include('../header-image.php') ?>
@@ -11,7 +18,7 @@
                 <div class="contentAll">
                     <div class="divLivraison">
                         <div class="barreCommande">
-                            <?php include('boutique/barreCommande.php')  ?>
+                            <?php include('../boutique/barreCommande.php')  ?>
                         </div>
                         <div class="livraison">
                             <h3>Lieu de livraison :</h3>
@@ -19,7 +26,7 @@
                                 <h3>Veuillez vous inscire ou vous connectez pour acheter dans la boutique</h3>
                                 <div class="boxConnexion">
                                     <h2>Connexion : </h2>
-                                    <form method="POST" action="connexion.php">
+                                    <form method="POST" action="livraison.php">
                                         <div class="inputBox" class="alignementLogo" class="divConnexion">
                                             <i class="fa fa-user-circle fa-2x" style="color:white;"></i>
                                             <label>Username</label>
@@ -52,7 +59,7 @@
                                                 $_SESSION['id'] = $donne['id'];
                                                 $_SESSION['pseudo'] = $_COOKIE['pseudo'];
                                                 $_SESSION['statu'] = $donne['statu'];
-                                                header('location: boutique/livraison.php');
+                                                header('location: ../boutique/livraison.php');
                                             }
                                         }
 
@@ -80,9 +87,9 @@
                                                         $donne = $req->fetch();
                                                         setcookie('mdp', $donne['pass'], time() + 3600, null, null, false, true);
                                                         setcookie('statu', $donne['statu'], time() + 3600, null, null, false, true);
-                                                        header('location: boutique/livraison.php');
+                                                        header('location: ../boutique/livraison.php');
                                                     } else {
-                                                        header('location: boutique/livraison.php');
+                                                        header('location: ../boutique/livraison.php');
                                                     }
                                                 } else {
                                                     echo '<strong>Information : </strong> Mauvais identifiant ou mot de passe';
@@ -99,28 +106,33 @@
                             } else {
                             ?>
                                 <div class="mesAdresse">
-                                    <div class="adressePrincipale divAdresse">
-                                        <h5>Mon adresse principale :</h5>
-                                        <p>Nom : <label>Dragnir</label></p>
-                                        <p>Prénom : <label>Natsu</label></p>
-                                        <p>Code postal : <label>63000</label></p>
-                                        <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                    </div>
-                                    <div class="adresseSecondaire divAdresse">
-                                        <h5>Adresse secondaire 1 :</h5>
-                                        <p>Nom : <label>Heartfilia</label></p>
-                                        <p>Prénom : <label>Lucy</label></p>
-                                        <p>Code postal : <label>63000</label></p>
-                                        <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                    </div>
-                                    <div class="adresseSecondaire divAdresse">
-                                        <h5>Adresse secondaire 1 :</h5>
-                                        <p>Nom : <label>Heartfilia</label></p>
-                                        <p>Prénom : <label>Lucy</label></p>
-                                        <p>Code postal : <label>63000</label></p>
-                                        <p>Complément d'adresse : <label>15 rue Roche Génès</label></p>
-                                    </div>
+                                    <h5>Mes adresse:</h5>
+                                    <?php
+                                    $reponse = $bdd->prepare('SELECT * from adresse where idUtilisateur=?');
+                                    $reponse->execute(array($_SESSION['id']));
+                                    while ($donnees = $reponse->fetch()) {
+                                        if ($_SESSION['id_adresse'] != NULL) {
+                                            if ($donnees['id'] == $_SESSION['id_adresse']) {
+                                                echo '<div class="adressePrincipale divAdresse">';
+                                            } else {
+                                                echo '<div class="adresseSecondaire divAdresse">';
+                                            }
+                                        } else {
+                                            echo '<div class="divAdresse">';
+                                        }
+                                        echo '<a style="text-decoration:none;" href="../boutique/livraison.php?id_adresse=' . $donnees['id'] . '">';
+                                    ?>
+                                        <p>Complément d'adresse : <label><?php echo $donnees['rue']; ?></label></p>
+                                        <p>Code postal : <label><?php echo $donnees['codePostal']; ?></label></p>
+                                        <p>Ville : <label><?php echo $donnees['ville']; ?></label></p>
+                                        <p>Pays : <label><?php echo $donnees['pays']; ?></label></p>
+                                        </a>
+                                    <?php
+                                        echo '</div>';
+                                    }
+                                    $reponse->closeCursor(); ?>
                                 </div>
+                                <!--
                                 <div class="divButton">
                                     <button class="button" type="button">
                                         <i class="fa fa-plus-circle fa-2x" style="color:orange;"></i>
@@ -131,22 +143,30 @@
                                         Modifier une adresse
                                     </button>
                                 </div>
+                                -->
                         </div>
-                        <div>
+                    </div>
+                    <div>
+                        <!--
                             <div>
                                 <h3>Détail de la livraison :</h3>
                                 <div>
                                     <p>Livraison dans les 5 jours ouvrables pour un montant de 5,99€</p>
                                 </div>
                             </div>
-                            <div class="centrebtn">
-                                <a href="boutique/paiement.php">Valider</a>
-                            </div>
+                                -->
+                        <div class="centrebtn">
+                            <?php if (isset($_SESSION['id_adresse'])) {
+                                    echo '<a href="../boutique/paiement.php">Valider</a>';
+                                } else {
+                                    echo 'Veuillez sélectionner un endroit de livraison';
+                                }
+                            ?>
                         </div>
-                    <?php
-                            }
-                    ?>
                     </div>
+                <?php
+                            }
+                ?>
                 </div>
             </div>
         </div>

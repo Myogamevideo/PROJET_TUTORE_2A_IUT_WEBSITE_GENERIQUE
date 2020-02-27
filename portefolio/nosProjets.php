@@ -1,5 +1,5 @@
 <?php include('../head.php') ?>
-<link rel="stylesheet" href="public/css/style-nosProjet.css">
+<link rel="stylesheet" href="../public/css/style-nosProjet.css">
 
 <body>
     <?php include('../header-image.php') ?>
@@ -11,7 +11,7 @@
                     <div class="divProjet">
                         <div class="projet">
                             <div class="circle">
-                                <img src="public/image/portefolio/projets/nosProjet.jpg">
+                                <img src="../public/image/portefolio/projets/nosProjet.jpg">
                                 <div>
                                     <h2>Titre du projet</h2>
                                     <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
@@ -27,7 +27,7 @@
                         </div>
                         <div class="projet">
                             <div class="circle">
-                                <img src="public/image/portefolio/projets/nosProjet.jpg">
+                                <img src="../public/image/portefolio/projets/nosProjet.jpg">
                                 <div>
                                     <h2>Titre du projet</h2>
                                     <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
@@ -43,7 +43,7 @@
                         </div>
                         <div class="projet">
                             <div class="circle">
-                                <img src="public/image/portefolio/projets/nosProjet.jpg">
+                                <img src="../public/image/portefolio/projets/nosProjet.jpg">
                                 <div>
                                     <h2>Titre du projet</h2>
                                     <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 

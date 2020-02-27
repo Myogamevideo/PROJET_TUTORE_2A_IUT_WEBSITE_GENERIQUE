@@ -26,7 +26,7 @@
                                 $req = $bdd->prepare('SELECT * FROM produit WHERE reference=?');
                                 $req->execute(array($_SESSION['panier']['id_produit'][$i]));
                                 $donnees = $req->fetch();
-                                echo '<td><img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '" width="50px"></td>';
+                                echo '<td><img src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '" width="50px"></td>';
                                 echo '<td>' . $donnees['nom'] . '</td>';
                                 echo '<td>';
                                 $selected = '';
@@ -50,7 +50,11 @@
                         <input type="text" name="promo" id="promo" placeholder="Code promo ...">
                         <input class="btn" type="submit" value="Appliquer">
                     </div>
-                    <a href="boutique/livraison.php" class="buttonAction">Valider</a>
+                    <?php 
+                        if(isset($_SESSION['panier']) && $_SESSION['panier'] != NULL){
+                            echo '<a href="../boutique/livraison.php" class="buttonAction">Valider</a>';
+                        }
+                    ?>
                 </div>
                 <div class="divRecapPanier">
                     <h3>Sommaire de commande :</h3>

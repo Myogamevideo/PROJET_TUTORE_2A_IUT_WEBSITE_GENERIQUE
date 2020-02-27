@@ -1,12 +1,7 @@
 <?php
 try {
-<<<<<<< HEAD
     $bdd = new PDO('mysql:host=cfaifrnfzyg5.mysql.db;dbname=cfaifrnfzyg5;charset=utf8', 'cfaifrnfzyg5', 'Aiut2020');
     //$bdd =  new PDO("mysql:dbname=cfaifrnfzyg5;host=localhost;charset=utf8", 'root', '');
-=======
-    //$bdd = new PDO('mysql:host=cfaifrnfzyg5.mysql.db;dbname=cfaifrnfzyg5;charset=utf8', 'cfaifrnfzyg5', 'Aiut2020');
-    $bdd =  new PDO("mysql:host=localhost;dbname=cfaifrnfzyg5;charset=utf8", 'root', '');
->>>>>>> 363032f0acda332fadb7fd41b03bfd2c43861573
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die('Erreur :' . $e->getMessage());

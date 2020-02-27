@@ -7,7 +7,6 @@
         ?>
         <h4>Copyright © Tous droits réservés.</h4>
         <div>
-            <a href="#">Anglais</a>
             <a href="#">Français</a>
         </div>
     </div>
@@ -34,12 +33,11 @@
         </div>
         <div class="footer-bas">
             <?php 
-                echo '<a href="#">A propos de '.$donnees['nomDuSite'].'</a>'
+                echo '<a href="../portefolio/portefolio.php">A propos de '.$donnees['nomDuSite'].'</a>'
             ?>
-            <a href="#">Contact</a>
-            <a href="#">Plan du site</a>
-            <a href="#">Politique sur les cookies</a>
-            <a href="#">Conditions d'utilisation</a>
+            <a href="../contact/contact.php">Contact</a>
+            <a href="../politiquecookies.php">Politique sur les cookies</a>
+            <a href="../conditionutilisation.php">Conditions d'utilisation</a>
         </div>
     </div>
 </footer>
