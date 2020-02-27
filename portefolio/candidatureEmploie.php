@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
+<?php include('../head.php') ?>
 <link rel="stylesheet" href="public/css/style-candidatureEmploie.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
@@ -101,7 +101,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

@@ -1,14 +1,14 @@
-<?php include('head.php') ?>
+<?php include('../head.php') ?>
 <link rel="stylesheet" href="public/css/style-paiement.css">
 <link rel="stylesheet" href="public/css/style-barreCommande.css">
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <h2>Commander :</h2>
             <div class="divPaiement">
                 <div class="barreCommande">
-                    <?php include('barreCommande.php')  ?>
+                    <?php include('boutique/barreCommande.php')  ?>
                 </div>
                 <div class="paiement">
                     <h3>Moyen de paiments :</h3>
@@ -89,13 +89,13 @@
                         </div>
                     </div>
                     <div class="centrebtn">
-                        <a href="recapitulatif.php">Valider</a>
+                        <a href="boutique/recapitulatif.php">Valider</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

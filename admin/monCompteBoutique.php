@@ -1,7 +1,7 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-monCompteBoutique.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-monCompteBoutique.css">
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <script type="text/javascript" src="public/js/monCompteBoutique.js"></script>
         <script type="text/javascript" src="public/js/MonCompte.js"></script>
@@ -10,7 +10,7 @@
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                       <?php include('barreNavidationCompte.php')  ?>
+                       <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divGestion">
                         <h3>Gestion de la boutique : </h3>
@@ -214,6 +214,6 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 </html>

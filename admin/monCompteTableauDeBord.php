@@ -1,16 +1,16 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-monCompteTableauDeBord.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-monCompteTableauDeBord.css">
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript" src="public/js/diagrammeMonCompte.js"></script>
+        <script type="text/javascript" src="../public/js/diagrammeMonCompte.js"></script>
         <label class="container">
             <label class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <label class="divMonCompte">
                     <div class="barreNavigation">
-                       <?php include('barreNavidationCompte.php')  ?>
+                       <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <label class="divTableauDeBord">
                         <h3>Tableau de bord : </h3>
@@ -97,7 +97,7 @@
             </label>
         </label>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 </html>
 

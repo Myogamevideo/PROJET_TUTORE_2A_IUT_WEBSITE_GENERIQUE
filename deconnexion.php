@@ -4,5 +4,5 @@
     session_destroy();
     setcookie('pseudo','');
     setcookie('mdp','');
-    header('location: index.php');
+    header('location: ../index.php');
     

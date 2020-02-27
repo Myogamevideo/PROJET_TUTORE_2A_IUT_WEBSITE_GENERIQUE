@@ -1,5 +1,5 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-blog.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-blog.css">
 
 <?php
 $ArticleParPage = 5;
@@ -16,7 +16,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
 ?>
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
@@ -29,7 +29,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                         <div class="divBlog">
                             <div class="blogPostImage">
                                 <?php
-                                $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
+                                $image = str_replace(' ', '', '../public/image/blog/' . $donnees['titre'] . '.jpg');
                                 echo '<img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">'; ?>
                             </div>
                             <div class="blogPostInfo">
@@ -40,7 +40,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                                 <P><?php $chaine = $donnees['contenu'];
                                     $morceau_chaine = substr($donnees['contenu'], 0, 225);
                                     echo $morceau_chaine; ?></P>
-                                <a <?php echo 'href="commentaires.php?id_billet=' . $donnees['id'] . '"' ?> class="blogPostLien">Lire plus ...</a>
+                                <a <?php echo 'href="../blog/commentaires.php?id_billet=' . $donnees['id'] . '"' ?> class="blogPostLien">Lire plus ...</a>
                             </div>
                         </div>
 
@@ -53,7 +53,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
                         if ($i == $pageCourante) {
                             echo '<button  class="active" class="button">' . $i . '</button>';
                         } else {
-                            echo '<a href="blog/blog.php?page=' . $i . '"><button>' . $i . '</button></a> ';
+                            echo '<a href="../blog/blog.php?page=' . $i . '"><button>' . $i . '</button></a> ';
                         }
                     }
                     ?>
@@ -61,7 +61,7 @@ $depart = ($pageCourante - 1) * $ArticleParPage;
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

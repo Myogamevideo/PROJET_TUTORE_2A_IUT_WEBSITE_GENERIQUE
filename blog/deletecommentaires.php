@@ -8,4 +8,4 @@ try {
 
 $req = $bdd->prepare('delete from commentaires where id=?');
 $req->execute(array($_GET['id']));
-header('location: commentaires.php?id_billet=' . $_GET['id_billet'] . '');
+header('location: blog/commentaires.php?id_billet=' . $_GET['id_billet'] . '');

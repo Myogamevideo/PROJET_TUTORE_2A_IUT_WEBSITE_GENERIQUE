@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-modifiernews.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-modifiernews.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
         <h1 class="mt-5"> Modification de la news :</h1>
@@ -12,7 +12,7 @@
         $donne = $req->fetch();
 
         echo '<h2>   (' . $_GET['id'] . ') ' . $donne['titre'] . '</h2>';
-        echo '<form method="POST" action="modifiernews.php?id=' . $_GET['id'] . '">';
+        echo '<form method="POST" action="../admin/modifiernews.php?id=' . $_GET['id'] . '">';
         ?>
         <table>
             <thead>
@@ -80,7 +80,7 @@
         </div>
     </div>
 </main>
-<?php include('footer.php') ?>
+<?php include('../footer.php') ?>
 </body>
 
 </html>

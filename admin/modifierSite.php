@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-modifierSite.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-modifierSite.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divModifierSite">
                         <h3>Tableau de bord : </h3>
@@ -20,7 +20,7 @@
                             ?>
                             <div>
                                 <div>
-                                    <form method="POST" action="modifierSite.php">
+                                    <form method="POST" action="../admin/modifierSite.php">
                                         <h4>Modification générale :</h4>
                                         <div class="borderAction">
                                             <label>Le nom de l'entreprise :</label>
@@ -44,7 +44,7 @@
                                     </form>
                                     <?php
                                     if (isset($_FILES['photo']['tmp_name'])) {
-                                        $retour = copy($_FILES['photo']['tmp_name'], 'public/image/web/background.jpg');
+                                        $retour = copy($_FILES['photo']['tmp_name'], '../public/image/web/background.jpg');
                                         if ($retour) {
                                             echo '<p>La photo a bien été envoyée.</p>';
                                         }
@@ -59,7 +59,7 @@
                                     </form>
                                     <?php
                                     if (isset($_FILES['video']['tmp_name'])) {
-                                        $retour = copy($_FILES['video']['tmp_name'], 'public/video/background.mp4');
+                                        $retour = copy($_FILES['video']['tmp_name'], '../public/video/background.mp4');
                                         if ($retour) {
                                             echo '<p>La video a bien été envoyée.</p>';
                                         }
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div>
-                                <form method="POST" action="modifierSite.php">
+                                <form method="POST" action="../admin/modifierSite.php">
                                     <h4>"Boutique.php" :</h4>
                                     <select name="boutique">
                                         <option value="Boutique">Boutique</option>
@@ -79,7 +79,7 @@
                                     <input class="buttonAction" type="submit" value="Valider">
                                 </form>
                                 <h4>"Blog.php" :</h4>
-                                <form method="POST" action="modifierSite.php">
+                                <form method="POST" action="../admin/modifierSite.php">
                                     <select name="blog">
                                         <option value="Blog">Blog</option>
                                         <option value="News">News</option>
@@ -88,21 +88,21 @@
                                     </select>
                                     <input class="buttonAction" type="submit" value="Valider">
                                 </form>
-                                <form method="POST" action="modifierSite.php">
+                                <form method="POST" action="../admin/modifierSite.php">
                                     <select name="forum">
                                         <option value="Forum">Forum</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
                                     <input class="buttonAction" type="submit" value="Valider">
                                 </form>
-                                <form method="POST" action="modifierSite.php">
+                                <form method="POST" action="../admin/modifierSite.php">
                                     <select name="portofolio">
                                         <option value="Portofolio">Portofolio</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
                                     <input class="buttonAction" type="submit" value="Valider">
                                 </form>
-                                <form method="POST" action="modifierSite.php">
+                                <form method="POST" action="../admin/modifierSite.php">
                                     <select name="contact">
                                         <option value="Contact">Contact</option>
                                         <option value="">Ne pas afficher</option>
@@ -173,7 +173,7 @@
         </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

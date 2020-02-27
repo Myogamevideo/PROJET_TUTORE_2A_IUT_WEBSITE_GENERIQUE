@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-listeDesMembres.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-listeDesMembres.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon Compte :</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divListeDesMembres">
                         <div class="liste">
@@ -19,11 +19,11 @@
                             while ($donnees = $reponse->fetch()) {
                             ?>
                                 <div class="containerImage">
-                                    <img src="public/image/web/placeholder.jpg" alt="Avatar" class="image">
+                                    <img src="../public/image/web/placeholder.jpg" alt="Avatar" class="image">
                                     <div class="overlay simpleMembre">
                                         <div class="text">
                                             <div class="avatar">
-                                                <img src="public/image/web/placeholder.jpg" alt="Avatar">
+                                                <img src="../public/image/web/placeholder.jpg" alt="Avatar">
                                                 <label class="labelPseudo"><?php echo $donnees['pseudo']; ?></label>
                                             </div>
                                             <p><?php echo $donnees['statu']; ?></p>
@@ -42,6 +42,6 @@
                 </div>
             </div>
         </div>
-    </main> <?php include('footer.php') ?> </body>
+    </main> <?php include('../footer.php') ?> </body>
 
 </html>

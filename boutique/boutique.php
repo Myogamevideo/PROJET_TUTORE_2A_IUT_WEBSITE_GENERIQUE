@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-boutique.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-boutique.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
@@ -19,16 +19,16 @@
                         $donnees = $reponse->fetch();
                         ?>
                         <div class="slide s1">
-                            <?php echo '<a style="text-decoration:none;" href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
-                            <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
+                            <?php echo '<a style="text-decoration:none;" href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
+                            <?php echo '<img src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
                             </a>
                         </div>
                         <?php
                         while ($donnees = $reponse->fetch()) {
                         ?>
                             <div class="slide">
-                                <?php echo '<a style="text-decoration:none;" href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
-                                <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
+                                <?php echo '<a style="text-decoration:none;" href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
+                                <?php echo '<img src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?>
                                 </a>
                             </div>
                         <?php }
@@ -46,9 +46,9 @@
                 <div class="boutique">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <a href="boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
-                            <a href="boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
-                            <a href="boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
+                            <a href="../boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
+                            <a href="../boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
+                            <a href="../boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
                                 <script type="text/javascript" src="public/js/boutique.js"></script>
@@ -106,10 +106,10 @@
                             while ($donnees = $reponse->fetch()) {
                             ?>
                                 <div class="card-product">
-                                    <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
+                                    <?php echo '<a href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '">'; ?>
                                     <div class="card-image">
                                         <?php echo '
-                                        <img onClick="change_img(this)" src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
+                                        <img onClick="change_img(this)" src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
                                         '; ?>
                                     </div>
                                     <div class="card-text">
@@ -117,7 +117,7 @@
                                     </div>
                                     </a>
                                     <div class="card-option">
-                                        <?php echo '<a href="article.php?reference_produit=' . $donnees['reference'] . '" class="prix">' . $donnees['prix'] . '€ </a>'; ?>
+                                        <?php echo '<a href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '" class="prix">' . $donnees['prix'] . '€ </a>'; ?>
                                         <form method="GET">
                                             <input type="hidden" id="nbArticle" name="nbArticle" value="1">
                                             <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $donnees['reference']; ?>">
@@ -149,6 +149,6 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?></body>
+    <?php include('../footer.php') ?></body>
 
 </html>

@@ -7,7 +7,7 @@
         <div class="container">
             <div class="boxConnexion">
                 <h2>Connexion : </h2>
-                <form method="POST" action="connexion.php">
+                <form method="POST" action="../connexion.php">
                     <div class="inputBox" class="alignementLogo" class="divConnexion">
                         <i class="fa fa-user-circle fa-2x" style="color:white;"></i>
                         <label>Username</label>
@@ -40,7 +40,7 @@
                             $_SESSION['id'] = $donne['id'];
                             $_SESSION['pseudo'] = $_COOKIE['pseudo'];
                             $_SESSION['statu'] = $donne['statu'];
-                            header('location: index.php');
+                            header('location: ../index.php');
                         }
                     }
 
@@ -70,7 +70,7 @@
                                     setcookie('statu', $donne['statu'], time() + 3600, null, null, false, true);
                                     header('location: index.php');
                                 } else {
-                                    header('location: index.php');
+                                    header('location: ../index.php');
                                 }
                             } else {
                                 echo '<strong>Information : </strong> Mauvais identifiant ou mot de passe';

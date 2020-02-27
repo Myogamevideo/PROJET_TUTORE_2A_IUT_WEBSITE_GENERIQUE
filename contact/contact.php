@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-contact.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-contact.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div>
@@ -25,11 +25,11 @@
                             <div class="divContact">
                                 <i class="fa fa-map-marker fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divContact">
-                                    <p>Adresse : 15 rue de la fortune 43000 Le Puy en Velay </br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="rendezVous.php">Prenez rendez-vous ici !</a></p>
+                                    <p>Adresse : 15 rue de la fortune 43000 Le Puy en Velay </br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="../contact/rendezVous.php">Prenez rendez-vous ici !</a></p>
                                 </div>
                             </div>
                             <div class="divContact">
-                                <script type="text/javascript" src="public/js/minichat.js"></script>
+                                <script type="text/javascript" src="../public/js/minichat.js"></script>
                                 <i class="fa fa-comments-o fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divContact">
                                     <p>Chat en ligne </br>Du lundi à dimanche de 9:00 à 22:00. <a class="open-button" onclick="openForm()">Chat</a></p>
@@ -61,13 +61,13 @@
                                     'pseudo' => $_POST['pseudo'],
                                     'message' => $_POST['message']
                                 ));
-                                header('Location: contact.php');
+                                header('Location: ../contact/contact.php');
                             }
                             ?>
                         </div>
                         <div>
-                            <form class="formChatt" method='POST' action='minichat.php'>
-                                <a href="minichat.php" class="enlargeChat"><i class="fa fa-square-o fa-2x" style="color:white;"></i></a>
+                            <form class="formChatt" method='POST' action='../contact/minichat.php'>
+                                <a href="../contact/minichat.php" class="enlargeChat"><i class="fa fa-square-o fa-2x" style="color:white;"></i></a>
                                 <a onclick="closeForm()" class="closeChat"><i class="fa fa-close fa-2x" style="color:red;"></i></a>
                                 <div class="scroller">
                                     <?php
@@ -76,7 +76,7 @@
                                         echo '
                                         <div class="containerMsg">
                                             <div class="Avatar">
-                                                <img src="public/image/web/placeholder.jpg" alt="Avatar">
+                                                <img src="../public/image/web/placeholder.jpg" alt="Avatar">
                                                 <label>' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -86,7 +86,7 @@
                                         echo '
                                         <div class="containerMsg darker">
                                             <div class="Avatar">
-                                                <img src="public/image/web/placeholder.jpg" alt="Avatar" class="right">
+                                                <img src="../public/image/web/placeholder.jpg" alt="Avatar" class="right">
                                                 <label  class="right">' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -118,7 +118,7 @@
                 </div>
             </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

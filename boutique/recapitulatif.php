@@ -1,14 +1,14 @@
-<?php include('head.php') ?>
+<?php include('../head.php') ?>
 <link rel="stylesheet" href="public/css/style-recapitulatif.css">
 <link rel="stylesheet" href="public/css/style-barreCommande.css">
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <h2>Commander :</h2>
             <div class="divRecapitulatif">
                 <div class="barreCommande">
-                    <?php include('barreCommande.php')  ?>
+                    <?php include('boutique/barreCommande.php')  ?>
                 </div>
                 <div>
                     <h3>Mes articles :</h3>
@@ -68,7 +68,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

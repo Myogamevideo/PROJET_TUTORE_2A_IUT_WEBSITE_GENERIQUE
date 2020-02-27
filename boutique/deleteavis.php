@@ -8,4 +8,4 @@ try {
 
 $req = $bdd->prepare('delete from avisProduit where id=?');
 $req->execute(array($_GET['id']));
-header('location: article.php?reference_produit=' . $_GET['id_produit'] . '');
+header('location: boutique/article.php?reference_produit=' . $_GET['id_produit'] . '');

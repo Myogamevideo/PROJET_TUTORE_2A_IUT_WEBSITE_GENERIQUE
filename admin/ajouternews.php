@@ -1,12 +1,12 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-ajouternews.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-ajouternews.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <h1> Ajouter une news :</h1>
-            <form method="POST" enctype="multipart/form-data" action="ajouternews.php">
+            <form method="POST" enctype="multipart/form-data" action="../admin/ajouternews.php">
                 <label for="titre">Titre : </label><input type="text" name="titre" id="tritre" placeholder="Titre" required="" autofocus="" />
                 <button type="button" disabled="disabled"><strong>[b] Texte en gras [/b]</strong></button>
                 <button type="button" disabled="disabled"><em>[i] Texte en italique [/i]</em></button>
@@ -34,7 +34,7 @@
                             'titre' => $_POST['titre'],
                             'contenu' => $_POST['contenu'],
                         ));
-                        header('location: gestionDesActualites.php');     
+                        header('location: ../admin/gestionDesActualites.php');     
                     }
                 } else {
                     echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
@@ -43,7 +43,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

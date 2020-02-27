@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-changerMdp.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-changerMdp.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divChangerMdp">
                         <h3>Changer de mot de passe : </h3>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

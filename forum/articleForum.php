@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-articleForum.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-articleForum.css">
 
 <body>
-	<?php include('header-image.php') ?>
+	<?php include('../header-image.php') ?>
 	<main>
 	<div class="container">
             <div class="containerAll">
@@ -19,7 +19,7 @@
 				<div class="divReponceArticle">
 					<h3>Réponses :</h3>
                     <div class="listCommentaire">
-                    <script type="text/javascript" src="public/js/commentaire.js"></script>
+                    <script type="text/javascript" src="../public/js/commentaire.js"></script>
                         <div class="btnAjout" href="javascript:void(0);" onclick="myFunction()">
                             <span class="nav-icon"><i class="fa fa-plus-circle fa-3x"  style="color:blue;"></i></span>
                         </div>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div>
-                        <script type="text/javascript" src="public/js/commentaire.js"></script>
+                        <script type="text/javascript" src="../public/js/commentaire.js"></script>
                         <div class="btnAjout" href="javascript:void(0);" onclick="listCom()">
                         <span class="nav-icon"><i class="fa fa-ellipsis-h fa-3x"  style="color:blue;"></i></span>
                     </div>
@@ -145,7 +145,7 @@
 			</div>
 		</div>
 		</main>
-	<?php include('footer.php') ?>
+	<?php include('../footer.php') ?>
 </body>
 
 </html>

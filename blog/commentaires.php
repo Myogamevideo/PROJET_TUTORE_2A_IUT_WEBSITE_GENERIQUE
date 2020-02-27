@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-commentaires.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-commentaires.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
@@ -12,7 +12,7 @@
                     $req = $bdd->prepare('select id,contenu,titre, DAY(date_creation) AS jour, MONTH(date_creation) AS mois, YEAR(date_creation) AS annee, HOUR(date_creation) AS heure, MINUTE(date_creation) AS minute, SECOND(date_creation) AS seconde from billets where id=?');
                     $req->execute(array($_GET['id_billet']));
                     $donnees = $req->fetch();
-                    $image = str_replace(' ', '', 'public/image/blog/' . $donnees['titre'] . '.jpg');
+                    $image = str_replace(' ', '', '../public/image/blog/' . $donnees['titre'] . '.jpg');
                     echo '
                     <div class="containerTitre" style="background-image: url(' . $image . '); height: 400px; width: 100%; border-radius: 25px; text-align: center;">
                         <div class="textTitre">
@@ -49,7 +49,7 @@
                         </div>
                 </div>
                 <div id="ajoutDiv">
-                    <?php echo '<form method="POST" action="commentaires.php?id_billet=' . $_GET['id_billet'] . '" class="class="form-signin">'; ?>
+                    <?php echo '<form method="POST" action="../blog/commentaires.php?id_billet=' . $_GET['id_billet'] . '" class="class="form-signin">'; ?>
                     <div class="ajoutCommentaire">
                         <div class="info">
                             <label>Date : </label>
@@ -126,7 +126,7 @@
                                     <div class="info">
                                         <i class="fa fa-remove" style="color:red;"></i>
                                         <?php
-                                        echo '<form method="POST" action="deletecommentaires.php?id=' . $donnees['id'] . '&amp;id_billet=' . $_GET['id_billet'] . '">';
+                                        echo '<form method="POST" action="blog/deletecommentaires.php?id=' . $donnees['id'] . '&amp;id_billet=' . $_GET['id_billet'] . '">';
                                         echo '<button type="submit" class="btnSupp"> Supprimer</button> ';
                                         echo '</form>'; ?>
                                     </div>
@@ -140,57 +140,16 @@
                     <?php }
                     $req->closeCursor(); ?>
                 </div>
-
                 <div>
-                        <script type="text/javascript" src="public/js/commentaire.js"></script>
-                        <div class="btnAjout" href="javascript:void(0);" onclick="listCom()">
-                        <span class="nav-icon"><i class="fa fa-ellipsis-h fa-3x"  style="color:blue;"></i></span>
+                    <script type="text/javascript" src="public/js/commentaire.js"></script>
+                    <div class="btnAjout" href="javascript:void(0);" onclick="listCom()">
+                        <span class="nav-icon"><i class="fa fa-ellipsis-h fa-3x" style="color:blue;"></i></span>
                     </div>
-
-                <div id="listCom">
-                    <div class="commentaireArticle">
-                            <div class="infoCommentaire">
-                                <div class="info">
-                                    <label >Date :</label>
-                                    <p>02/02/02</p>
-                                </div>
-                                <div class="info">
-                                    <i class="fa fa-hourglass-2" style="color:black;"></i>
-                                    <label>3 min </label>
-                                </div>
-                                <div class="info">
-                                    <i class="fa fa-user-circle" style="color:black;"></i>
-                                    <label>Auteur : </label>
-                                    <p>Cloclo</p>
-                                </div>
-                                <div class="info">
-                                    <i class="fa fa-remove" style="color:red;"></i>
-                                    <input class="btnSupp" type="button" value="Supprimer">
-                                </div>
-                                <div class="info">
-                                    <i class="fa fa-pencil" style="color:yellow;"></i>
-                                    <input class="btnModif" type="button" value="Modifier">
-                                </div>     
-                            </div>
-                            
-                            <div  class="optionCommentaire">
-                                <button type="button" class="btn btn-primary" disabled="disabled"><strong>[b] Texte en gras [/b]</strong></button>
-                                <button type="button" class="btn btn-secondary" disabled="disabled"><em>[i] Texte en italique [/i]</em></button>
-                                <button type="button" class="btn btn-warning" disabled="disabled"><span style="color:red">[color=red] Texte en rouge [/color]</span></button>
-                                <button type="button" class="btn btn-link" disabled="disabled"><a href="">Lien : http://...</a></button>
-                            </div>
-                            <div>
-                                <P class="textCommentaire">kjdsqkjf kjd o eoo  oo if  ofof ioi oodsqo  q</p>
-                            </div>
-                        </div>
-
-
-
-
+                </div>
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

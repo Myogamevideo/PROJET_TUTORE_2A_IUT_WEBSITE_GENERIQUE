@@ -1,18 +1,18 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-gestionDesActualites.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-gestionDesActualites.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divGestionDesActualites">
-                        <script type="text/javascript" src="public/js/MonCompte.js"></script>
+                        <script type="text/javascript" src="../public/js/MonCompte.js"></script>
                         <h3>Gestion des actualités : </h3>
                         <div class="contenaireGestionActualite">
                             <h4>Forum :</h4>
@@ -76,8 +76,8 @@
                             text-overflow: ellipsis;
                             white-space: nowrap;">' . $donnees['contenu'] . '</td>
                             <td>' . $donnees['date_creation'] . '</td>
-                            <td><form method="POST" action="deletenews.php?id=' . $donnees['id'] . '"> <input type="submit" value="Supprimer cette article"/></form></td>
-                            <td><form method="POST" action="modifiernews.php?id=' . $donnees['id'] . '"> <input type="submit" value="Modifier cette article"/></form></td>
+                            <td><form method="POST" action="../admin/deletenews.php?id=' . $donnees['id'] . '"> <input type="submit" value="Supprimer cette article"/></form></td>
+                            <td><form method="POST" action="../admin/modifiernews.php?id=' . $donnees['id'] . '"> <input type="submit" value="Modifier cette article"/></form></td>
                         </tr>';
                                             }
                                             $reponse->closeCursor();
@@ -88,14 +88,14 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <form method="POST" action="ajouternews.php?id='.$donnees['id'].'"> <input type="submit" value="Ajouter un article" /></form><br><br>
+                            <form method="POST" action="../admin/ajouternews.php?id='.$donnees['id'].'"> <input type="submit" value="Ajouter un article" /></form><br><br>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

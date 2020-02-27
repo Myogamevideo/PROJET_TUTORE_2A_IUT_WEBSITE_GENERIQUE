@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="public/css/style-header-image.css">
+<link rel="stylesheet" href="/public/css/style-header-image.css">
 
 <header>
     <div class="container">
@@ -16,6 +16,6 @@
                 ?>
             </div>
         </div>
-        <?php include('navigation-bar.php') ?>
+        <?php include('/home/cfaifrnfzy/iutg5/navigation-bar.php') ?>
     </div>
 </header>

@@ -1,13 +1,12 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-minichat.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-minichat.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
                 <h2>Mini chatt :</h2>
-
                 <div>
                     <?php
                     if (isset($_POST['pseudo']) and isset($_POST['message']) and $_POST['message'] != NULL and $_POST['pseudo'] != NULL) {
@@ -16,21 +15,21 @@
                             'pseudo' => $_POST['pseudo'],
                             'message' => $_POST['message']
                         ));
-                        header('Location: contact.php');
+                        header('Location: ../contact/contact.php');
                         /** laisse ABSOLUMENT CETTE FONCTION ICI */
                         /* sinon 
-                    /*    header('Location: minichat.php'); */  /**** PB AVEC CETTE LIGNE CAR  fonction header doit être appelée avant la génération de la moindre mise en page *//*
+                    /*    header('Location: ../contact/minichat.php'); */  /**** PB AVEC CETTE LIGNE CAR  fonction header doit être appelée avant la génération de la moindre mise en page *//*
                     solution pas belle
                     echo"
-                    <script type=\"text/javascript\">function redirection_js(){ x=setTimeout(\"window.location.href='minichat.php'\",1500); } 
+                    <script type=\"text/javascript\">function redirection_js(){ x=setTimeout(\"window.location.href='contact/minichat.php'\",1500); } 
                     </script><body onLoad=\"redirection_js();\"> 
                     "; */
                     }
                     ?>
                 </div>
                 <div class="divChat">
-                    <script type="text/javascript" src="public/js/minichat.js"></script>
-                    <form class="formChatt" method='POST' action='minichat.php'>
+                    <script type="text/javascript" src="../public/js/minichat.js"></script>
+                    <form class="formChatt" method='POST' action='contact/minichat.php'>
                         <div>
                             <div class="scroller">
                                 <p>Discussion :</p>
@@ -40,7 +39,7 @@
                                     echo '
                                         <div class="containerMsg">
                                             <div class="Avatar">
-                                                <img src="public/image/web/placeholder.jpg" alt="Avatar">
+                                                <img src="../public/image/web/placeholder.jpg" alt="Avatar">
                                                 <label>' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -50,7 +49,7 @@
                                     echo '
                                         <div class="containerMsg darker">
                                             <div class="Avatar">
-                                                <img src="public/image/web/placeholder.jpg" alt="Avatar" class="right">
+                                                <img src="../public/image/web/placeholder.jpg" alt="Avatar" class="right">
                                                 <label  class="right">' . $donnees['pseudo'] . '</label>
                                             </div>
                                             <p>' . $donnees['message'] . '</p>
@@ -79,7 +78,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

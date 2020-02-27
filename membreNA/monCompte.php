@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-monCompte.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-monCompte.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divInfoMembres">
                         <h3>Mes informations : </h3>
@@ -33,7 +33,7 @@
                                 </span>
                             </div>
                             <div class="image">
-                                <img src="public/image/web/placeholder.jpg" alt="">
+                                <img src="../public/image/web/placeholder.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
-<?php include('head.php') ?>
+<?php include('../head.php') ?>
 <link rel="stylesheet" href="public/css/style-livraison.css">
 <link rel="stylesheet" href="public/css/style-barreCommande.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div>
@@ -11,7 +11,7 @@
                 <div class="contentAll">
                     <div class="divLivraison">
                         <div class="barreCommande">
-                            <?php include('barreCommande.php')  ?>
+                            <?php include('boutique/barreCommande.php')  ?>
                         </div>
                         <div class="livraison">
                             <h3>Lieu de livraison :</h3>
@@ -52,7 +52,7 @@
                                                 $_SESSION['id'] = $donne['id'];
                                                 $_SESSION['pseudo'] = $_COOKIE['pseudo'];
                                                 $_SESSION['statu'] = $donne['statu'];
-                                                header('location: livraison.php');
+                                                header('location: boutique/livraison.php');
                                             }
                                         }
 
@@ -80,9 +80,9 @@
                                                         $donne = $req->fetch();
                                                         setcookie('mdp', $donne['pass'], time() + 3600, null, null, false, true);
                                                         setcookie('statu', $donne['statu'], time() + 3600, null, null, false, true);
-                                                        header('location: livraison.php');
+                                                        header('location: boutique/livraison.php');
                                                     } else {
-                                                        header('location: livraison.php');
+                                                        header('location: boutique/livraison.php');
                                                     }
                                                 } else {
                                                     echo '<strong>Information : </strong> Mauvais identifiant ou mot de passe';
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                             <div class="centrebtn">
-                                <a href="paiement.php">Valider</a>
+                                <a href="boutique/paiement.php">Valider</a>
                             </div>
                         </div>
                     <?php
@@ -151,7 +151,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

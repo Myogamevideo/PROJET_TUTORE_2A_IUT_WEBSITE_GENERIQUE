@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-bannir.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-bannir.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divBannirMembre">
                         <h3>Bannir un membre : </h3>
@@ -41,7 +41,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

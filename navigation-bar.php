@@ -1,22 +1,22 @@
 <div class="navbar">
-    <a class="active" href="index.php"><i class="fa fa-home"></i>Accueil</a>
+    <a class="active" href="../index.php"><i class="fa fa-home"></i>Accueil</a>
     <?php
     $req = $bdd->query('SELECT * FROM parametres WHERE 1');
     $donnees = $req->fetch();
     if ($donnees['nomBoutique'] != null) {
-        echo '<a href="boutique/boutique.php">' . $donnees['nomBoutique'] . '</a>';
+        echo '<a href="../boutique/boutique.php">' . $donnees['nomBoutique'] . '</a>';
     }
     if ($donnees['nomBlog'] != null) {
-        echo '<a href="blog/blog.php">' . $donnees['nomBlog'] . '</a>';
+        echo '<a href="../blog/blog.php">' . $donnees['nomBlog'] . '</a>';
     }
     if ($donnees['nomForum'] != null) {
-        echo '<a href="forum/forum.php">' . $donnees['nomForum'] . '</a>';
+        echo '<a href="../forum/forum.php">' . $donnees['nomForum'] . '</a>';
     }
     if ($donnees['nomPortofolio'] != null) {
-        echo '<a href="portefolio/portefolio.php">' . $donnees['nomPortofolio'] . '</a>';
+        echo '<a href="../portefolio/portefolio.php">' . $donnees['nomPortofolio'] . '</a>';
     }
     if ($donnees['nomContact'] != null) {
-        echo '<a href="contact/contact.php">' . $donnees['nomContact'] . '</a>';
+        echo '<a href="../contact/contact.php">' . $donnees['nomContact'] . '</a>';
     }
     ?>
     <input type="text" placeholder="Search..">
@@ -31,11 +31,11 @@
     <div class="subnav">
         <a class="subnavbtn"><i class="fa fa-user-circle-o fa-1x grey"></i></a>
         <div class="subnav-content">
-            <a href="connexion.php">Connexion</a>
-            <a href="inscription.php">Inscription</a>
+            <a href="../connexion.php">Connexion</a>
+            <a href="../inscription.php">Inscription</a>
             <?php if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != null) { ?>
-                <a href="membreNA/monCompte.php?position=monCompte">Mon compte</a>
-                <a href="deconnexion.php">Deconnexion</a>
+                <a href="../membreNA/monCompte.php?position=monCompte">Mon compte</a>
+                <a href="../deconnexion.php">Deconnexion</a>
             <?php } ?>
         </div>
     </div>

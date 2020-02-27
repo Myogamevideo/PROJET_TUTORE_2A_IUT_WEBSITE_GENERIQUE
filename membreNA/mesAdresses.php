@@ -1,15 +1,15 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-mesAdresses.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-mesAdresses.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxMonCompte">
                 <h2>Mon compte</h2>
                 <div class="divMonCompte">
                     <div class="barreNavigation">
-                        <?php include('barreNavidationCompte.php')  ?>
+                        <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divAdresses">
                         <h3>Mes adresses : </h3>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="divButtons">
-                            <script type="text/javascript" src="public/js/MonCompte.js"></script>
+                            <script type="text/javascript" src="../public/js/MonCompte.js"></script>
 
                                 <button class="button" type="button">
                                     <i class="fa fa-address-card-o fa-2x" style="color:red;"></i>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

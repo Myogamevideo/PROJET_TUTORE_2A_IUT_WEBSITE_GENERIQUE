@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-panier.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-panier.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <h2>Panier :</h2>
@@ -50,7 +50,7 @@
                         <input type="text" name="promo" id="promo" placeholder="Code promo ...">
                         <input class="btn" type="submit" value="Appliquer">
                     </div>
-                    <a href="livraison.php" class="buttonAction">Valider</a>
+                    <a href="boutique/livraison.php" class="buttonAction">Valider</a>
                 </div>
                 <div class="divRecapPanier">
                     <h3>Sommaire de commande :</h3>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

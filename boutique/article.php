@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
-<link rel="stylesheet" href="public/css/style-article.css">
+<?php include('../head.php') ?>
+<link rel="stylesheet" href="../public/css/style-article.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="boxArticle">
@@ -10,19 +10,19 @@
                 <div class="containerArticle">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <a href="boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
-                            <a href="boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
-                            <a href="boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
+                            <a href="../boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
+                            <a href="../boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
+                            <a href="../boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
 
                             <ul class="rajouterFiltre">
-                                <script type="text/javascript" src="public/js/boutique.js"></script>
+                                <script type="text/javascript" src="../public/js/boutique.js"></script>
                                 <li href="javascript:void(0);" onclick="myFunction()">
                                     <span class="nav-icon"><i class="fa fa-bars"></i></span>
                                     Filtres
                                 </li>
                             </ul>
                             <div class="filtreAvance">
-                                <form method="GET" action="boutique/boutique.php">
+                                <form method="GET" action="../boutique/boutique.php">
                                     <?php
                                     if (isset($_GET['categorie']) and !empty($_GET['categorie'])) {
                                     ?> <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['categorie']; ?>">
@@ -51,7 +51,7 @@
                             $donnees = $req->fetch(); ?>
                             <div class="product">
                                 <div class="product-image">
-                                    <?php echo '<img src="public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?> </div>
+                                    <?php echo '<img src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">'; ?> </div>
                                 <div class="stock">
                                     <?php if ($donnees['quantite'] != 0) {
                                         echo '<label class="product-disponibilite">En stock : ' . $donnees['quantite'] . '</label>';
@@ -186,7 +186,7 @@
                                         ?>
                                             <i class="fa fa-remove" style="color:red;"></i>
                                             <?php
-                                            echo '<form method="POST" action="deleteavis.php?id=' . $donnees['id'] . '&amp;id_produit=' . $_GET['reference_produit'] . '">';
+                                            echo '<form method="POST" action="boutique/deleteavis.php?id=' . $donnees['id'] . '&amp;id_produit=' . $_GET['reference_produit'] . '">';
                                             echo '<button type="submit" class="btnSupp"> Supprimer</button> ';
                                             echo '</form>'; ?>
                                         <?php } ?>
@@ -201,7 +201,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>

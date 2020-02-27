@@ -1,8 +1,8 @@
-<?php include('head.php') ?>
+<?php include('../head.php') ?>
 <link rel="stylesheet" href="public/css/style-nosOffresDEmplois.css">
 
 <body>
-    <?php include('header-image.php') ?>
+    <?php include('../header-image.php') ?>
     <main>
         <div class="container">
             <div class="containerAll">
@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>                
@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>     
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>     
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>     
@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>     
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <h5>Last updated 3 mins ago</h5>
-                                        <a href="candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
+                                        <a href="portefolio/candidatureEmploie.php"><i class="fa fa-angle-double-right fa-2x" style="color:black;"></i></a>
                                     </div>
                             </div>
                         </div>             
@@ -146,7 +146,7 @@
             </div>
         </div>
     </main>
-    <?php include('footer.php') ?>
+    <?php include('../footer.php') ?>
 </body>
 
 </html>
