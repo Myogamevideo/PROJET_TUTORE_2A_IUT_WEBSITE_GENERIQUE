@@ -10,10 +10,12 @@
                 <div class="containerArticle">
                     <div class="divFiltre">
                         <div class="filtre">
-                            <a href="../boutique/boutique.php?categorie=CD"><button class="btn success"><i class="fa fa-music"></i> CD</button></a></a>
-                            <a href="../boutique/boutique.php?categorie=Vinyle"><button class="btn success"><i class="fa fa-music"></i> Vinyle</button></a>
-                            <a href="../boutique/boutique.php?categorie=T-shirt"><button class="btn success"><i class="fa fa-music"></i> T-shirt</button></a>
-
+                            <?php
+                            $reponse = $bdd->query('SELECT DISTINCT categorie FROM produit');
+                            while ($donnees = $reponse->fetch()) {
+                                echo '<a href="../boutique/boutique.php?categorie=' . $donnees['categorie'] . '"><button class="btn success"><i class="fa fa-music"></i>' . $donnees['categorie'] . '</button></a></a>';
+                            }
+                            $reponse->closeCursor(); ?>
                             <ul class="rajouterFiltre">
                                 <script type="text/javascript" src="../public/js/boutique.js"></script>
                                 <li href="javascript:void(0);" onclick="myFunction()">
@@ -31,8 +33,14 @@
                                     <div id="ajoutDiv">
                                         <label>Gamme de produit : </label>
                                         <div class="filtrePrix">
-                                            <input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" value="0">
-                                            <input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" value="1000">
+                                            <?php
+                                            $reponse = $bdd->query('SELECT min(prix) as min FROM produit');
+                                            $donnees = $reponse->fetch();
+                                            echo '<input type="number" id="prixMinimun" name="prixMinimun" min="0" max="1000" step="0.01" value="' . $donnees['min'] . '">';
+                                            $reponse = $bdd->query('SELECT max(prix) as max FROM produit');
+                                            $donnees = $reponse->fetch();
+                                            echo '<input type="number" id="prixMaximun" name="prixMaximun" min="0" max="1000" step="0.01" value="' . $donnees['max'] . '">';
+                                            ?>
                                         </div>
                                         <label>Artiste : </label>
                                         <div class="filtreSearch">
@@ -139,14 +147,17 @@
                                 <?php
                                 }
                                 ?>
-                                <form method="GET">
-                                    <div class="nbArticle">
-                                        <label>Nombre d'article : </label>
-                                        <input type="number" id="nbArticle" name="nbArticle" min="1" max="10" value="1">
-                                        <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $_GET['reference_produit']; ?>">
-                                    </div>
-                                    <input type="submit" value="Ajouter au panier"><i class="fa fa-search"></i></input>
-                                </form>
+                                <?php if ($donnees['quantite'] != 0) {
+                                ?><form method="GET">
+                                        <div class="nbArticle">
+                                            <label>Nombre d'article : </label>
+                                            <input type="number" id="nbArticle" name="nbArticle" min="1" max="10" value="1">
+                                            <input type="hidden" id="reference_produit" name="reference_produit" value="<?php echo $_GET['reference_produit']; ?>">
+                                        </div>
+                                        <input type="submit" value="Ajouter au panier"><i class="fa fa-search"></i></input>
+                                    </form>
+                                <?php } ?>
+
                                 <div class="alert alert-danger">
                                     <?php
                                     if (isset($_GET['reference_produit']) and isset($_GET['nbArticle']) and $_GET['reference_produit'] != 0 and $_GET['nbArticle'] != 0) {
@@ -158,7 +169,7 @@
                                         $positionProduit = array_search($_GET['reference_produit'],  $_SESSION['panier']['id_produit']);
                                         if ($positionProduit !== false) {
                                             $_SESSION['panier']['quantite'][$positionProduit] += $_GET['nbArticle'];
-                                        }else{
+                                        } else {
                                             array_push($_SESSION['panier']['id_produit'], $_GET['reference_produit']);
                                             array_push($_SESSION['panier']['quantite'], $_GET['nbArticle']);
                                         }

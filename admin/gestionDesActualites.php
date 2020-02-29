@@ -15,6 +15,7 @@
                         <script type="text/javascript" src="../public/js/MonCompte.js"></script>
                         <h3>Gestion des actualités : </h3>
                         <div class="contenaireGestionActualite">
+                            <!--
                             <h4>Forum :</h4>
                             <div>
                                 <i class="fa fa-plus-circle fa-2x" style="color:#99ff99;"></i>
@@ -34,6 +35,7 @@
                                 <input type="text" name="removeReponseForum" placeholder="Supprimer une réponse d'un forum :">
                                 <button class="button" type="button">Valider</button>
                             </div>
+-->
                             <h4>Blog :</h4>
                             <?php
                             $articles = $bdd->query('SELECT titre FROM billets ORDER BY id DESC');
