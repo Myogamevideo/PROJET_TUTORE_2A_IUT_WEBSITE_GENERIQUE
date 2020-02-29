@@ -23,6 +23,7 @@
                     echo '</p>';
                     echo '</section>';
                 }
+            $sql->closeCursor();
             }
         ?>
         </div>
