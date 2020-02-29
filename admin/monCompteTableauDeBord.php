@@ -23,12 +23,11 @@
                                         <?php
                                         $reponse = $bdd->query('SELECT id_produit, count(id_produit) as cs from commande group by id_produit order by cs desc limit 10');
                                         while ($donnees = $reponse->fetch()) {
-                                            $req = $bdd->prepare('SELECT nom where reference=?');
+                                            $req = $bdd->prepare('SELECT * from produit where reference=?');
                                             $req->execute(array($donnees['id_produit']));
                                             $data = $req->fetch();
                                         ?>
                                             <li>
-                                                <label class="nomProduit"><?php echo $donnees['id_produit']; ?></label>
                                                 <label class="nomProduit"><?php echo $data['nom']; ?></label>
                                                 <a href="#"><?php echo $donnees['cs']; ?></a>
                                             </li>
@@ -39,11 +38,12 @@
                                 </div>
 
                             </div>
+                            <!--
                             <div class="partieDroite">
                                 <div class="categorieArticlePlusVendu diagramme">
                                     <label>Catégorie d'article les plus vendu : </label>
                                     <div class="diagramme">
-                                        <div id="donutchart" style=" height: 100%;"></div>
+                                        <div id="donutchart" style="height: 100%;"></div>
                                     </div>
                                 </div>
                                 <div class="diagramme">
@@ -53,7 +53,9 @@
                                     </div>
                                 </div>
                             </div>
+                                    -->
                         </div>
+                        <!--
                         <div class="diagramme">
                             <label>Performance de la compagnie : </label>
                             <div class="performanceDeLaCompagnie diagramme">
@@ -68,6 +70,7 @@
                                 <div id="Aeraschart_div" style="width: 100%; height: 450px;"></div>
                             </div>
                         </div>
+                                    -->
                     </label>
                 </label>
             </label>

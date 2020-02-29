@@ -27,11 +27,11 @@
                                             <?php echo '<input id="modificationNomDuSite" name="modificationNomDuSite" type="text" placeholder="' . $donnees['nomDuSite'] . '" />'; ?>
                                             <div class=button>
                                                 <button class="buttonAction" type="submit" value="Valider">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                Valider
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Valider
                                                 </button>
                                             </div>
                                     </form>
@@ -114,12 +114,34 @@
                                 <h4>Modification du portefolio</h4>
                                 <div class="borderAction">
                                     <div>
-                                        <label>Qui sommes nous ?</label>
-                                        <textarea placeholder="Présenter votre entreprise..."></textarea>
+                                        <form method="POST" action="../admin/modifierSite.php">
+                                            <label>Qui sommes nous ? ("Présenter votre entreprise...")</label>
+                                            <?php echo '<input id="modificationQuisommesnous" name="modificationQuisommesnous" type="textarea" placeholder="' . $donnees['quisommesnous'] . '" />'; ?>
+                                            <div class=button>
+                                                <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Valider
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div>
-                                        <label>Notre vision d'avenir :</label>
-                                        <textarea placeholder="Présenter les objectif de votre entreprise..."></textarea>
+                                        <form method="POST" action="../admin/modifierSite.php">
+                                            <label>Notre vision d'avenir : ("Présenter les objectif de votre entreprise...")</label>
+                                            <?php echo '<input id="modificationNotrevisionavenir" name="modificationNotrevisionavenir" type="textarea" placeholder="' . $donnees['notrevisionavenir'] . '" />'; ?>
+                                            <div class=button>
+                                                <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Valider
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div>
                                         <label>Nos projets déjà rélisés :</label>
@@ -206,5 +228,15 @@ if (isset($_POST['portofolio'])) {
 if (isset($_POST['contact'])) {
     $req = $bdd->prepare('UPDATE parametres SET nomContact=? where 1');
     $req->execute(array($_POST['contact']));
+}
+
+if (isset($_POST['modificationQuisommesnous']) && $_POST['modificationQuisommesnous'] != NULL) {
+    $req = $bdd->prepare('UPDATE parametres SET quisommesnous=? where 1');
+    $req->execute(array($_POST['modificationQuisommesnous']));
+}
+
+if (isset($_POST['modificationNotrevisionavenir']) && $_POST['modificationNotrevisionavenir'] != NULL) {
+    $req = $bdd->prepare('UPDATE parametres SET notrevisionavenir=? where 1');
+    $req->execute(array($_POST['modificationNotrevisionavenir']));
 }
 ?>
