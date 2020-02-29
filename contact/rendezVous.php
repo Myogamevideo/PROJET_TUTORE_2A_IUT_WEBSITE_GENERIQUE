@@ -33,7 +33,7 @@
                 <div class="calendriers">
                     <div class="petitCalendrier">
                         <div id="calendar1" class="calendar"></div>
-                        <script type="text/javascript" src="public/js/rendezVous.js"></script>
+                        <script type="text/javascript" src="../public/js/rendezVous.js"></script>
                         <div class="legende">
                             <div>
                                 <label>Conseiller disponible</label>
