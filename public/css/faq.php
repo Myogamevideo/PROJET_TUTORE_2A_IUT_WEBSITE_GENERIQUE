@@ -9,7 +9,7 @@
             $query = 'SELECT id, question, reponse FROM faq ORDER BY id';
             $sql = $bdd->query($query);
             $nb_questions = $sql->rowCount();
-            if ($nb_questions == 0) {
+            if ($nb_sujets == 0) {
                 echo '<label>Aucunne question dans cette FAQ</label>';
             } else {
                 while ($data = $sql->fetch()) {
