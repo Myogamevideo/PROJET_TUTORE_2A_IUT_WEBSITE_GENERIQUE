@@ -20,7 +20,7 @@
                     </div>
                     <div>
                     <label class="containerInput">
-                        <input type="checkbox">
+                        <input type="checkbox" name="case" id="case">
                         <span class="check">Connexion automatique</span>
                         <span class="checkmark"></span>
                     </label>
@@ -68,7 +68,7 @@
                                     $donne = $req->fetch();
                                     setcookie('mdp', $donne['pass'], time() + 3600, null, null, false, true);
                                     setcookie('statu', $donne['statu'], time() + 3600, null, null, false, true);
-                                    header('location: index.php');
+                                    header('location: ../index.php');
                                 } else {
                                     header('location: ../index.php');
                                 }

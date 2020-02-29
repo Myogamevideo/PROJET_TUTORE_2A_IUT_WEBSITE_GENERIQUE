@@ -23,16 +23,16 @@
                                         <?php
                                         $reponse = $bdd->query('SELECT id_produit, count(id_produit) as cs from commande group by id_produit order by cs desc limit 10');
                                         while ($donnees = $reponse->fetch()) {
-                                            $req = $bdd->prepare('SELECT * where reference = ?');
-                                            $reponse->execute(array($donnees['id_produit']));
+                                            $req = $bdd->prepare('SELECT nom where reference=?');
+                                            $req->execute(array($donnees['id_produit']));
                                             $data = $req->fetch();
                                         ?>
                                             <li>
+                                                <label class="nomProduit"><?php echo $donnees['id_produit']; ?></label>
                                                 <label class="nomProduit"><?php echo $data['nom']; ?></label>
                                                 <a href="#"><?php echo $donnees['cs']; ?></a>
                                             </li>
                                         <?php
-                                            $req->closeCursor();
                                         }
                                         $reponse->closeCursor(); ?>
                                     </ul>
