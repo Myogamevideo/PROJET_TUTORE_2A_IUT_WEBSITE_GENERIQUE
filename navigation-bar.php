@@ -19,8 +19,10 @@
         echo '<a href="../contact/contact.php">' . $donnees['nomContact'] . '</a>';
     }
     ?>
-    <input type="text" placeholder="Search..">
-    <button type="button"><i class="fa fa-search fa-1x grey"></i></button>
+    <div class="search">
+        <input type="text" placeholder="Search..">
+        <button type="button"><i class="fa fa-search fa-1x grey"></i></button>
+    </div>
     <div class="subnav">
         <?php
         if ($donnees['nomBoutique'] != null) {

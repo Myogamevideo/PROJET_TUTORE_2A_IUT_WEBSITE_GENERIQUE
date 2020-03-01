@@ -19,7 +19,7 @@
                     echo $data['question'];
                     echo '</label>';
                     echo '<p>';
-                    echo $data['reponse']
+                    echo $data['reponse'];
                     echo '</p>';
                     echo '</section>';
                 }

@@ -38,7 +38,7 @@
                             <div class="divContact">
                                 <i class="fa fa-weixin fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divInfoContact">
-                                    <p>FAQ </br> Vous trouverez ici toutes les questions les plus fréquentes. <a href="#">FAQ</a></p>
+                                    <p>FAQ </br> Vous trouverez ici toutes les questions les plus fréquentes. <a href="../contact/faq.php">FAQ</a></p>
                                 </div>
                             </div>
                             <div class="divContact">

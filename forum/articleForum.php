@@ -17,6 +17,11 @@
                     détails il m'indique lecteur cd je vous demande pourquoi merci </p>
 				</div>
 				<div class="divReponceArticle">
+                    <?php
+                        echo '<div>';
+                        $req = $bdd->prepare('select id,idTopic,idUtilisateur, contenu,  DAY(dateReponse) AS jour, MONTH(dateReponse) AS mois, YEAR(dateReponse) AS annee, HOUR(dateReponse) AS heure, MINUTE(dateReponse) AS minute, SECOND(dateReponse) AS seconde from messageForum where id_billet=?');
+                        $req->execute(array($_GET['id_billet']));
+                        while ($donnees = $req->fetch()) { ?>
 					<h3>Réponses :</h3>
                     <div class="listCommentaire">
                     <script type="text/javascript" src="../public/js/commentaire.js"></script>
