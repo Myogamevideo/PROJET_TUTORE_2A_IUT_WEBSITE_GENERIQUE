@@ -124,7 +124,7 @@ textarea {
     text-align: center;
 }
 
-input {
+.divInput input {
     width: 40%;
     padding: 10px;
     border-radius: 15px;

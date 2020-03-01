@@ -14,14 +14,12 @@
                                 <img src="../public/image/portefolio/quiSommesNous.jpg">
                                 <div>
                                     <h2>Description de l'entreprise :</h2>
-                                    <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
-                                        et nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de 
-                                        sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons au quotidien, le partenaire de votre croissance. 
-                                        Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons et 
-                                        nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de sérieux 
-                                        et d'implication que les gros. Nous vous accompagnerons et nous serons au quotidien, le partenaire de votre croissance.Chez nous, 
-                                        même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons 
-                                    </p>
+                                    <?php
+                                        $req = $bdd->query('SELECT descriptionEntreprise FROM parametres WHERE 1');
+                                        $donnees = $req->fetch();
+                                        $chaine = $donnees['descriptionEntreprise'];
+                                        echo '<p>'. $chaine .'</p>';
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -52,30 +50,42 @@
                             <div class="rebrique">
                                 <i class="fa fa-trophy fa-2x"></i>
                                 <label class="titreRebrique">Nos objectifs</label>
-                                <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
-                                    et nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de 
-                                    sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons </p>
+                                    <?php
+                                        $req = $bdd->query('SELECT objectifEntreprise FROM parametres WHERE 1');
+                                        $donnees = $req->fetch();
+                                        $chaine = $donnees['objectifEntreprise'];
+                                        echo '<p>'. $chaine .'</p>';
+                                    ?>
                             </div>
                             <div class="rebrique">
                                 <i class="fa fa-book fa-2x"></i>
                                 <label class="titreRebrique">Notre histoire</label>
-                                <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
-                                    et nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de 
-                                    sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons </p>
+                                    <?php
+                                        $req = $bdd->query('SELECT histoireEntreprise FROM parametres WHERE 1');
+                                        $donnees = $req->fetch();
+                                        $chaine = $donnees['histoireEntreprise'];
+                                        echo '<p>'. $chaine .'</p>';
+                                    ?>
                             </div>
                             <div class="rebrique">
                                 <i class="fa fa-shopping-basket fa-2x"></i>
-                                <label class="titreRebrique">Nos service</label>
-                                <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
-                                    et nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de 
-                                    sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons </p>
+                                <label class="titreRebrique">Nos services</label>
+                                    <?php
+                                        $req = $bdd->query('SELECT serviceEntreprise FROM parametres WHERE 1');
+                                        $donnees = $req->fetch();
+                                        $chaine = $donnees['serviceEntreprise'];
+                                        echo '<p>'. $chaine .'</p>';
+                                    ?>
                             </div>
                             <div class="rebrique">
                                 <i class="fa fa-users fa-2x"></i>
-                                <label class="titreRebrique">Nos phylosophie</label>
-                                <p>Chez nous, même les petits budgets sont traités avec autant de sérieux et d'implication que les gros. Nous vous accompagnerons 
-                                    et nous serons au quotidien, le partenaire de votre croissance.Chez nous, même les petits budgets sont traités avec autant de 
-                                    sérieux et d'implication que les gros. Nous vous accompagnerons et nous serons </p>
+                                <label class="titreRebrique">Nos phylosophies</label>
+                                    <?php
+                                        $req = $bdd->query('SELECT phylosophieEntreprise FROM parametres WHERE 1');
+                                        $donnees = $req->fetch();
+                                        $chaine = $donnees['phylosophieEntreprise'];
+                                        echo '<p>'. $chaine .'</p>';
+                                    ?>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,13 @@
                     <div class="contentBox">
                         <div class="content">
                             <h2>Qui sommes nous ?</h2>
-                            <p><?php echo $donnees['quisommesnous']; ?></p>
+                            <p>
+                                <?php 
+                                    $chaine = $donnees['descriptionEntreprise'];
+                                    $morceau_chaine = substr($donnees['descriptionEntreprise'], 0, 250);
+                                    echo $morceau_chaine; 
+                                ?>
+                            </p>
                             <a href="../portefolio/quiNousSommes.php">Lire plus ...</a>
                         </div>
                     </div>
@@ -32,7 +38,9 @@
                     <div class="contentBox">
                         <div class="content">
                             <h2>Nos projets déjà réalisés</h2>
-                            <p><?php echo $donnees['nosprojetsrealises']; ?></p>
+                            <p>
+                                <?php echo $donnees['nosprojetsrealises']; ?>
+                            </p>
                             <a href="../portefolio/nosProjets.php">Lire plus ...</a>
                         </div>
                     </div>

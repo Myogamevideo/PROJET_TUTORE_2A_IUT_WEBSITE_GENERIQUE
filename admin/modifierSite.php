@@ -203,6 +203,62 @@
                                     </form>
                                 </div>
                             </div>
+                            <div>
+                                <h4>Modification de présentation de l'entreprise :</h4>
+                                <div class="borderAction">
+                                    <form method="POST" action="../admin/modifierSite.php">
+                                        <div>
+                                            <label>Description de l'entreprise :</label>
+                                            <?php echo '<textarea id="descriptionEntreprise" name="descriptionEntreprise" placeholder="' . $donnees['descriptionEntreprise'] . '" ></textarea>'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Nos objectifs :</label>
+                                            <?php echo '<textarea id="objectifEntreprise" name="objectifEntreprise" placeholder="' . $donnees['objectifEntreprise'] . '" ></textarea>'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Notre histoire :</label>
+                                            <?php echo '<textarea id="histoireEntreprise" name="histoireEntreprise" placeholder="' . $donnees['histoireEntreprise'] . '" ></textarea>'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Nos services :</label>
+                                            <?php echo '<textarea id="serviceEntreprise" name="serviceEntreprise" placeholder="' . $donnees['serviceEntreprise'] . '" ></textarea>'; ?>
+                                        </div>   
+                                        <div>
+                                            <label>Notre phylosophie :</label>
+                                            <?php echo '<textarea id="phylosophieEntreprise" name="phylosophieEntreprise" placeholder="' . $donnees['phylosophieEntreprise'] . '" ></textarea>'; ?>
+                                        </div>                                    
+                                        <div class=button>
+                                            <button class="buttonAction" type="submit" value="Valider">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Valider
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Modification des projet réalisés par l'entreprise :</h4>
+                                <div class="borderAction">
+                                    <form method="POST" action="../admin/modifierSite.php">
+                                        <div>
+                                            <label>Phrase d'accroche pour la rebrique nos projets réalisés :</label>
+                                            <?php echo '<textarea id="notrevisionavenir" name="notrevisionavenir" placeholder="' . $donnees['notrevisionavenir'] . '" ></textarea>'; ?>
+                                        </div>
+                                        <div class=button>
+                                            <button class="buttonAction" type="submit" value="Valider">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Valider
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -296,5 +352,50 @@ if (isset($_POST['modificationAdresse'])) {
     }
     $req = $bdd->prepare('UPDATE parametres SET adresse=? where 1');
     $req->execute(array($_POST['modificationAdresse']));
+}
+
+
+
+if (isset($_POST['descriptionEntreprise'])) {
+    if ($_POST['descriptionEntreprise'] == "") {
+        $_POST['descriptionEntreprise'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET descriptionEntreprise=? where 1');
+    $req->execute(array($_POST['descriptionEntreprise']));
+}
+if (isset($_POST['objectifEntreprise'])) {
+    if ($_POST['objectifEntreprise'] == "") {
+        $_POST['objectifEntreprise'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET objectifEntreprise=? where 1');
+    $req->execute(array($_POST['objectifEntreprise']));
+}
+if (isset($_POST['histoireEntreprise'])) {
+    if ($_POST['histoireEntreprise'] == "") {
+        $_POST['histoireEntreprise'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET histoireEntreprise=? where 1');
+    $req->execute(array($_POST['histoireEntreprise']));
+}
+if (isset($_POST['serviceEntreprise'])) {
+    if ($_POST['serviceEntreprise'] == "") {
+        $_POST['serviceEntreprise'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET serviceEntreprise=? where 1');
+    $req->execute(array($_POST['serviceEntreprise']));
+}
+if (isset($_POST['phylosophieEntreprise'])) {
+    if ($_POST['phylosophieEntreprise'] == "") {
+        $_POST['phylosophieEntreprise'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET phylosophieEntreprise=? where 1');
+    $req->execute(array($_POST['phylosophieEntreprise']));
+}
+if (isset($_POST['notrevisionavenir'])) {
+    if ($_POST['notrevisionavenir'] == "") {
+        $_POST['notrevisionavenir'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET notrevisionavenir=? where 1');
+    $req->execute(array($_POST['notrevisionavenir']));
 }
 ?>
