@@ -7,7 +7,7 @@
         <div class="container">
             <div class="boxInscription">
                 <h2>Inscription :</h2>
-                <form method="POST" action="inscription.php">
+                <form method="POST">
                     <div class="formInscription">
                         <div class="divInscription">
                             <div class="inputBox" class="alignementLogo" class="divInscriptionChamps">
@@ -38,7 +38,7 @@
                                     <i class="fa fa-at fa-2x" style="color:white;"></i>
                                     <label>E-mail</label>
                                 </div>
-                                <input type="text" name="email" id="email" require="">
+                                <input type="email" name="email" id="email" require="">
                             </div>
                         </div>
                         <div class="divInscription">
@@ -80,7 +80,8 @@
                                         'prenom' => $_POST['prenom'],
                                         'nom' => $_POST['nom'],
                                     ));
-                                    header('location: connexion.php');
+                                    copy('/home/cfaifrnfzy/iutg5/public/image/web/placeholder.jpg', '/home/cfaifrnfzy/iutg5/public/image/membre/' . $_POST['pseudo'] . '.jpg');
+                                    header('Location: connexion.php');
                                 } else {
                                     echo '<strong>Information : </strong> Adresse email non valide';
                                 }

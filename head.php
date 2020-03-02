@@ -9,7 +9,7 @@ try {
 session_start();
 ini_set('display_errors', 1);
 
-if (isset($_SESSION['status']) and $_SESSION['status'] == 'banni') {
+if (isset($_SESSION['status']) and $_SESSION['status'] == 'ban') {
     header('location: banni.php');
 }
 ?>
