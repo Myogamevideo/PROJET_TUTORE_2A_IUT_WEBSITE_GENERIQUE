@@ -253,12 +253,170 @@
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                Valider
+                                                Ajouter
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                    <form method="POST" enctype="multipart/form-data">
+
+                                        <h3>Gestion des projets mit en avant :</h3>
+                                        <h4>Ajouer un projet</h4>
+                                        <div>
+                                            <label>Titre d'un projet que vous souhaitez mettre en avant :</label>
+                                            <?php echo '<textarea id="titreProjet" name="titreProjet" ></textarea>'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Description d'un projet que vous souhaitez mettre en avant :</label>
+                                            <?php echo '<textarea id="descriptionProjet" name="descriptionProjet"  ></textarea>'; ?>
+                                        </div>
+                                            <div class=button>
+                                                <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Ajouter
+                                                </button>
+                                            </div>
+                                    </form>
+                                    <div class="alert alert-danger">
+                                        <?php
+                                        if (isset($_POST['titreProjet']) && isset($_POST['descriptionProjet']) && $_POST['descriptionProjet'] != NULL && $_POST['titreProjet']!= NULL ) {
+                                            $req = $bdd->prepare('SELECT count(*) AS nbr FROM projet where titreProjet=?');
+                                            $req->execute(array($_POST['titreProjet']));
+                                            $donne = $req->fetch(PDO::FETCH_ASSOC);
+                                            if ($donne['nbr'] != 0) {
+                                                echo '<strong>Information : </strong> Titre dejà utilisé';
+                                            } else {
+                                                $req = $bdd->prepare('INSERT INTO projet (titreProjet,descriptionProjet) VALUES (:titre,:description)');
+                                                $req->execute(array(
+                                                    'titre' => $_POST['titreProjet'],
+                                                    'description' => $_POST['descriptionProjet'],
+                                                ));
+                                            }           
+                                        } else {
+                                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vides';     
+                                        }
+                                        ?>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4>Supprimer un projet</h4>
+                                        <label>Nom : </label>
+                                        <form method="GET">
+                                            <input type="search" name="recherche" placeholder="Recherche du projet ..." />
+                                            <button type="submit" class="button">Search</button>
+                                        </form>
+                                        <?php
+                                        $projets = $bdd->query('SELECT titreProjet FROM projet');
+                                        if (isset($_GET['recherche']) and !empty($_GET['recherche'])) {
+                                            $recherche = htmlspecialchars($_GET['recherche']);
+                                            $projets = $bdd->query('SELECT * FROM projet WHERE titreProjet LIKE "%' . $recherche . '%" ORDER BY titreProjet DESC');
+                                            if ($projets->rowCount() == 0) {
+                                                echo "<h4>Il n'y a pas de projet avec ce titre</h4>";
+                                            }
+                                            else {
+                                                while ($reponse = $projets->fetch()) {                                      
+                                                    echo '<h4>'.$reponse[titreProjet] .'</h4>';
+                                                    echo '<p>'.$reponse[descriptionProjet] .'</p>';
+                                                    echo '
+                                                        <form method="POST" action="../admin/deleteProjet.php?idProjet='.$reponse['idProjet'].'">
+                                                        <button class="buttonAction" type="submit">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            Supprimer
+                                                        </button>
+                                                        </form>';
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Modification des offres d'emplois pour l'entreprise :</h4>
+                                <div class="borderAction">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <h4>Ajouter une offre d'emplois</h4>
+                                        <div>
+                                            <label>Titre de l'offre d'emplois :</label>
+                                            <?php echo '<input id="titreOffreEmplois" name="titreOffreEmplois" />'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Description de l'offre d'emplois :</label>
+                                            <?php echo '<textarea id="descriptionOffreEmplois" name="descriptionOffreEmplois" ></textarea>'; ?>
+                                        </div>
+                                        <div class=button>
+                                            <button class="buttonAction" type="submit" value="Valider">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Ajouter
                                             </button>
                                         </div>
                                     </form>
+                                    <div class="alert alert-danger">
+                                        <?php
+                                        if (isset($_POST['titreOffreEmplois']) && isset($_POST['descriptionOffreEmplois']) && $_POST['descriptionOffreEmplois'] != NULL && $_POST['titreOffreEmplois']!= NULL ) {
+                                            $req = $bdd->prepare('SELECT count(*) AS nbr FROM offreEmplois where titreOffreEmplois=?');
+                                            $req->execute(array($_POST['titreOffreEmplois']));
+                                            $donne = $req->fetch(PDO::FETCH_ASSOC);
+                                            if ($donne['nbr'] != 0) {
+                                                echo '<strong>Information : </strong> Titre dejà utilisé';
+                                            } else {
+                                                $req = $bdd->prepare('INSERT INTO offreEmplois (titreOffreEmplois,descriptionOffreEmplois) VALUES (:titre,:description)');
+                                                $req->execute(array(
+                                                    'titre' => $_POST['titreOffreEmplois'],
+                                                    'description' => $_POST['descriptionOffreEmplois'],
+                                                ));
+                                            }           
+                                        } else {
+                                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vides';     
+                                        }
+                                        ?>
+                                    </div>  
+                                    <div>
+                                        <h4>Supprimer une offre d'emplois : </h4>
+                                        <label>Nom : </label>
+                                        <form method="GET">
+                                            <input type="search" name="recherche" placeholder="Recherche du projet ..." />
+                                            <button type="submit" class="button">Search</button>
+                                        </form>
+                                        <?php
+                                        $offresDemploie = $bdd->query('SELECT titreProjet FROM projet');
+                                        if (isset($_GET['recherche']) and !empty($_GET['recherche'])) {
+                                            $recherche = htmlspecialchars($_GET['recherche']);
+                                            $offresDemploie = $bdd->query('SELECT * FROM offreEmplois WHERE titreOffreEmplois LIKE "%' . $recherche . '%" ORDER BY titreOffreEmplois DESC');
+                                            if ($offresDemploie->rowCount() == 0) {
+                                                echo "<h4>Il n'y a pas de projet avec ce titre</h4>";
+                                            }
+                                            else {
+                                                while ($reponse = $offresDemploie->fetch()) {                                      
+                                                    echo '<h4>'.$reponse[titreOffreEmplois] .'</h4>';
+                                                    echo '<p>'.$reponse[descriptionOffreEmplois] .'</p>';
+                                                    echo '
+                                                        <form method="POST" action="../admin/deleteOffreEmplois.php?idOffreEmplois='.$reponse['idOffreEmplois'].'">
+                                                        <button class="buttonAction" type="submit">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            Supprimer
+                                                        </button>
+                                                        </form>';
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </div>       
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -397,5 +555,21 @@ if (isset($_POST['notrevisionavenir'])) {
     }
     $req = $bdd->prepare('UPDATE parametres SET notrevisionavenir=? where 1');
     $req->execute(array($_POST['notrevisionavenir']));
+}
+
+if (isset($_POST['titreProjet'])) {
+    if ($_POST['titreProjet'] == "") {
+        $_POST['titreProjet'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET titreProjet=? where 1');
+    $req->execute(array($_POST['titreProjet']));
+}
+
+if (isset($_POST['descriptionProjet'])) {
+    if ($_POST['descriptionProjet'] == "") {
+        $_POST['descriptionProjet'] = NULL;
+    }
+    $req = $bdd->prepare('UPDATE parametres SET descriptionProjet=? where 1');
+    $req->execute(array($_POST['descriptionProjet']));
 }
 ?>

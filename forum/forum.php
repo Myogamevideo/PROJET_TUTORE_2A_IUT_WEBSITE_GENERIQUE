@@ -23,7 +23,7 @@
 				<div class="divTopic">
 					<div class="topic">
 						<h3>Liste des derniers messages : </h3>
-						<a href="insert_sujet.php">Insérer un sujet</a>
+						<a href="../forum/insert_sujet.php">Insérer un sujet</a>
 						<?php
 						$query = 'SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4';
 						$sql = $bdd->query($query);

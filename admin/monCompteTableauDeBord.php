@@ -36,9 +36,7 @@
                                         $reponse->closeCursor(); ?>
                                     </ul>
                                 </div>
-
                             </div>
-                            <!--
                             <div class="partieDroite">
                                 <div class="categorieArticlePlusVendu diagramme">
                                     <label>Catégorie d'article les plus vendu : </label>
@@ -53,9 +51,8 @@
                                     </div>
                                 </div>
                             </div>
-                                    -->
+
                         </div>
-                        <!--
                         <div class="diagramme">
                             <label>Performance de la compagnie : </label>
                             <div class="performanceDeLaCompagnie diagramme">
@@ -70,7 +67,6 @@
                                 <div id="Aeraschart_div" style="width: 100%; height: 450px;"></div>
                             </div>
                         </div>
-                                    -->
                     </label>
                 </label>
             </label>

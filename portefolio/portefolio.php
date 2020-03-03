@@ -11,7 +11,7 @@
                 $donnees = $req->fetch()
                 ?>
                 <h2>Portefolio :</h2>
-                <?php if($donnees['quisommesnous'] != NULL){ ?>
+                <?php if($donnees['descriptionEntreprise'] != NULL){ ?>
                 <div class="card">
                     <div class="imgBox">
                         <img src="../public/image/portefolio/quiSommesNous.jpg" />

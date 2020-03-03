@@ -20,8 +20,6 @@ function drawChartAerasChart() {
     chart.draw(data, options);
 }
 
-
-
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
@@ -41,8 +39,6 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
   chart.draw(data, options);
 }
-
-
 
 google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawColumnChart);

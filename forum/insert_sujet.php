@@ -49,7 +49,7 @@ if (isset ($_POST['go']) && $_POST['go']=='Poster') {
         <?php include('header-image.php') ?>
         <main>
             <!-- on fait pointer le formulaire vers la page traitant les données -->
-            <form action="insert_sujet.php" method="post">
+            <form action="../forum/insert_sujet.php" method="post">
                 <table>
                     <tr>
                         <td>[b]Auteur :[/b]</td>
