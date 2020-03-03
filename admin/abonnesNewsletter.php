@@ -6,10 +6,9 @@
 	<main>
 		<div class="container">
 			<div class="containerAll">
-				<h2>Forum :</h2>
+				<h2>Liste des abonnés :  :</h2>
 				<div class="divTopic">
 					<div class="topic">
-						<h3>Liste des abonnés : </h3>
 						<?php
 						$query = 'SELECT mail FROM abonnéNewsletter';
 						$sql = $bdd->query($query);
