@@ -12,15 +12,20 @@
 						<?php
 						$query = 'SELECT mail FROM abonnéNewsletter';
 						$sql = $bdd->query($query);
+						$nb_abo = $sql->rowCount();
+						$i = 0;
 						?>
-                        <p>
+                        <textarea readonly='yes'>
                         <?php
-                        while ($data = $sql->fetch()) {
-                            echo $data['mail'];
-                            echo '<br/>';
-                        }
-                        ?>
-                        </p>
+                        while ($i < $nb_abo-1) {
+							$data = $sql->fetch();
+							echo $data['mail'].',';
+							$i+=1;
+						}
+						$data = $sql->fetch();
+						echo $data['mail'];
+						?>
+                        </textarea>
 					</div>
 				<?php
 						$sql->closeCursor();
