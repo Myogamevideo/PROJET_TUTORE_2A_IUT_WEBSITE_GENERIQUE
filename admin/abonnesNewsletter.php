@@ -24,7 +24,7 @@
                         </p>
 					</div>
 				<?php
-						$reponse->closeCursor();
+						$sql->closeCursor();
 				?>
 				</div>
 			</div>
