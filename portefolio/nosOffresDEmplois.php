@@ -42,9 +42,7 @@
                                         ?>
                                         <?php echo 
                                             '
-                                            <a href="../portefolio/candidatureEmploie.php?offreEmplois=' . $donnees['idOffreEmplois'] . '>
-                                            </a>
-                                            <a href="../portefolio/candidatureEmploie.php?offreEmplois=' . $donnees['idOffreEmplois'] . '>
+                                            <a href="../portefolio/candidatureEmploie.php?offreEmplois=' . $donnees['idOffreEmplois'] . '">
                                                 <i class="fa fa-angle-double-right fa-2x" style="color:black;"></i>
                                             </a>'; 
                                         ?>

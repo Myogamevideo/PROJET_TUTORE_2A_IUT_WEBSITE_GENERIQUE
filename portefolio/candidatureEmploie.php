@@ -7,20 +7,44 @@
         <div class="container">
             <div class="containerAll">
                 <h2>Candidature :</h2>
+                <?php $req = $bdd->prepare('select * from offreEmplois where idOffreEmplois=?');
+                $req->execute(array($_GET['offreEmplois']));
+                $donnees = $req->fetch(); ?>
                 <div class="candidature">
-                    <h3>Chargé clientelle e-commerce (homme/femme)</h3>
+                    <h3><?php echo $donnees['titreOffreEmplois']; ?></h3>
                     <div class="infoGeneral">
                         <div class="info">
                             <i class="fa fa-map-marker fa-2x"></i>
-                            <p>Nantes</p>
+                            <p><?php 
+                                if( $donnees['lieu']==null){
+                                    echo "Donnée non renseignée";
+                            }
+                            else {
+                                echo $donnees['lieu']; 
+                            }
+                            ?></p>
                         </div>
                         <div class="info">
                             <i  class="fa fa-building-o"></i>
-                            <p>CDI</p>
+                            <p><?php 
+                                if( $donnees['lieu']==null){
+                                    echo "Donnée non renseignée";
+                            }
+                            else {
+                                echo  $donnees['status']; 
+                            }
+                            ?></p>
                         </div>
                         <div class="info">
                             <i class="fa fa-eur fa-2x"></i>
-                            <p>1555€</p>
+                            <p><?php 
+                                if( $donnees['lieu']==null){
+                                    echo "Donnée non renseignée";
+                            }
+                            else {
+                                echo  $donnees['salaire']; 
+                            }
+                            ?></p>
                         </div>
                     </div>
                     <div class="contenu">
@@ -34,35 +58,37 @@
                             </div>
                             <div class="detailDeLOffre">
                                 <p><label>Nombre de candidature :</label> 0</p>
-                                <p><label>Nombre de poste(s) :</label> 1</p>
+                                <p><label>Nombre de poste(s) :</label> <?php echo $donnees['nbPoste']; ?></p>
                             </div>
                         </div>
                         <div class="partieGauche">
                             <div class="infoDetaillee">
                                 <h4>Description : </h4>
-                                <p>
-                                En continuant, j'accepte également de recevoir des messages marketing (y compris par des automates) par SMS de 
-                                la part d'Uber au numéro que j'ai indiqué. Ces messages peuvent faire la promotion de nos produits et services, 
-                                comme les courses avec Uber, Uber Eats, les trottinettes et les vélos JUMP, ainsi que des services de nos partenaires. 
-                                Je comprends que l'utilisation des services d'Uber n'est pas soumise à l'acceptation de ces messages marketing. Je 
-                                peux me désabonner à tout moment en envoyant STOP en réponse à un message d'Uber.
-                                En continuant, j'accepte également de recevoir des messages marketing (y compris par des automates) par SMS de 
-                                la part d'Uber au numéro que j'ai indiqué. Ces messages peuvent faire la promotion de nos produits et services, 
-                                comme les courses avec Uber, Uber Eats, les trottinettes et les vélos JUMP, ainsi que des services de nos partenaires. 
-                                Je comprends que l'utilisation des services d'Uber n'est pas soumise à l'acceptation de ces messages marketing. Je 
-                                peux me désabonner à tout moment en envoyant STOP en réponse à un message d'Uber.
-
-                                Je comprends que l'utilisation des services d'Uber n'est pas soumise à l'acceptation de ces messages marketing. Je 
-                                peux me désabonner à tout moment en envoyant STOP en réponse à un message d'Uber.
-                                </p>
+                                <p><?php echo $donnees['descriptionOffreEmplois']; ?></p>
                             </div>
                             <div class="qualification&qualite">
                                 <h4>Qualifications et qualités demandées</h4>
                                 <ul>
-                                    <li>Sérieux</li>
-                                    <li>Savoir travailler en équipe</li>
-                                    <li>Bonne relation avec la clientelle</li>
-                                    <li>Expérience dans le marketing</li>
+                                    <?php
+                                        if( $donnees['qualification']==null){
+                                            echo "Donnée non renseignée";
+                                    }
+                                    else {
+                                        $qualites = $donnees['qualification'];
+                                   
+                                        while ($qualites != ""){
+                                            $afficher = stristr($qualites, '///', true);
+                                            echo '<li>'. $afficher .'</li>'; 
+                                            $qualites = stristr($qualites, '///');
+                                            $qualites = substr($qualites, 3);
+                                            
+                                        }
+                                    }
+
+
+                                    ?>
+                                    
+
                                 </ul>
                             </div>
                         </div>
