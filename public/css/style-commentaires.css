@@ -150,8 +150,13 @@ ul {
 
 #ajoutDiv {
     display: none;
+    width: 100%;
     border-bottom: 2px solid #b3b3b8;
     padding-bottom: 5%;
+}
+.listCommentaire{
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 .textCommentaire{
