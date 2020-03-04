@@ -259,8 +259,6 @@
 
                                     </form>
                                     <form method="POST" enctype="multipart/form-data">
-
-                                        <h3>Gestion des projets mit en avant :</h3>
                                         <h4>Ajouer un projet</h4>
                                         <div>
                                             <label>Titre d'un projet que vous souhaitez mettre en avant :</label>
@@ -350,6 +348,26 @@
                                             <label>Description de l'offre d'emplois :</label>
                                             <?php echo '<textarea id="descriptionOffreEmplois" name="descriptionOffreEmplois" ></textarea>'; ?>
                                         </div>
+                                        <div>
+                                            <label>Lieu de l'offre d'emplois :</label>
+                                            <?php echo '<input id="lieu" name="lieu" />'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Status de l'offre d'emplois (CDD, CDI, stage ...):</label>
+                                            <?php echo '<input id="status" name="status" />'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Salaire de l'offre d'emplois :</label>
+                                            <?php echo '<input id="salaire" name="salaire" />'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Nombre de poste pour l'offre d'emplois :</label>
+                                            <?php echo '<input id="nbPoste" name="nbPoste" />'; ?>
+                                        </div>
+                                        <div>
+                                            <label>Qualification pour l'offre d'emplois (séparer les qualifications par "///", de tel façon : "sérieux///travailleur///"):</label>
+                                            <?php echo '<input id="qualification" name="qualification" />'; ?>
+                                        </div>
                                         <div class=button>
                                             <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
@@ -362,17 +380,26 @@
                                     </form>
                                     <div class="alert alert-danger">
                                         <?php
-                                        if (isset($_POST['titreOffreEmplois']) && isset($_POST['descriptionOffreEmplois']) && $_POST['descriptionOffreEmplois'] != NULL && $_POST['titreOffreEmplois']!= NULL ) {
+                                        if (isset($_POST['titreOffreEmplois']) && isset($_POST['descriptionOffreEmplois']) && isset($_POST['qualification']) && isset($_POST['nbPoste']) 
+                                        && isset($_POST['salaire']) && isset($_POST['status']) && isset($_POST['lieu']) && $_POST['descriptionOffreEmplois'] != NULL 
+                                        && $_POST['titreOffreEmplois']!= NULL && $_POST['qualification']!= NULL && $_POST['nbPoste']!= NULL && $_POST['salaire']!= NULL
+                                        && $_POST['status']!= NULL && $_POST['lieu']!= NULL ) {
                                             $req = $bdd->prepare('SELECT count(*) AS nbr FROM offreEmplois where titreOffreEmplois=?');
                                             $req->execute(array($_POST['titreOffreEmplois']));
                                             $donne = $req->fetch(PDO::FETCH_ASSOC);
                                             if ($donne['nbr'] != 0) {
                                                 echo '<strong>Information : </strong> Titre dejà utilisé';
                                             } else {
-                                                $req = $bdd->prepare('INSERT INTO offreEmplois (titreOffreEmplois,descriptionOffreEmplois) VALUES (:titre,:description)');
+                                                $req = $bdd->prepare('INSERT INTO offreEmplois (titreOffreEmplois,descriptionOffreEmplois,qualification,nbPoste,salaire,status,lieu) 
+                                                VALUES (:titre,:description,:qualif,:Poste,:salaireEnploie,:statusEmploie,:lieuEmploie)');
                                                 $req->execute(array(
                                                     'titre' => $_POST['titreOffreEmplois'],
                                                     'description' => $_POST['descriptionOffreEmplois'],
+                                                    'qualif' => $_POST['qualification'],
+                                                    'Poste' => $_POST['nbPoste'],
+                                                    'salaireEnploie' => $_POST['salaire'],
+                                                    'statusEmploie' => $_POST['status'],
+                                                    'lieuEmploie' => $_POST['lieu'],
                                                 ));
                                             }           
                                         } else {

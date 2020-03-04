@@ -36,7 +36,7 @@
                     <?php
                     if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != NULL) {
                     ?>
-                        <script type="text/javascript" src="public/js/commentaire.js"></script>
+                        <script type="text/javascript" src="../public/js/commentaire.js"></script>
                         <div class="btnAjout" href="javascript:void(0);" onclick="myFunction()">
                             <span class="nav-icon"><i class="fa fa-plus-circle fa-3x" style="color:blue;"></i></span>
                         </div>
@@ -140,12 +140,7 @@
                     <?php }
                     $req->closeCursor(); ?>
                 </div>
-                <div>
-                    <script type="text/javascript" src="public/js/commentaire.js"></script>
-                    <div class="btnAjout" href="javascript:void(0);" onclick="listCom()">
-                        <span class="nav-icon"><i class="fa fa-ellipsis-h fa-3x" style="color:blue;"></i></span>
-                    </div>
-                </div>
+
             </div>
         </div>
     </main>

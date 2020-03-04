@@ -58,40 +58,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="alert alert-danger">
+                    <div>
                     <?php
-                    if (isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['confirmPassword']) && isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && $_POST['pseudo'] != NULL && $_POST['password'] != NULL && $_POST['confirmPassword'] != NULL && $_POST['email'] != NULL && $_POST['nom'] != NULL && $_POST['prenom'] != NULL) {
-                        $req = $bdd->prepare('select count(*) as nbr from membre where pseudo=?');
-                        $req->execute(array($_POST['pseudo']));
-                        $donne = $req->fetch(PDO::FETCH_ASSOC);
-                        if ($donne['nbr'] != 0) {
-                            echo '<strong>Information : </strong> Pseudo dejà utilisé';
-                        } else {
-                            if ($_POST['confirmPassword'] != $_POST['password']) {
-                                echo '<strong>Information : </strong> Mot de passe différent par rapport à la confimration';
+                        if (isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['confirmPassword']) && isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && $_POST['pseudo'] != NULL && $_POST['password'] != NULL && $_POST['confirmPassword'] != NULL && $_POST['email'] != NULL && $_POST['nom'] != NULL && $_POST['prenom'] != NULL) {
+                            $req = $bdd->prepare('select count(*) as nbr from membre where pseudo=?');
+                            $req->execute(array($_POST['pseudo']));
+                            $donne = $req->fetch(PDO::FETCH_ASSOC);
+                            if ($donne['nbr'] != 0) {
+                                echo '<div class="alert alert-danger"><strong>Information : </strong> Pseudo dejà utilisé</div>';
                             } else {
-                                if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
-                                    $pass_hach = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                                    $req = $bdd->prepare('insert into membre (pseudo,email,pass,prenom,nom,date_inscription) values (:pseudo,:email,:pass,:prenom,:nom,now())');
-                                    $req->execute(array(
-                                        'pseudo' => $_POST['pseudo'],
-                                        'email' => $_POST['email'],
-                                        'pass' => $pass_hach,
-                                        'prenom' => $_POST['prenom'],
-                                        'nom' => $_POST['nom'],
-                                    ));
-                                    copy('/home/cfaifrnfzy/iutg5/public/image/web/placeholder.jpg', '/home/cfaifrnfzy/iutg5/public/image/membre/' . $_POST['pseudo'] . '.jpg');
-                                    header('Location: connexion.php');
+                                if ($_POST['confirmPassword'] != $_POST['password']) {
+                                    echo '<strong>Information : </strong> Mot de passe différent par rapport à la confimration';
                                 } else {
-                                    echo '<strong>Information : </strong> Adresse email non valide';
+                                    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
+                                        $pass_hach = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                                        $req = $bdd->prepare('insert into membre (pseudo,email,pass,prenom,nom,date_inscription) values (:pseudo,:email,:pass,:prenom,:nom,now())');
+                                        $req->execute(array(
+                                            'pseudo' => $_POST['pseudo'],
+                                            'email' => $_POST['email'],
+                                            'pass' => $pass_hach,
+                                            'prenom' => $_POST['prenom'],
+                                            'nom' => $_POST['nom'],
+                                        ));
+                                    
+                                        copy('/home/cfaifrnfzy/iutg5/public/image/web/placeholder.jpg', '/home/cfaifrnfzy/iutg5/public/image/membre/' . $_POST['pseudo'] . '.jpg');
+                                        
+                                        echo '<div class="alert alert-success"><strong>Information : </strong> Vous venez de vous inscrire !</br><p>Connecter vous dès maintenant : <a href="connexion.php">Connectez-vous !</a></p></div>';
+                                    } else {
+                                        echo '<div class="alert alert-danger"><strong>Information : </strong> Adresse email non valide</div>';
+                                    }
                                 }
                             }
+                        } else {
+                            echo '<div class="alert alert-success"><strong>Information : </strong> Un ou plusieurs champs sont vide</div>';
                         }
-                    } else {
-                        echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
-                    }
                     ?>
-                </div>
+                    </div>
                     <input type="submit" name="" value="S'inscrire !">
                 </form>
 
