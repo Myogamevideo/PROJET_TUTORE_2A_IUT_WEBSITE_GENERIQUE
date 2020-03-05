@@ -55,3 +55,9 @@ main .container {
     background-color: #f2dede;
     border-color: #ebccd1;
 }
+
+.alert-success{
+	color: #00802b;
+    background-color: #ccffcc;
+    border-color: #ebccd1;
+}

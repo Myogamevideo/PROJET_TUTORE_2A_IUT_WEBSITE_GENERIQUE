@@ -90,7 +90,7 @@
                                 }
                             }
                         } else {
-                            echo '<div class="alert alert-success"><strong>Information : </strong> Un ou plusieurs champs sont vide</div>';
+                            echo '<div class="alert alert-danger"><strong>Information : </strong> Un ou plusieurs champs sont vide</div>';
                         }
                     ?>
                     </div>

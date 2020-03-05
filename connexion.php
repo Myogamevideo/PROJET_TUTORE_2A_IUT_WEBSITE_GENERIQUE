@@ -73,10 +73,10 @@
                                     header('location: ../index.php');
                                 }
                             } else {
-                                echo '<strong>Information : </strong> Mauvais identifiant ou mot de passe';
+                                echo '<strong>Information : </strong> Mauvais mot de passe';
                             }
                         } else {
-                            echo '<strong>Information : </strong> Mauvais identifiant ou mot de passe';
+                            echo '<strong>Information : </strong> Mauvais identifiant';
                         }
                     } else {
                         echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';

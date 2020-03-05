@@ -40,7 +40,7 @@
                         <div class="btnAjout" href="javascript:void(0);" onclick="myFunction()">
                             <span class="nav-icon"><i class="fa fa-plus-circle fa-3x" style="color:blue;"></i></span>
                         </div>
-                        <div class="alert alert-danger">
+                        <div>
                         <?php
                     } else {
                         echo '<p class="text-muted"> Veuillez vous inscire ou vous connectez pour mettre un commentaire</p>';
@@ -74,7 +74,7 @@
                         <button type="submit">Publier</button>
                     </div>
                     </form>
-                    <div class="alert alert-danger">
+                    <div>
                         <?php
                         if (isset($_POST['commentaire']) && $_POST['commentaire'] != NULL) {
                             $_POST['commentaire'] = preg_replace('#\[b\](.+)\[/b\]#isU', '<strong>$1</strong>', $_POST['commentaire']);
@@ -87,13 +87,21 @@
                                 'auteur' => $_SESSION['pseudo'],
                                 'commentaire' => $_POST['commentaire']
                             ));
+                            $ajoutCommentaire = true;
                             $req->closeCursor();
                         } else {
-                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
+                            $ajoutCommentaire = false;
+
+                            echo '<div class="alert alert-danger"><strong>Information : </strong> Un ou plusieurs champs sont vide</div>';
                         }
                         ?>
                     </div>
                 </div>
+                <?php
+                if($ajoutCommentaire==true){
+                    echo '<div onclick="boiteAlerte();" class="alert alert-success"><strong>Information : </strong> Votre commentaire a été ajouté</div>';
+                }
+                ?>
                 <div class="listCommentaire">
                     <?php
                     echo '<div>';
