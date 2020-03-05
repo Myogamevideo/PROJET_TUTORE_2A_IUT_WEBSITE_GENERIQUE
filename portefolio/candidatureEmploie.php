@@ -52,8 +52,8 @@
                             <div class="carte">
                                 <img src="../public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                 <div class="option">
-                                    <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
-                                    <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>   
+                                    <p><i class="fa fa-star" style="color:black;"></i><a href="../pageEnConstruction.php">Intéressé(e) ?</a></p>                           
+                                    <p><i class="fa fa-share-alt" style="color:black;"></i><a  href="../pageEnConstruction.php">Partager</a></p>   
                                 </div>
                             </div>
                             <div class="detailDeLOffre">

@@ -24,9 +24,9 @@
                                         <img src="../public/image/offre_emploi/offreEmplois_consultant-informatique.jpg" alt="Consultant informatique">
                                     </div>
                                     <div class="taille option">
-                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="#">Postulez ici !</a></p>                           
-                                        <p><i class="fa fa-star" style="color:black;"></i><a href="#">Intéressé(e) ?</a></p>                           
-                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="#">Partager</a></p>                           
+                                        <p><i class="fa fa-briefcase" style="color:black;"></i><a href="../pageEnConstruction.php">Postulez ici !</a></p>                           
+                                        <p><i class="fa fa-star" style="color:black;"></i><a href="../pageEnConstruction.php">Intéressé(e) ?</a></p>                           
+                                        <p><i class="fa fa-share-alt" style="color:black;"></i><a href="../pageEnConstruction.php">Partager</a></p>                           
                                     </div>
                                 </div>
                                 <div class="card-body">

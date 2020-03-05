@@ -61,3 +61,11 @@ main .container {
     background-color: #ccffcc;
     border-color: #ebccd1;
 }
+
+.containerAll {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    width: 100%;
+}
