@@ -24,11 +24,7 @@
                         $req->execute(array($_POST['email']));
                         $donnee = $req->fetch(PDO::FETCH_ASSOC);
                         if ($donnee['nbr'] != 0) {
-                            $req = $bdd->prepare('select pass from membre where email=?');
-                            $req->execute(array($_POST['email']));
-                            $donnee = $req->fetch();
-                            //Action : envoi du mail
-                            echo '<strong>MDP : </strong>'.$donnee['pass'].'';
+                            //Action : envoi du mail ou page de changement de mot de passe
                         } else {
                             echo '<strong>Information : </strong> Adresse mail introuvable';
                         }
