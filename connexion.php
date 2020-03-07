@@ -19,6 +19,9 @@
                         <input type="password" name="mdp" require="" id="mdp">
                     </div>
                     <div>
+                        <a href="../mdpOublie.php">Mot de passe oublié ?</a>
+                    </div>
+                    <div>
                     <label class="containerInput">
                         <input type="checkbox" name="case" id="case">
                         <span class="check">Connexion automatique</span>
