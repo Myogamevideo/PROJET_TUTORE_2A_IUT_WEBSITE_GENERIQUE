@@ -7,6 +7,7 @@
         <div class="container">
             <div class="boxConnexion">
                 <h2>Mot de passe oublié : </h2>
+                <form method="POST" action="../mdpOublie.php">
                     <div class="inputBox" class="alignementLogo" class="divConnexion">
                         <div>
                             <i class="fa fa-at fa-2x" style="color:white;"></i>
