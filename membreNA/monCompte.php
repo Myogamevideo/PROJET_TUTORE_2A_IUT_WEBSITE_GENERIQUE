@@ -24,6 +24,7 @@
                                 $date_inscription = date_format($date_inscription, 'd/m/Y');
                                 ?>
                                 <form method="POST">
+                                    <h4>Mes données :</h4>
                                     <?php if (isset($_POST['modif']) && $_POST['modif'] == "true") {
                                     ?>
                                         <input id="modif" name="modif" type="hidden" value="false">
@@ -44,19 +45,22 @@
                                         <p>Numéro de téléphone : <label><?php echo $data['telephone']; ?></label></p>
                                     <?php
                                     } ?>
-                                    <p>Vous voulez modifier vos données ?</p>
-                                    <button type="submit" value="Cliquez ici !">
+                                    <h5>Vous voulez modifier vos données ?</h5>
+                                    <button class="buttonAction" type="submit" value="Cliquez ici !">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                         Cliquez ici !
                                     </button>
                                 </form>
-                                <div class="alert alert-danger">
                                     <?php
                                     if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['telephone']) && $_POST['nom'] != NULL && $_POST['prenom'] != NULL && $_POST['pseudo'] != NULL && $_POST['email'] != NULL && $_POST['telephone'] != 0) {
                                         $req = $bdd->prepare('SELECT count(*) AS nbr FROM membre WHERE pseudo=?');
                                         $req->execute(array($_POST['pseudo']));
                                         $donne = $req->fetch(PDO::FETCH_ASSOC);
+                                        $mofifInformation = null;
                                         if ($donne['nbr'] != 0) {
-                                            echo '<strong>Information : </strong> Pseudo dejà utilisé <br>';
                                             if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
                                                 if (preg_match("#^0[1-68]([-. ]?[0-9]{2}){4}$#", $_POST['telephone'])) {
                                                     $req = $bdd->prepare('UPDATE membre SET nom=:nom , prenom=:prenom, email=:email, telephone=:telephone where pseudo=:Spseudo');
@@ -67,12 +71,14 @@
                                                         'telephone' => $_POST['telephone'],
                                                         'Spseudo' => $_SESSION['pseudo'],
                                                     ));
-                                                    echo '<strong>Information : </strong> Information correctement modifié';
+                                                    $mofifInformation = true;
                                                 } else {
-                                                    echo '<strong>Information : </strong> Le numero de téléphone est invalide non valide';
+                                                    $mofifInformation = false;
+                                                    echo '<div class="alert alert-danger"><strong>Information : </strong> Le numero de téléphone est invalide non valide  ou champ vide</div>';
                                                 }
                                             } else {
-                                                echo '<strong>Information : </strong> Adresse email non valide';
+                                                $mofifInformation = false;
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Adresse email non valide ou champ vide</div>';
                                             }
                                         } else {
                                             if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
@@ -103,37 +109,54 @@
                                                         'Spseudo' => $_SESSION['pseudo'],
                                                     ));
                                                     $_SESSION['pseudo'] = $_POST['pseudo'];
-                                                    echo '<strong>Information : </strong> Information correctement modifié';
+                                                     $mofifInformation = true;
                                                 } else {
-                                                    echo '<strong>Information : </strong> Le numero de téléphone est invalide non valide';
+                                                    $mofifInformation = false;
+                                                    echo '<div class="alert alert-danger"><strong>Information : </strong> Le numero de téléphone est invalide non valide ou champ vide</div>';
                                                 }
-                                            } else {
-                                                echo '<strong>Information : </strong> Adresse email non valide';
                                             }
                                         }
-                                    } else {
-                                        echo '<strong>Information : </strong> Un ou plusieurs champs sont vide';
                                     }
                                     ?>
-                                </div>
                             </div>
-                            <div class="image">
-                                <img src="../public/image/membre/<?php echo $data['pseudo']; ?>.jpg" alt="">
-                            </div>
-                            <h4>Modification de l'image de profil :</h4>
-                            <form method="post" enctype="multipart/form-data">
-                                <input type="file" name="photo" accept="image/*">
-                                <input type="submit">
-                            </form>
-                            <?php
-                            if (isset($_FILES['photo']['tmp_name'])) {
-                                $retour = copy($_FILES['photo']['tmp_name'], '../public/image/membre/' . $data['pseudo'] . '.jpg');
-                                if ($retour) {
-                                    echo '<p>La photo a bien été envoyée.</p>';
+
+                            <div class="info">
+
+                                <form method="post" enctype="multipart/form-data">
+                                    <h4>Mon image de profil :</h4>
+                                    <div class="image">
+                                        <img src="../public/image/membre/<?php echo $data['pseudo']; ?>.jpg" alt="">
+                                    </div>
+                                    <h5>Modification de l'image de profil :</h5>
+
+                                    <input type="file" name="photo" accept="image/*">
+                                    <button class="buttonAction" type="submit">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        Envoyer
+                                    </button>
+                                </form>
+                                <?php
+                                if (isset($_FILES['photo']['tmp_name'])) {
+                                    $retour = copy($_FILES['photo']['tmp_name'], '../public/image/membre/' . $data['pseudo'] . '.jpg');
+                                    if ($retour) {
+                                        echo '<div class="alert alert-success"><strong>Information : La photo a bien été envoyée.</div>';
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
+                        <?php
+                            if($mofifInformation==true){
+                                echo '<div class="alert alert-success"><strong>Information : </strong> Informations modifiés</div>
+                                ';
+                            }
+                            else{
+                                echo '<div class="alert alert-danger"><strong>Information : </strong> Erreur lors de la saisie</div>';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
