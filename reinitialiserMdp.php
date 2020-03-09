@@ -7,7 +7,7 @@
         <div class="container">
             <div class="divChangerMdp">
                 <h3>Réinitialisez votre de mot de passe : </h3>
-                <form method="POST" action="../mdpOublie.php">
+                <form method="POST" action="../reinitialiserMdp.php">
                     <div class="inputBox" class="alignementLogo" class="divInput">
                         <div>
                             <i class="fa fa-lock fa-2x" style="color:white;"></i>
@@ -37,9 +37,7 @@
                             } 
                             else {
                                 $pass_hach = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                                $req = $bdd->prepare("UPDATE membre
-                                SET mdp = :pass
-                                WHERE email=$mail");
+                                $req = $bdd->prepare("UPDATE membre SET mdp = :passWHERE email=$mail");
                                 $req->execute(array($pass_hach));
                                 echo '<div class="alert alert-success"><strong>Information : </strong> Vous avez réinitialisé votre mdp avec succès !</div>';
                             } 
