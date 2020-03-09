@@ -43,7 +43,7 @@
                             } 
                             else {
                                 $pass_hach = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                                $req = $bdd->prepare('UPDATE `membre` SET `pass`=:pass WHERE `email`='.$_POST['email']);
+                                $req = $bdd->prepare('UPDATE `membre` SET `pass`=:pass WHERE `email`= $_POST['email']');
                                 $req->execute(array(
                                     'pass' => $pass_hach,
                                 ));
