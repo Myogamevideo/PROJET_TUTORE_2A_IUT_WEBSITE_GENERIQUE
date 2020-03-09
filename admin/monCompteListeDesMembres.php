@@ -26,11 +26,20 @@
                                                 <img src="../public/image/membre/<?php echo $donnees['pseudo']; ?>.jpg" alt="Avatar">
                                                 <label class="labelPseudo"><?php echo $donnees['pseudo']; ?></label>
                                             </div>
-                                            <p><?php echo $donnees['statu']; ?></p>
-                                            <p><label>Nom : </label><?php echo $donnees['nom']; ?></p>
-                                            <p><label>Prenom : </label><?php echo $donnees['prenom']; ?></p>
-                                            <p><label>E-mail : </label><?php echo $donnees['email']; ?></p>
-                                            <p><label>Téléphone : </label><?php echo '+33' . $donnees['telephone']; ?></p>
+                                            <form method="POST" action="../admin/printToPDF.php">
+                                                <input type="hidden" name="pseudo" id="pseudo" value="<?php echo $donnees['pseudo']; ?>">
+                                                <p><?php echo $donnees['statu']; ?></p>
+                                                <input type="hidden" name="statu" id="statu" value="<?php echo $donnees['statu']; ?>">
+                                                <p><label>Nom : </label><?php echo $donnees['nom']; ?></p>
+                                                <input type="hidden" name="nom" id="nom" value="<?php echo $donnees['nom']; ?>">
+                                                <button type="submit">PrintToPDF</button>
+                                                <p><label>Prenom : </label><?php echo $donnees['prenom']; ?></p>
+                                                <input type="hidden" name="prenom" id="prenom" value="<?php echo $donnees['prenom']; ?>">
+                                                <p><label>E-mail : </label><?php echo $donnees['email']; ?></p>
+                                                <input type="hidden" name="email" id="email" value="<?php echo $donnees['email']; ?>">
+                                                <p><label>Téléphone : </label><?php echo '+33' . $donnees['telephone']; ?></p>
+                                                <input type="hidden" name="telephone" id="telephone" value="<?php echo $donnees['telephone']; ?>">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -38,6 +47,9 @@
                             $reponse->closeCursor();
                             ?>
                         </div>
+                        <form method="POST" action="../admin/allPrintToPDF.php">
+                            <button type="submit">AllPrintToPDF</button>
+                        </form>
                     </div>
                 </div>
             </div>
