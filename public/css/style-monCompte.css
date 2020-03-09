@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     left: 5%;
     margin: 10px 0;
@@ -36,23 +37,17 @@
     text-align: center;
     font-size: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
+.file{
+    background: #ffff;
+}
 
 
 
 .infoMembre {
     display: flex;
     flex-direction: row;
+    align-items: space-between;
+    justify-content: space-between;
     width: 100%;
     margin: 15px;
 }
@@ -62,7 +57,7 @@
 }
 
 .infoMembre .image{
-    margin: 0 40px;
+    margin: 15px;
 }
 
 .infoMembre p label{
@@ -80,10 +75,17 @@
 
 
 
+.info form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
-
-
+h4 {
+    font-size: 20px;
+}
 
 
 
@@ -91,3 +93,6 @@
       height: 250px;
       width: 250px;
   }
+
+
+  
