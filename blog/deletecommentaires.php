@@ -6,6 +6,6 @@ try {
     die('Erreur :' . $e->getMessage());
 }
 
-$req = $bdd->prepare('delete from commentaires where id=?');
+$req = $bdd->prepare('DELETE FROM commentaires WHERE id=?');
 $req->execute(array($_GET['id']));
-header('location: blog/commentaires.php?id_billet=' . $_GET['id_billet'] . '');
+header('location: ../blog/commentaires.php?id_billet=' . $_GET['id_billet'] . '');
