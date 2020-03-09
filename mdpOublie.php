@@ -24,8 +24,16 @@
                         $req->execute(array($_POST['email']));
                         $donnee = $req->fetch(PDO::FETCH_ASSOC);
                         if ($donnee['nbr'] != 0) {
-                            //Action : envoi du mail ou page de changement de mot de passe
-                        } else {
+                            ?>
+                            <form action="../reinitialiserMdp.php" method="POST">
+                                <p>
+                                    <input type="hidden" name="email" value="<?php $_POST['email'] ?>" />
+                                    <input type="submit" value="Valider" />
+                                </p>
+                            </form>                        
+                        <?php
+                        }
+                        else {
                             echo '<strong>Information : </strong> Adresse mail introuvable';
                         }
                     } else {
