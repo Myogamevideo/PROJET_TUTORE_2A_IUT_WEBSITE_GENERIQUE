@@ -27,7 +27,17 @@
     color: white;
 }
 
-
+.borderAction {
+    display: block;
+    text-align: center;
+      background-color:  #ccffff;
+      color: grey;
+      padding: 20px;
+      width: 100%;
+      border-radius: 25px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
 
 
 .buttonAction{
@@ -195,10 +205,6 @@
         transform: scale(165);
     }
 }
-
-
-
-
 
 
 

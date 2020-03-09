@@ -114,6 +114,9 @@
                                                     $mofifInformation = false;
                                                     echo '<div class="alert alert-danger"><strong>Information : </strong> Le numero de téléphone est invalide non valide ou champ vide</div>';
                                                 }
+                                            } else {
+                                                $mofifInformation = false;
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Adresse email non valide ou champ vide</div>';
                                             }
                                         }
                                     }
@@ -129,7 +132,7 @@
                                     </div>
                                     <h5>Modification de l'image de profil :</h5>
 
-                                    <input type="file" name="photo" accept="image/*">
+                                    <input class="file" type="file" name="photo" accept="image/*">
                                     <button class="buttonAction" type="submit">
                                         <span></span>
                                         <span></span>
@@ -152,9 +155,6 @@
                             if($mofifInformation==true){
                                 echo '<div class="alert alert-success"><strong>Information : </strong> Informations modifiés</div>
                                 ';
-                            }
-                            else{
-                                echo '<div class="alert alert-danger"><strong>Information : </strong> Erreur lors de la saisie</div>';
                             }
                         ?>
                     </div>
