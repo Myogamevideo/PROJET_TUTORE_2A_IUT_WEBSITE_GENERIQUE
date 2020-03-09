@@ -16,7 +16,7 @@
                         <?php include('../barreNavidationCompte.php')  ?>
                     </div>
                     <div class="divModifierSite">
-                        <h3>Tableau de bord : </h3>
+                        <h3>Modifier site : </h3>
                         <div class="tanleauDeBord">
                             <div>
                                 <div>
@@ -25,7 +25,7 @@
                                         <div class="borderAction">
                                             <label>Le nom de l'entreprise :</label>
                                             <?php echo '<input id="modificationNomDuSite" name="modificationNomDuSite" type="text" value="' . $donnees['nomDuSite'] . '" />'; ?>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -37,77 +37,135 @@
                                     </form>
                                 </div>
                                 <div>
-                                    <h4>Modification de l'image principal :</h4>
-                                    <form method="post" enctype="multipart/form-data">
-                                        <input type="file" name="photo" accept="image/*">
-                                        <input type="submit">
-                                    </form>
-                                    <?php
-                                    if (isset($_FILES['photo']['tmp_name'])) {
-                                        $retour = copy($_FILES['photo']['tmp_name'], '../public/image/web/background.jpg');
-                                        if ($retour) {
-                                            echo '<p>La photo a bien été envoyée.</p>';
+                                    <div class="borderAction">
+                                        <form method="post" enctype="multipart/form-data">
+                                                <h4>Modification de l'image principal :</h4>
+                                                <input type="file" name="photo" accept="image/*">
+                                                <button class="buttonAction" type="submit">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                                </button>
+                                        </form>
+                                        <?php
+                                        if (isset($_FILES['photo']['tmp_name'])) {
+                                            $retour = copy($_FILES['photo']['tmp_name'], '../public/image/web/background.jpg');
+                                            if ($retour) {
+                                                echo '<div class="alert alert-success">La photo a bien été envoyée.</div>';
+                                            }
+                                            else{
+                                                echo '<div class="alert alert-danger">Une erreur est survenue.</div>';
+                                            }
                                         }
-                                    }
-                                    ?>
+                                        ?>
+                                    </div>
                                 </div>
                                 <div>
-                                    <h4>Modification de la video principal :</h4>
-                                    <form method="post" enctype="multipart/form-data">
-                                        <input type="file" name="video" accept="video/*">
-                                        <input type="submit">
-                                    </form>
-                                    <?php
-                                    if (isset($_FILES['video']['tmp_name'])) {
-                                        $retour = copy($_FILES['video']['tmp_name'], '../public/video/background.mp4');
-                                        if ($retour) {
-                                            echo '<p>La video a bien été envoyée.</p>';
+                                    <div class="borderAction">
+                                        <h4>Modification de la video principal :</h4>
+                                        <form method="post" enctype="multipart/form-data">
+                                            <input type="file" name="video" accept="video/*">
+                                            <button class="buttonAction" type="submit">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                            </button>
+                                        </form>
+                                        <?php
+                                        if (isset($_FILES['photo']['tmp_name'])) {
+                                            $retour = copy($_FILES['photo']['tmp_name'], '../public/image/web/background.jpg');
+                                            if ($retour) {
+                                                echo '<div class="alert alert-success">La photo a bien été envoyée.</div>';
+                                            }
+                                            else{
+                                                echo '<div class="alert alert-danger">Une erreur est survenue.</div>';
+                                            }
                                         }
-                                    }
-                                    ?>
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
+                            <div class="borderAction">
+                                <h4>Modifer le nom des onglets (de gauche à droite):</h4>
                                 <form method="POST" action="../admin/modifierSite.php">
-                                    <h4>"Boutique.php" :</h4>
+                                    <h5>Deuxième onglet :</h5>
                                     <select name="boutique">
                                         <option value="Boutique">Boutique</option>
                                         <option value="Formation">Formation</option>
                                         <option value="Shop">Shop</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
-                                    <input class="buttonAction" type="submit" value="Valider">
+                                    <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                    </button>
                                 </form>
-                                <h4>"Blog.php" :</h4>
                                 <form method="POST" action="../admin/modifierSite.php">
+                                    <h5>Troisième onglet :</h5>
                                     <select name="blog">
                                         <option value="Blog">Blog</option>
                                         <option value="News">News</option>
                                         <option value="Formation">Nouvelle</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
-                                    <input class="buttonAction" type="submit" value="Valider">
+                                    <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                    </button>
                                 </form>
                                 <form method="POST" action="../admin/modifierSite.php">
+                                    <h5>Quatrième onglet :</h5>
                                     <select name="forum">
                                         <option value="Forum">Forum</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
-                                    <input class="buttonAction" type="submit" value="Valider">
+                                    <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                    </button>
                                 </form>
                                 <form method="POST" action="../admin/modifierSite.php">
+                                    <h5>Cinquième onglet :</h5>
                                     <select name="portofolio">
                                         <option value="Portofolio">Portofolio</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
-                                    <input class="buttonAction" type="submit" value="Valider">
+                                    <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                    </button>
+
                                 </form>
+
                                 <form method="POST" action="../admin/modifierSite.php">
+                                    <h5>Sixième onglet :</h5>
                                     <select name="contact">
                                         <option value="Contact">Contact</option>
                                         <option value="">Ne pas afficher</option>
                                     </select>
-                                    <input class="buttonAction" type="submit" value="Valider">
+                                    <button class="buttonAction" type="submit" value="Valider">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    Envoyer
+                                    </button>
                                 </form>
                             </div>
                             <div>
@@ -117,7 +175,7 @@
                                         <form method="POST" action="../admin/modifierSite.php">
                                             <label>Qui sommes nous ? ("Présenter votre entreprise...")</label>
                                             <?php echo '<textarea id="modificationQuisommesnous" name="modificationQuisommesnous" placeholder="' . $donnees['quisommesnous'] . '"> </textarea>'; ?>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -132,7 +190,7 @@
                                         <form method="POST" action="../admin/modifierSite.php">
                                             <label>Notre vision d'avenir : ("Présenter les objectif de votre entreprise...")</label>
                                             <?php echo '<textarea id="modificationNotrevisionavenir" name="modificationNotrevisionavenir" placeholder="' . $donnees['notrevisionavenir'] . '" ></textarea>'; ?>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -147,7 +205,7 @@
                                         <form method="POST" action="../admin/modifierSite.php">
                                             <label>Nos projets déjà réalisés : ("Présenter quelques projets, ou réalisations de votre entreprise...")</label>
                                             <?php echo '<textarea id="modificationNosprojetsrealises" name="modificationNosprojetsrealises" placeholder="' . $donnees['nosprojetsrealises'] . '" ></textarea>'; ?>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -162,7 +220,7 @@
                                         <form method="POST" action="../admin/modifierSite.php">
                                             <label>Nous recrutons : ("Présenter votre position au niveau du recrutement...")</label>
                                             <?php echo '<textarea id="modificationNousrecrutons" name="modificationNousrecrutons" placeholder="' . $donnees['nousrecrutons'] . '" ></textarea>'; ?>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -179,19 +237,19 @@
                                 <h4>Modification de la page contact :</h4>
                                 <div class="borderAction">
                                     <form method="POST" action="../admin/modifierSite.php">
-                                        <div>
+                                        <div class="article">
                                             <label>Le numéro de téléphone de votre entreprise :</label>
                                             <?php echo '<input id="modificationTelephone" name="modificationTelephone" type="number" value="' . $donnees['telephone'] . '" />'; ?>
                                         </div>
-                                        <div>
+                                        <div class="article">
                                             <label>L'e-mail de votre entreprise :</label>
                                             <?php echo '<input id="modificationEmail" name="modificationEmail" type="text" value="' . $donnees['email'] . '" />'; ?>
                                         </div>
-                                        <div>
+                                        <div class="article">
                                             <label>L'adresse de votre entreprise :</label>
                                             <?php echo '<input id="modificationAdresse" name="modificationAdresse" type="text" value="' . $donnees['adresse'] . '" />'; ?>
                                         </div>
-                                        <div class=button>
+                                        <div>
                                             <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
                                                 <span></span>
@@ -227,7 +285,7 @@
                                             <label>Notre phylosophie :</label>
                                             <?php echo '<textarea id="phylosophieEntreprise" name="phylosophieEntreprise" placeholder="' . $donnees['phylosophieEntreprise'] . '" ></textarea>'; ?>
                                         </div>                                    
-                                        <div class=button>
+                                        <div>
                                             <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
                                                 <span></span>
@@ -247,7 +305,7 @@
                                             <label>Phrase d'accroche pour la rebrique nos projets réalisés :</label>
                                             <?php echo '<textarea id="notrevisionavenir" name="notrevisionavenir" placeholder="' . $donnees['notrevisionavenir'] . '" ></textarea>'; ?>
                                         </div>
-                                        <div class=button>
+                                        <div>
                                             <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
                                                 <span></span>
@@ -268,7 +326,7 @@
                                             <label>Description d'un projet que vous souhaitez mettre en avant :</label>
                                             <?php echo '<textarea id="descriptionProjet" name="descriptionProjet"  ></textarea>'; ?>
                                         </div>
-                                            <div class=button>
+                                            <div>
                                                 <button class="buttonAction" type="submit" value="Valider">
                                                     <span></span>
                                                     <span></span>
@@ -278,23 +336,29 @@
                                                 </button>
                                             </div>
                                     </form>
-                                    <div class="alert alert-danger">
+                                    <div>
                                         <?php
                                         if (isset($_POST['titreProjet']) && isset($_POST['descriptionProjet']) && $_POST['descriptionProjet'] != NULL && $_POST['titreProjet']!= NULL ) {
                                             $req = $bdd->prepare('SELECT count(*) AS nbr FROM projet where titreProjet=?');
                                             $req->execute(array($_POST['titreProjet']));
                                             $donne = $req->fetch(PDO::FETCH_ASSOC);
                                             if ($donne['nbr'] != 0) {
-                                                echo '<strong>Information : </strong> Titre dejà utilisé';
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Titre dejà utilisé, le projet n\'as pas été ajouté</div>';
+                                                $erreur=true;
                                             } else {
                                                 $req = $bdd->prepare('INSERT INTO projet (titreProjet,descriptionProjet) VALUES (:titre,:description)');
                                                 $req->execute(array(
                                                     'titre' => $_POST['titreProjet'],
                                                     'description' => $_POST['descriptionProjet'],
                                                 ));
-                                            }           
+                                                $erreur=false;
+                                            }
+                                            if($erreur==false){
+                                                echo '<div class="alert alert-success"><strong>Information : </strong> Ajout du projet réussi</div>';     
+                                            }
+
                                         } else {
-                                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vides';     
+                                            echo '<div class="alert alert-danger"><strong>Information : </strong> Un ou plusieurs champs sont vides</div>';     
                                         }
                                         ?>
                                     </div>
@@ -368,7 +432,7 @@
                                             <label>Qualification pour l'offre d'emplois (séparer les qualifications par "///", de tel façon : "sérieux///travailleur///"):</label>
                                             <?php echo '<input id="qualification" name="qualification" />'; ?>
                                         </div>
-                                        <div class=button>
+                                        <div>
                                             <button class="buttonAction" type="submit" value="Valider">
                                                 <span></span>
                                                 <span></span>
@@ -378,7 +442,7 @@
                                             </button>
                                         </div>
                                     </form>
-                                    <div class="alert alert-danger">
+                                    <div>
                                         <?php
                                         if (isset($_POST['titreOffreEmplois']) && isset($_POST['descriptionOffreEmplois']) && isset($_POST['qualification']) && isset($_POST['nbPoste']) 
                                         && isset($_POST['salaire']) && isset($_POST['status']) && isset($_POST['lieu']) && $_POST['descriptionOffreEmplois'] != NULL 
@@ -388,7 +452,8 @@
                                             $req->execute(array($_POST['titreOffreEmplois']));
                                             $donne = $req->fetch(PDO::FETCH_ASSOC);
                                             if ($donne['nbr'] != 0) {
-                                                echo '<strong>Information : </strong> Titre dejà utilisé';
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Titre dejà utilisé, l\'offre d\'emploie n\'as pas été rajouté</div>';
+                                                $erreur==true;
                                             } else {
                                                 $req = $bdd->prepare('INSERT INTO offreEmplois (titreOffreEmplois,descriptionOffreEmplois,qualification,nbPoste,salaire,status,lieu) 
                                                 VALUES (:titre,:description,:qualif,:Poste,:salaireEnploie,:statusEmploie,:lieuEmploie)');
@@ -401,9 +466,11 @@
                                                     'statusEmploie' => $_POST['status'],
                                                     'lieuEmploie' => $_POST['lieu'],
                                                 ));
-                                            }           
+                                                $erreur==false;
+                                                echo '<div class="alert alert-success"><strong>Information : </strong> L\'offre d\'emploie a été ajouté</div>';     
+                                            }        
                                         } else {
-                                            echo '<strong>Information : </strong> Un ou plusieurs champs sont vides';     
+                                            echo '<div class="alert alert-danger"><strong>Information : </strong> Un ou plusieurs champs sont vides</div>';     
                                         }
                                         ?>
                                     </div>  
