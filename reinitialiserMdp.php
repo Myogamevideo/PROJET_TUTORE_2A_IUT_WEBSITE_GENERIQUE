@@ -37,7 +37,7 @@
                             } 
                             else {
                                 $pass_hach = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                                $req = $bdd->prepare("UPDATE membre SET mdp = :passWHERE email=$mail");
+                                $req = $bdd->prepare("UPDATE membre SET mdp = :pass WHERE email=$mail");
                                 $req->execute(array($pass_hach));
                                 echo '<div class="alert alert-success"><strong>Information : </strong> Vous avez réinitialisé votre mdp avec succès !</div>';
                             } 
