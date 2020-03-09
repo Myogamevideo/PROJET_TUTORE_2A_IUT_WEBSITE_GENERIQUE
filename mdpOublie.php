@@ -17,14 +17,14 @@
                     </div>
                     <div class="inputBox" class="alignementLogo" class="divConnexion">
                         <div>
-                            <i class="fa fa-lock fa-2x" style="color:white;"></i>
+                            <i class="fa fa-at fa-2x" style="color:white;"></i>
                             <label>Mot de passe :</label>
                         </div>
                         <input type="password" name="password" id="password" require="">
                     </div>
                     <div class="inputBox" class="alignementLogo" class="divConnexion">
                         <div>
-                            <i class="fa fa-lock fa-2x" style="color:white;"></i>
+                            <i class="fa fa-at fa-2x" style="color:white;"></i>
                             <label>Confirmer votre mot de passe :</label>
                         </div>
                         <input type="password" name="confirmPassword" id="confirmPassword" require="">
@@ -33,7 +33,7 @@
                 </form>
                 <div class="alert alert-danger">
                     <?php
-                    if (isset($_POST['email']) && $_POST['email'] != NULL $_POST['password']) && isset($_POST['confirmPassword']) && $_POST['password'] != NULL && $_POST['confirmPassword'] != NULL) {
+                    if (isset($_POST['email']) && $_POST['email'] != NULL && isset($_POST['password']) && isset($_POST['confirmPassword']) && $_POST['password'] != NULL && $_POST['confirmPassword'] != NULL) {
                         $req = $bdd->prepare('select count(*) as nbr from membre where email=?');
                         $req->execute(array($_POST['email']));
                         $donnee = $req->fetch(PDO::FETCH_ASSOC);
