@@ -22,11 +22,11 @@
                         <a href="../mdpOublie.php">Mot de passe oublié ?</a>
                     </div>
                     <div>
-                    <label class="containerInput">
-                        <input type="checkbox" name="case" id="case">
-                        <span class="check">Connexion automatique</span>
-                        <span class="checkmark"></span>
-                    </label>
+                        <label class="containerInput">
+                            <input type="checkbox" name="case" id="case">
+                            <span class="check">Connexion automatique</span>
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <input type="submit" value="Submit">
                 </form>
@@ -48,11 +48,11 @@
                     }
 
                     if (isset($_POST['pseudo']) && isset($_POST['mdp']) && $_POST['pseudo'] != NULL and $_POST['mdp'] != NULL) {
-                        $req = $bdd->prepare('select count(*) as nbr from membre where pseudo=?');
-                        $req->execute(array($_POST['pseudo']));
-                        $donne = $req->fetch(PDO::FETCH_ASSOC);
-                        if ($donne['nbr'] != 0) {
-                            $req = $bdd->prepare('select pass from membre where pseudo=?');
+                        $req = $bdd->prepare('SELECT * FROM membre WHERE (pseudo = :pseudo OR email = :pseudo) AND confirmed_at IS NOT NULL');
+                        $req->execute(['pseudo' => $_POST['pseudo']]);
+                        $user = $req->fetch();
+                        if ($user != null) {
+                            $req = $bdd->prepare('SELECT pass FROM membre WHERE pseudo=?');
                             $req->execute(array($_POST['pseudo']));
                             $donne = $req->fetch();
                             $verify = password_verify($_POST['mdp'], $donne['pass']);
@@ -63,7 +63,6 @@
                                 $_SESSION['id'] = $donne['id'];
                                 $_SESSION['pseudo'] = $_POST['pseudo'];
                                 $_SESSION['statu'] = $donne['statu'];
-                                echo 'Connectée';
                                 if ($_POST['case'] == 'on') {
                                     setcookie('pseudo', $_POST['pseudo'], time() + 3600, null, null, false, true);
                                     $req = $bdd->prepare('select pass,statu from membre where pseudo=?');
@@ -73,7 +72,7 @@
                                     setcookie('statu', $donne['statu'], time() + 3600, null, null, false, true);
                                     header('location: ../index.php');
                                 } else {
-                                    header('location: ../index.php');
+                                    print("<script type=\"text/javascript\">setTimeout('location=(\"../index.php\")' ,1);</script>");
                                 }
                             } else {
                                 echo '<strong>Information : </strong> Mauvais mot de passe';
@@ -90,4 +89,5 @@
     </main>
     <?php include('footer.php') ?>
 </body>
+
 </html>
