@@ -134,7 +134,7 @@
                                     <div class="info">
                                         <i class="fa fa-remove" style="color:red;"></i>
                                         <?php
-                                        echo '<form method="POST" action="blog/deletecommentaires.php?id=' . $donnees['id'] . '&amp;id_billet=' . $_GET['id_billet'] . '">';
+                                        echo '<form method="POST" action="../blog/deletecommentaires.php?id=' . $donnees['id'] . '&amp;id_billet=' . $_GET['id_billet'] . '">';
                                         echo '<button type="submit" class="btnSupp"> Supprimer</button> ';
                                         echo '</form>'; ?>
                                     </div>

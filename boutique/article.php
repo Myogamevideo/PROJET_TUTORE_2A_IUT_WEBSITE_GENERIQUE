@@ -183,7 +183,77 @@
                             <label class="product-avis">Avis : </label>
                             <div class="divAvis">
                                 <?php
-                                $req = $bdd->prepare('select id,auteur,id_produit,date_avis,avis from avisProduit where id_produit=?');
+                                if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != NULL) {
+                                ?>
+                                    <!--<script type="text/javascript" src="../public/js/commentaire.js"></script>
+                                    <div class="btnAjout" href="javascript:void(0);" onclick="myFunction()">
+                                        <span class="nav-icon"><i class="fa fa-plus-circle fa-3x" style="color:blue;"></i></span>
+                                    </div>-->
+                                    <div>
+                                    <?php
+                                } else {
+                                    echo '<p class="text-muted"> Veuillez vous inscire ou vous connectez pour mettre un commentaire</p>';
+                                }
+                                    ?>
+                                    </div>
+                            </div>
+                            <!--<div id="ajoutDiv">-->
+                                <?php echo '<form method="POST" action="../boutique/article.php?reference_produit=' . $_GET['reference_produit'] . '" class="class="form-signin">'; ?>
+                                <div class="ajoutCommentaire">
+                                    <div class="info">
+                                        <label>Date : </label>
+                                        <p> <?php $auj = date("d/m/y");
+                                            echo $auj; ?> </p>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-user-circle" style="color:black;"></i>
+                                        <label>Auteur : </label>
+                                        <p><?php echo $_SESSION['pseudo']; ?></p>
+                                    </div>
+                                </div>
+                                <div class="optionCommentaire">
+                                    <button type="button" class="btn btn-primary" disabled="disabled"><strong>[b] Texte en gras [/b]</strong></button>
+                                    <button type="button" class="btn btn-secondary" disabled="disabled"><em>[i] Texte en italique [/i]</em></button>
+                                    <button type="button" class="btn btn-warning" disabled="disabled"><span style="color:red">[color=red] Texte en rouge [/color]</span></button>
+                                    <button type="button" class="btn btn-link" disabled="disabled"><a href="">Lien : http://...</a></button>
+                                </div>
+
+                                <textarea name="avis" id="avis" rows="4" cols="10" style="resize:none;" wrap="hard" class="form-control" placeholder="Tapez votre avis (max 500 caractére)" required="" maxlength="500"></textarea>
+                                <div class="btnPublier">
+                                    <button type="submit">Publier</button>
+                                </div>
+                                </form>
+                                <div>
+                                    <?php
+                                    if (isset($_POST['avis']) && $_POST['avis'] != NULL) {
+                                        $_POST['avis'] = preg_replace('#\[b\](.+)\[/b\]#isU', '<strong>$1</strong>', $_POST['avis']);
+                                        $_POST['avis'] = preg_replace('#\[i\](.+)\[/i\]#isU', '<em>$1</em>', $_POST['avis']);
+                                        $_POST['avis'] = preg_replace('#\[color=(red|green|blue|yellow|purple|olive)\](.+)\[/color\]#isU', '<span style="color:$1">$2</span>', $_POST['avis']);
+                                        $_POST['avis'] = preg_replace('#http://[a-z0-9._/-]+#i', '<a href="$0">$0</a>', $_POST['avis']);
+                                        $req = $bdd->prepare('INSERT INTO avisProduit (id_produit,id_membre,avis,date_avis) values (:id_produit,:id_membre,:avis,now())');
+                                        $req->execute(array(
+                                            'id_produit' => $_GET['reference_produit'],
+                                            'id_membre' => $_SESSION['id'],
+                                            'avis' => $_POST['avis']
+                                        ));
+                                        $ajoutCommentaire = true;
+                                        $req->closeCursor();
+                                    } else {
+                                        $ajoutCommentaire = false;
+                                        echo '<div class="alert alert-danger"><strong>Information : </strong> Un ou plusieurs champs sont vide</div>';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+                            if ($ajoutCommentaire == true) {
+                                echo '<div onclick="boiteAlerte();" class="alert alert-success"><strong>Information : </strong> Votre avis a été ajouté</div>';
+                            }
+                            ?>
+                            <div class="listCommentaire">
+                                <?php
+                                echo '<div>';
+                                $req = $bdd->prepare('SELECT * FROM avisProduit WHERE id_produit=?');
                                 $req->execute(array($_GET['reference_produit']));
                                 while ($donnees = $req->fetch()) { ?>
                                     <div class="avisClient">
@@ -191,26 +261,34 @@
                                         <p> <?php echo $donnees['date_avis']; ?></p>
                                         <i class="fa fa-user-circle" style="color:black;"></i>
                                         <label class="surnameClient">Auteur : </label>
-                                        <p><?php echo $donnees['auteur']; ?></p>
-                                        <?php
-                                        if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] == $donnees['auteur']) {
+                                        <p>
+                                            <?php 
+                                            $reponse = $bdd->prepare('SELECT * FROM membre WHERE id=?');
+                                            $reponse->execute(array($donnees['id_membre']));
+                                            $data = $reponse->fetch();
+                                            echo $data['pseudo'];
+                                            ?>
+                                        </p>
+                                        <?php /*
+                                        if (isset($_SESSION['id']) and $_SESSION['id'] == $donnees['id_membre']) {
                                         ?>
                                             <i class="fa fa-remove" style="color:red;"></i>
                                             <?php
                                             echo '<form method="POST" action="boutique/deleteavis.php?id=' . $donnees['id'] . '&amp;id_produit=' . $_GET['reference_produit'] . '">';
                                             echo '<button type="submit" class="btnSupp"> Supprimer</button> ';
                                             echo '</form>'; ?>
-                                        <?php } ?>
+                                        <?php } */ ?>
                                         <p class="commentaire"> <?php echo $donnees['avis']; ?></p>
                                     </div>
-                                <?php }
-                                $req->closeCursor(); ?>
+                                <?php
+                                }
+                                $req->closeCursor();
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
     <?php include('../footer.php') ?>
 </body>

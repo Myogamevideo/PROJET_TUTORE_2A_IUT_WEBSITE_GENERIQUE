@@ -13,7 +13,7 @@
                     <input type="radio" name="r" id="r4">
                     <input type="radio" name="r" id="r5">
                     <?php
-                    $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
+                    $reponse = $bdd->query('SELECT id,contenu,titre FROM billets ORDER BY date_creation LIMIT 5');
                     $donnees = $reponse->fetch();
                     ?>
                     <div class="slide s1">
@@ -46,11 +46,10 @@
             </div>
             <div class="vertical-menu">
                 <?php
-                $reponse = $bdd->query('select id,contenu,titre from billets order by date_creation limit 5');
+                $reponse = $bdd->query('SELECT * FROM produit ORDER BY reference LIMIT 5');
                 while ($donnees = $reponse->fetch()) {
-                    $image = str_replace(' ', '', 'public/image/boutique/' . $donnees['titre'] . '.jpg');
-                    echo '<a href="blog/commentaires.php?id_billet=' . $donnees['id'] . '">
-                        <img src="' . $image . '" alt="Image : ' . $donnees['titre'] . '">
+                    echo '<a href="../boutique/article.php?reference_produit=' . $donnees['reference'] . '">
+                        <img src="../public/image/boutique/' . $donnees['nom'] . '.jpg" alt="Image : ' . $donnees['nom'] . '">
                     </a>'; ?>
                 <?php }
                 $reponse->closeCursor(); ?>
@@ -104,11 +103,11 @@
                         </div>
                         <div class="liste-card">
                             <?php
-                            $reponse = $bdd->query('select reference,nom,description,prix from produit limit 6');
+                            $reponse = $bdd->query('SELECT * FROM produit LIMIT 6');
                             while ($data = $reponse->fetch()) {
                             ?>
                                 <div class="flip-card">
-                                    <?php echo '<a style="text-decoration:none;" href="blog/blog.php?id_billet=' . $data['reference'] . '">'; ?>
+                                    <?php echo '<a style="text-decoration:none;" href="../boutique/article.php?reference_produit=' . $data['reference'] . '">'; ?>
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
                                             <?php echo '<img src="public/image/boutique/' . $data['nom'] . '.jpg" alt="Image : ' . $data['nom'] . '" style="width:350px;height:200px;">'; ?>
@@ -147,7 +146,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $reponse = $bdd->query('select T.id, M.id, pseudo, idAuteur, titre, creation, lastModification from topic T, membre M where M.id = idAuteur order by lastModification limit 4');
+                                    $reponse = $bdd->query('SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4');
                                     while ($data = $reponse->fetch()) {
                                     ?>
                                         <tr>
@@ -182,10 +181,10 @@
                                 </div>
                                 <div class="presentation-alignement">
                                     <div class="presentation-lien">
-                                        <a href="#">Notre équipe</a>
-                                        <a href="#">Regroupement</a>
-                                        <a href="#">Venir nous rencontrer</a>
-                                        <a href="#">Nous contacter</a>
+                                        <a href="../portefolio/quiNousSommes.php">Notre équipe</a>
+                                        <a href="../portefolio/nosProjets.php">Nos projets déjà réalisés</a>
+                                        <a href="../portefolio/nosOffresDEmplois.php">Nos offres d'emplois...</a>
+                                        <a href="../contact/contact.php">Nous contacter</a>
                                     </div>
                                     <div id="piechart"></div>
                                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
