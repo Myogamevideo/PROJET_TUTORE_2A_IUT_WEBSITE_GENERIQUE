@@ -173,21 +173,6 @@
                                 <div class="borderAction">
                                     <div>
                                         <form method="POST" action="../admin/modifierSite.php">
-                                            <label>Qui sommes nous ? ("Présenter votre entreprise...")</label>
-                                            <?php echo '<textarea id="modificationQuisommesnous" name="modificationQuisommesnous" placeholder="' . $donnees['quisommesnous'] . '"> </textarea>'; ?>
-                                            <div>
-                                                <button class="buttonAction" type="submit" value="Valider">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    Valider
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div>
-                                        <form method="POST" action="../admin/modifierSite.php">
                                             <label>Notre vision d'avenir : ("Présenter les objectif de votre entreprise...")</label>
                                             <?php echo '<textarea id="modificationNotrevisionavenir" name="modificationNotrevisionavenir" placeholder="' . $donnees['notrevisionavenir'] . '" ></textarea>'; ?>
                                             <div>
