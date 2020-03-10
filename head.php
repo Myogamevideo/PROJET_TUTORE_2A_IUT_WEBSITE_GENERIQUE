@@ -12,6 +12,7 @@ ini_set('display_errors', 1);
 if (isset($_SESSION['status']) and $_SESSION['status'] == 'ban') {
     header('location: banni.php');
 }
+require('/home/cfaifrnfzy/iutg5/functions.php');
 ?>
 
 <!doctype html>

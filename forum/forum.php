@@ -7,63 +7,39 @@
 		<div class="container">
 			<div class="containerAll">
 				<h2>Forum :</h2>
-				<div class="divForum">
-					<h3>Nos forums : </h3>
-					<div class="listeDesForums">
-						<input type="button" class="forum" value="Artiste">
-						<input type="button" class="forum" value="Album">
-						<input type="button" class="forum" value="Concert">
-						<input type="button" class="forum" value="Création musicale">
-						<input type="button" class="forum" value="Mixage audio">
-						<input type="button" class="forum" value="Matériel">
-						<input type="button" class="forum" value="Autoradio">
-						<input type="button" class="forum" value="Synthétiseur">
-					</div>
-				</div>
-				<div class="divTopic">
-					<div class="topic">
-						<h3>Liste des derniers messages : </h3>
-						<a href="../forum/insert_sujet.php">Insérer un sujet</a>
-						<?php
-						$query = 'SELECT T.id, M.id, pseudo, idAuteur, titre, creation, lastModification FROM topic T, membre M WHERE M.id = idAuteur ORDER BY lastModification LIMIT 4';
-						$sql = $bdd->query($query);
-						$nb_sujets = $sql->rowCount();
-						?>
-						<?php
-						if ($nb_sujets == 0) {
-							echo '<label>Aucun sujet</label>';
-						} else {
-						?>
-							<ul class="listetopic">
-								<li>
-									<label>Auteur</label>
-									<label>Titre du sujet</label>
-									<label>Date dernière réponse</label>
-								</li>
-								<?php
-								while ($data = $sql->fetch()) {
-									sscanf($data['lastModification'], "%4s-%2s-%2s %2s:%2s:%2s", $annee, $mois, $jour, $heure, $minute, $seconde);
-									echo '<li>';
-									echo '<label>';
-									echo htmlentities(trim($data['pseudo']));
-									echo '</label>';
-									echo '<a href="../forum/articleForum.php?id_sujet_a_lire=', $data['T.id'], '">', htmlentities(trim($data['titre'])), '</a>';
-									echo '<label>';
-									echo $jour, '-', $mois, '-', $annee, ' ', $heure, ':', $minute;
-								}
-								echo '</label></li>'
-								?>
-							</ul>
-							<div class="pagination">
-								<button class="active" class="button">1</button>
-								<a href="#"><button>2</button></a>
-							</div>
-					</div>
 				<?php
-						}
-						$sql->closeCursor();
+				$categories = $bdd->query('SELECT * FROM topic_categories ORDER BY nom');
+				$subcat = $bdd->prepare('SELECT * FROM topic_souscategories WHERE id_categorie = ? ORDER BY nom');
 				?>
-				</div>
+				<table class="forum">
+					<tr class="header">
+						<th class="main">Catégories</th>
+						<th class="sub-info messages hide-640">Réponses</th>
+						<th class="sub-info messages hide-640">Vues</th>
+						<th class="sub-info dmessage">Dernière réponse</th>
+					</tr>
+					<?php
+					while ($c = $categories->fetch()) {
+						$subcat->execute(array($c['id']));
+						$souscategories = '';
+						while ($sc = $subcat->fetch()) {
+							$souscategories .= '<a href="../forum/forum_topics.php?categorie=' . url_custom_encode($c['nom']) . '&souscategorie=' . url_custom_encode($sc['nom']) . '">' . $sc['nom'] . '</a> | ';
+						}
+						$souscategories = substr($souscategories, 0, -3);
+					?>
+						<tr class="categories">
+							<td class="main">
+								<h4><a href="../forum/forum_topics.php?categorie=<?= url_custom_encode($c['nom']) ?>"><?= $c['nom'] ?></a></h4>
+								<p>
+									<?= $souscategories ?>
+								</p>
+							</td>
+							<td class="sub-info hide-640"><?= reponse_nbr_categorie($c['id']) ?></td>
+							<td class="sub-info hide-640">999 999 999</td>
+							<td class="sub-info"><?= derniere_reponse_categorie($c['id']) ?></td>
+						</tr>
+					<?php } ?>
+				</table>
 			</div>
 		</div>
 	</main>
