@@ -29,11 +29,11 @@
                             <input type="password" name="mdp" require="" id="mdp" placeholder="Nouveau mot de passe" name="" require="">  
                         </div>
                         <button class="buttonAction">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    Valider
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Valider
                         </button>
                     </div>
                 </div>

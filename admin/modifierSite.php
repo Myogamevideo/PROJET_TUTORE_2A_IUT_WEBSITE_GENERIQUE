@@ -376,10 +376,11 @@
                                             $recherche = htmlspecialchars($_GET['recherche']);
                                             $projets = $bdd->query('SELECT * FROM projet WHERE titreProjet LIKE "%' . $recherche . '%" ORDER BY titreProjet DESC');
                                             if ($projets->rowCount() == 0) {
-                                                echo "<h4>Il n'y a pas de projet avec ce titre</h4>";
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Il n\'y a pas de projet avec ce titre</h4>';
                                             }
                                             else {
-                                                while ($reponse = $projets->fetch()) {                                      
+                                                while ($reponse = $projets->fetch()) {                
+                                                    echo '<div class="alert alert-success"><strong>Information : </strong> Un élément à été trouvé !</div>';                                                 
                                                     echo '<h4>'.$reponse[titreProjet] .'</h4>';
                                                     echo '<p>'.$reponse[descriptionProjet] .'</p>';
                                                     echo '
@@ -487,10 +488,11 @@
                                             $recherche = htmlspecialchars($_GET['recherche']);
                                             $offresDemploie = $bdd->query('SELECT * FROM offreEmplois WHERE titreOffreEmplois LIKE "%' . $recherche . '%" ORDER BY titreOffreEmplois DESC');
                                             if ($offresDemploie->rowCount() == 0) {
-                                                echo "<h4>Il n'y a pas de projet avec ce titre</h4>";
+                                                echo '<div class="alert alert-danger"><strong>Information : </strong> Il n\'y a pas de projet avec ce titre</div>';
                                             }
                                             else {
-                                                while ($reponse = $offresDemploie->fetch()) {                                      
+                                                while ($reponse = $offresDemploie->fetch()) {           
+                                                    echo '<div class="alert alert-success"><strong>Information : </strong> Un élément à été trouvé !</div>';                           
                                                     echo '<h4>'.$reponse[titreOffreEmplois] .'</h4>';
                                                     echo '<p>'.$reponse[descriptionOffreEmplois] .'</p>';
                                                     echo '

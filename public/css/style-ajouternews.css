@@ -1,33 +1,61 @@
-.vertical-menu {
-    margin-bottom: 30px;
+.containerAll {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
 }
 
-.vertical-menu a {
-    background-color: white; 
-    color: black; 
-    display: block; 
-    padding: 20px; 
-    text-decoration: none; 
+.divAjouterNew{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+
+textarea {
+    border-radius: 15px;
+    line-height: 1.5;
+    resize: none;
+    width: 100%;
     text-align: center;
 }
 
-.vertical-menu a:hover {
-    background: linear-gradient(70deg, rgb(102, 217, 255), rgb(0, 230, 230));
-    color: white;
+
+.borderAction input{
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0 5px;
 }
 
-.vertical-menu a.active {
-    background: linear-gradient(70deg,rgb(51, 133, 255), rgb(102, 102, 255));
-    color: white;
+
+.titre {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-
-.vertical-menu a.home{
-    background-color: #0d0d0d;
-    color: white;
+.titre label {
+  width: 100px;
 }
 
-.borderAction {
+  .borderAction {
+    display: block;
+    text-align: center;
+      background-color:  #ccffff;
+      color: grey;
+      padding: 20px;
+      width: 100%;
+      border-radius: 25px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+
+
+
+  .borderAction {
     display: block;
     text-align: center;
       background-color:  #ccffff;
@@ -165,42 +193,3 @@
     }
   }
   
-
-  
-.button {
-    padding: 5px 10px;
-    font-size: 18px;
-    background : linear-gradient(90deg,  #0625d4, #1587f1);
-
-    border-radius: 100px;
-    color: white;
-    border-radius: 1.5px;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-
-
-
-.ripple {
-    opacity: 0;
-    border-radius: 50%;
-    width: 2px;
-    height: 2px;
-    background-color: rgba(255, 255, 255, .35);
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-name: ripple;
-    animation-name: ripple;
-}
-
-
-@keyframes ripple {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(165);
-    }
-}

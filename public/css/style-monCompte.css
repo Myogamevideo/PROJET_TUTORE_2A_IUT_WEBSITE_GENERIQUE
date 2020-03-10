@@ -7,13 +7,11 @@
 .divMonCompte{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     left: 5%;
     margin: 10px 0;
 }
-
 
 .barreNavigation{
     position: sticky;
@@ -22,7 +20,6 @@
     display: block;
     float: left;
 }
-
 
 .divInfoMembres{
     width: 100%;
