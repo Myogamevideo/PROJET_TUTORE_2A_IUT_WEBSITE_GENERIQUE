@@ -149,7 +149,12 @@
                     <div>
                         <h3>Paiement :</h3>
                         <div class="cardCB">
-                            <label>Par paypal : </label>
+                            <?php if (isset($_GET['cb'])) {
+                                echo '<label>Par banque (via stripe) :</label>';
+                            } else {
+                                echo '<label>Par paypal :</label>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

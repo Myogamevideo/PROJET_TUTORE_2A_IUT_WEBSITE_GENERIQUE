@@ -1,6 +1,9 @@
 <?php include('../head.php') ?>
 <link rel="stylesheet" href="../public/css/style-paiement.css">
 <link rel="stylesheet" href="../public/css/style-barreCommande.css">
+<?php
+require_once "config.php";
+?>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <body>
@@ -107,23 +110,36 @@
                                         commit: true,
                                         style: {
                                             color: 'gold',
-                                            size: 'responsive' 
+                                            size: 'responsive'
                                         },
                                         payment: function(data, actions) {
                                             console.log('paiement créé');
                                         },
-                                        onAuthorize: function(data, actions) {
-                                        },
-                                        onCancel: function(data, actions) {
-                                        },
-                                        onError: function(err) {
-                                        }
+                                        onAuthorize: function(data, actions) {},
+                                        onCancel: function(data, actions) {},
+                                        onError: function(err) {}
                                     }, '#bouton-paypal');
                                 </script>
                             </div>
-                        </div>
-                        <div class="centrebtn">
-                            <a href="../boutique/recapitulatif.php">Valider</a>
+                            <h4><i class="fa fa-bars"></i>Carte bancaire : </h4>
+                            <?php
+                            $nbArticles = count($_SESSION['panier']['id_produit']);
+                            if ($nbArticles <= 0) {
+                                $prixtotal = 0;
+                            } else {
+                                $prixtotal = 0;
+                                for ($i = 0; $i < $nbArticles; $i++) {
+                                    $req = $bdd->prepare('SELECT * FROM produit WHERE reference=?');
+                                    $req->execute(array($_SESSION['panier']['id_produit'][$i]));
+                                    $donnees = $req->fetch();
+                                    $prixtotal = $prixtotal + ($donnees['prix'] * $_SESSION['panier']['quantite'][$i]);
+                                    $prixtotal = $prixtotal * 100;
+                                }
+                            }
+                            ?>
+                            <?php echo '<form action="../boutique/stripeIPN.php?id=product1&prix=' . $prixtotal . '" method="POST">';
+                            echo '<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="' . $stripeDetails['publishableKey'] . '" data-amount="' . ($prixtotal) . '" data-name="Achat" data-description="via Stripe" data-image="../public/image/web/placeholder.jpg" data-locale="auto"></script>'; ?>
+                            </form>
                         </div>
                     </div>
                 <?php } ?>
