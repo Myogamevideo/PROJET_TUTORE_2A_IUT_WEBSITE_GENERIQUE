@@ -86,9 +86,9 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $rep = $bdd->query('SELECT count(*) AS nbr FROM membre');
+                                $rep = $bdd->query('SELECT count(*) AS nbr FROM membre where statu="ban" ');
                                 $donne = $rep->fetch;
-                                if ($donne['nbr'] === 0){
+                                if ($donne['nbr'] == 0){
                                     echo '
                                     <tr>
                                         <td colspan="5">Le tableau est vide !</td>
