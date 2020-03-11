@@ -8,24 +8,28 @@
             <div>
                 <h2>Contact :</h2>
                 <div class="contentAll">
+                    <?php
+                        $req = $bdd->query('SELECT * FROM parametres WHERE 1');
+                        $donnees = $req->fetch()
+                    ?>
                     <div class="divContact">
                         <div class="contentInfo">
                             <div class="alignementLogo" class="divContact">
                                 <i class="fa fa-phone fa-2x" style="color:black;"></i>
                                 <div class="divInfoContact">
-                                    <p>Numéro de téléphone : 0680683254</br>Du lundi au vendredi de 9:00 à 17:00</p>
+                                    <?php echo '<p>Numéro de téléphone : '.$donnees['telephone'].'</br>Du lundi au vendredi de 9:00 à 17:00</p>'; ?>
                                 </div>
                             </div>
                             <div class="alignementLogo" class="divContact">
                                 <i class="fa fa-envelope-o fa-2x" style="color:black;"></i>
                                 <div class="divInfoContact">
-                                    <p>E-mail: soundPerfection@contact.fr</br>Nous répondons à toutes vos questions dans les 24 heures.</p>
+                                    <?php echo '<p>E-mail : '.$donnees['email'].'</br>Nous répondons à toutes vos questions dans les 24 heures.</p>'; ?>
                                 </div>
                             </div>
                             <div class="divContact">
                                 <i class="fa fa-map-marker fa-2x" style="color:black;"></i>
                                 <div class="alignementLogo" class="divContact">
-                                    <p>Adresse : 15 rue de la fortune 43000 Le Puy en Velay </br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="../contact/rendezVous.php">Prenez rendez-vous ici !</a></p>
+                                    <?php echo '<p>Adresse : '.$donnees['adresse'].'</br> Agence ouverte du lundi au vendredi de 9:00 à 12:00 et de 14:00 à 18:30. <a href="../contact/rendezVous.php">Prenez rendez-vous ici !</a></p>'; ?>
                                 </div>
                             </div>
                             <div class="divContact">

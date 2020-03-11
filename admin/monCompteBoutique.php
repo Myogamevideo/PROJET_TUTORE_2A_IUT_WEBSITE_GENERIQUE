@@ -17,7 +17,7 @@
                         <h3>Gestion de la boutique : </h3>
                         <div class="divContainerAction">
                             <h4>Produit en ruptue de stock :</h4>
-                            <div class="divAction">
+                            <div class="divAction input">
                                 <ul class="borderAction listeProduitRupture">
                                     <form method="POST" action="../admin/monCompteBoutique.php">
                                         <?php
@@ -25,9 +25,8 @@
                                         while ($donnees = $reponse->fetch()) {
                                         ?>
                                             <li>
-                                                <label class="nomProduit"><?php echo $donnees['nom']; ?></label>
-                                                <label class="detailProduit"><?php echo $donnees['prix']; ?></label>
-                                                <div>
+                                                <label class="nomProduit"><?php echo ''.$donnees['nom'].' - '.$donnees['prix'].'€'; ?></label>
+                                                <div class="quantite">
                                                     <label>Quantité a commander</label>
                                                     <input type="number" id="quantiteC" name="quantiteC" min="0" max="100" value="1">
                                                     <input type="hidden" id="idC" name="idC" value="<?php echo $donnees['reference']; ?>">
@@ -51,29 +50,29 @@
                             <div class="divAction">
                                 <div class="ajoutProduit borderAction">
                                     <form method="post" enctype="multipart/form-data">
-                                        <div class="divInput">
+                                        <div class="divInput input">
                                             <label>Nom : </label>
                                             <input type="text" placeholder="Le nom de votre produit..." name="nomP" id="nomP" require="">
                                         </div>
-                                        <div class="divInput">
+                                        <div class="divInput input">
                                             <label>Type de produit (Cd, t-shirt ...) : </label>
                                             <input type="text" placeholder="Le type de votre produit..." name="typeP" id="typeP" require="">
                                         </div>
-                                        <div class="divInput">
+                                        <div class="divInput input">
                                             <label>Description : </label>
                                             <textarea placeholder="La description de votre produit..." name="descriptionP" id="descriptionP" require=""></textarea>
                                         </div>
-                                        <div class="divInput">
+                                        <div class="divInput iput">
                                             <label>Prix : </label>
                                             <input type="number" placeholder="Le prix de votre produit..." name="prixP" id="prixP" require="">
                                         </div>
-                                        <div class="divInput">
+                                        <div class="divInput input">
                                             <label>Nombre d'article : </label>
                                             <input type="number" id="nbArticleP" name="nbArticleP" min="0" max="100" value="1" require="">
                                         </div>
-                                        <div class="divInput">
+                                        <div class="divInput" >
                                             <label>Image :</label>
-                                            <input type="file" name="photoP" accept="image/*" require="">
+                                            <input class="file" type="file" name="photoP" accept="image/*" require="">
                                         </div>
                                         <button class="buttonAction" type="submit" value="Valider">
                                             <span></span>
@@ -116,7 +115,7 @@
                             </div>
                             <div class="divContainerAction">
                                 <h4>Supprimer ou Modifier un produit : </h4>
-                                <div class="divAction">
+                                <div class="divAction input">
                                     <div class="borderAction">
                                         <div class="divInput">
                                             <div class="rechercheArticle">
@@ -146,6 +145,7 @@
                                                     $reponse->execute(array($a['nom']));
                                                     while ($donnees = $reponse->fetch()) {
                                             ?>
+                                                    <div  class="ficheIdentiter">
                                                         <div>
                                                             <p>Nom : <label><?php echo $donnees['nom']; ?></label></p>
                                                             <p>Prix : <label><?php echo $donnees['prix']; ?></label></p>
@@ -168,6 +168,7 @@
                                                             <span></span>
                                                             Modifier
                                                         </button>
+                                                    </div>
                                             <?php
                                                     }
                                                     $reponse->closeCursor();

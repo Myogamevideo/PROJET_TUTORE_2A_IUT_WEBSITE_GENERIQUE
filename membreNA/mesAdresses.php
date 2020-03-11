@@ -20,9 +20,9 @@ if (isset($_GET['id_adresse']) && $_GET['id_adresse'] != NULL) {
                     </div>
                     <div class="divAdresses">
                         <h3>Mes adresses : </h3>
+                        <h5>Mes adresse:</h5>
                         <div class="adresse">
                             <div class="listeAdresse">
-                                <h5>Mes adresse:</h5>
                                 <?php
                                 $reponse = $bdd->prepare('SELECT * from adresse where idUtilisateur=?');
                                 $reponse->execute(array($_SESSION['id']));
@@ -48,8 +48,30 @@ if (isset($_GET['id_adresse']) && $_GET['id_adresse'] != NULL) {
                                 }
                                 $reponse->closeCursor(); ?>
                             </div>
-                            <div class="divButtons">
-                                <script type="text/javascript" src="../public/js/MonCompte.js"></script>
+                        </div>
+                        <div class="divButtons">
+                                <button class="buttonAction" type="submit">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Ajouter
+                                </button>
+                                <button class="buttonAction" type="submit">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Modifier
+                                </button>
+                                <button class="buttonAction" type="submit">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Supprimer
+                                </button>
+                            <!--
                                 <button class="button" type="button">
                                     <i class="fa fa-plus-circle fa-2x" style="color:orange;"></i>
                                     Ajouter une adresse
@@ -62,7 +84,7 @@ if (isset($_GET['id_adresse']) && $_GET['id_adresse'] != NULL) {
                                     <i class="fa fa-remove fa-2x" style="color:red;"></i>
                                     Supprimer une adresse
                                 </button>
-                            </div>
+                            -->
                         </div>
                     </div>
                 </div>
