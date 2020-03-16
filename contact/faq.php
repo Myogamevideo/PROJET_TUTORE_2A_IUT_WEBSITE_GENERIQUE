@@ -22,6 +22,7 @@
                     echo $data['reponse'];
                     echo '</p>';
                     echo '</section>';
+                    echo '<br/>';
                 }
             }
         ?>

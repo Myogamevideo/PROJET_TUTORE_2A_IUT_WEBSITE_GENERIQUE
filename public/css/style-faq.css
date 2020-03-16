@@ -51,8 +51,8 @@
         background-image: linear-gradient(to bottom, #fff, #f5deb4);
         box-shadow: 0 0 1px rgba(0,0,0,.4);
 }
-
-/* Flèche du label par défaut */
+/*
+//Flèche du label par défaut
 .faq-section label::before{
         content: '';
         position: absolute;
@@ -63,10 +63,10 @@
         border-left-color: inherit;
 }
 
-/* Flèche du label sélectionné */
+//Flèche du label sélectionné
 .faq-section input[type=checkbox]:checked~label::before{
         border: 6px solid transparent;
         border-top-color: inherit;
         margin-top: -3px;
         right: 10px;
-}
+}*/
