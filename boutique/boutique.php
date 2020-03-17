@@ -53,8 +53,8 @@
                             }
                             $reponse->closeCursor(); ?>
                             <ul class="rajouterFiltre">
-                                <script type="text/javascript" src="../public/js/boutique.js"></script>
-                                <li href="javascript:void(0);" onclick="myFunction()">
+                                <script type="text/javascript" src="../public/js/event.js"></script>
+                                <li href="javascript:void(0);" onclick="clickFiltre()">
                                     <span class="nav-icon"><i class="fa fa-bars"></i></span>
                                     Filtres
                                 </li>

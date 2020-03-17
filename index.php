@@ -4,6 +4,8 @@
 <body>
     <?php include('header-video.php') ?>
     <main>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="public/js/diagramme.js"></script>
         <div class="container">
             <div class="slidershow">
                 <div class="slides ">
@@ -170,6 +172,12 @@
                             echo '<h2>Le groupe ' . $donnees['nomDuSite'] . ' :</h2>';
                             ?>
                         </div>
+                        <div class="presentation-video">
+                            <video autoplay controls loop poster="public/image/web/background.jpg" id="bgvid">
+                                <source src="public/video/background.mp4" type="video/mp4">
+                                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
+                            </video>
+                        </div>
                         <div class="presentation-principal">
                             <div class="presentation-gauche">
                                 <div class="presentation-container">
@@ -179,23 +187,17 @@
                                         un flux de paroles d'une totale inutilité et qui, de plus, montre des incohérences.
                                     </P>
                                 </div>
-                                <div class="presentation-alignement">
-                                    <div class="presentation-lien">
-                                        <a href="../portefolio/quiNousSommes.php">Notre équipe</a>
-                                        <a href="../portefolio/nosProjets.php">Nos projets déjà réalisés</a>
-                                        <a href="../portefolio/nosOffresDEmplois.php">Nos offres d'emplois...</a>
-                                        <a href="../contact/contact.php">Nous contacter</a>
-                                    </div>
-                                    <div id="piechart"></div>
-                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                                    <script type="text/javascript" src="public/js/diagramme.js"></script>
-                                </div>
                             </div>
-                            <div class="presentation-video">
-                                <video autoplay controls loop poster="public/image/web/background.jpg" id="bgvid">
-                                    <source src="public/video/background.mp4" type="video/mp4">
-                                    <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
-                                </video>
+                            <div class="presentation-alignement">
+                                <div class="diagramme">
+                                    <div id="donutchart" style="width: 300px; height=200px; margin: 10px;"></div>
+                                </div>
+                                <div class="presentation-lien">
+                                    <a href="../portefolio/quiNousSommes.php">Notre équipe</a>
+                                    <a href="../portefolio/nosProjets.php">Nos projets déjà réalisés</a>
+                                    <a href="../portefolio/nosOffresDEmplois.php">Nos offres d'emplois...</a>
+                                    <a href="../contact/contact.php">Nous contacter</a>
+                                </div>
                             </div>
                         </div>
                     </div>

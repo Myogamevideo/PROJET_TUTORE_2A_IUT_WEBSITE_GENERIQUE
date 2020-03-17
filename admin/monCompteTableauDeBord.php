@@ -5,7 +5,7 @@
     <?php include('../header-image.php') ?>
     <main>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript" src="../public/js/diagrammeMonCompte.js"></script>
+        <script type="text/javascript" src="/public/js/diagramme.js"></script>
         <label class="container">
             <label class="boxMonCompte">
                 <h2>Mon compte</h2>
@@ -41,7 +41,7 @@
                                 <div class="categorieArticlePlusVendu diagramme">
                                     <label>Catégorie d'article les plus vendu : </label>
                                     <div class="diagramme">
-                                        <div id="donutchart" style="height: 100%;"></div>
+                                        <div id="piechart"></div>
                                     </div>
                                 </div>
                                 <div class="diagramme">

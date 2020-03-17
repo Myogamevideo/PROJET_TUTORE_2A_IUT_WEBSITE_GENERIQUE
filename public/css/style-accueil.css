@@ -219,39 +219,44 @@ h2 {
 }
 
 .presentation {
-	width: 70%;
+	width: 100%;
 	display: flex;
-	flex-flow: column wrap;
+	flex-flow: column;
 	align-items: center;
 	align-content: center;
 }
 
 .presentation-principal {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	padding: 10px;
 }
 
 .presentation-gauche {
 	width: 50%;
 }
 
-.presentation-container {
-	border: 1px solid black;
-}
-
 .presentation-container p {
 	overflow-wrap: break-word;
 	margin: 10px;
+	text-align: center;
 }
 
 .presentation-container img {
-	width: 50%;
+	width: 100%;
 	margin: 10px;
+	height: 200px;
 }
 
 .presentation-alignement {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
 }
 
 .presentation-lien {
@@ -264,6 +269,5 @@ h2 {
 }
 
 .presentation-video video {
-	margin: 10px;
-	width: 350px;
+	width: 100%;
 }

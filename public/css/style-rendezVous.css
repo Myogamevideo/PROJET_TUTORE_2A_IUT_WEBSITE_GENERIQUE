@@ -35,7 +35,7 @@
     width: 100%;
 }
 
-input , select{
+.total input , select{
     width: 65%;
     padding: 5px 10px;
     border-radius: 15px;
@@ -141,7 +141,7 @@ input , select{
     padding: 10px 0;
 }
 
-.calendar .today
+.calendar .dateJour
 {
   background:rgb(126, 231, 94);
   color:#fff;

@@ -36,8 +36,8 @@
                     <?php
                     if (isset($_SESSION['pseudo']) and $_SESSION['pseudo'] != NULL) {
                     ?>
-                        <script type="text/javascript" src="../public/js/commentaire.js"></script>
-                        <div class="btnAjout" href="javascript:void(0);" onclick="myFunction()">
+                        <script type="text/javascript" src="../public/js/event.js"></script>
+                        <div class="btnAjout" href="javascript:void(0);" onclick="clickCommentaire()">
                             <span class="nav-icon"><i class="fa fa-plus-circle fa-3x" style="color:blue;"></i></span>
                         </div>
                         <div>
@@ -99,7 +99,7 @@
                 </div>
                 <?php
                 if($ajoutCommentaire==true){
-                    echo '<div onclick="boiteAlerte();" class="alert alert-success"><strong>Information : </strong> Votre commentaire a été ajouté</div>';
+                    echo '<div class="alert alert-success"><strong>Information : </strong> Votre commentaire a été ajouté</div>';
                 }
                 ?>
                 <div class="listCommentaire">

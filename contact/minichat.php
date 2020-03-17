@@ -16,19 +16,11 @@
                             'message' => $_POST['message']
                         ));
                         header('Location: ../contact/contact.php');
-                        /** laisse ABSOLUMENT CETTE FONCTION ICI */
-                        /* sinon 
-                    /*    header('Location: ../contact/minichat.php'); */  /**** PB AVEC CETTE LIGNE CAR  fonction header doit être appelée avant la génération de la moindre mise en page *//*
-                    solution pas belle
-                    echo"
-                    <script type=\"text/javascript\">function redirection_js(){ x=setTimeout(\"window.location.href='contact/minichat.php'\",1500); } 
-                    </script><body onLoad=\"redirection_js();\"> 
-                    "; */
                     }
                     ?>
                 </div>
                 <div class="divChat">
-                    <script type="text/javascript" src="../public/js/minichat.js"></script>
+                    <script type="text/javascript" src="../public/js/event.js"></script>
                     <form class="formChatt" method='POST' action='contact/minichat.php'>
                         <div>
                             <div class="scroller">
